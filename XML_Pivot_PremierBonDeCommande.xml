@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE RecordList SYSTEM "XML_Pivot_PremierBonDeCommande.dtd">
+<!-- 2016-05-24 , Biblissima , Stefanie Gehrke  -->
+<!-- http://www.biblissima-condorcet.fr/   -->
+<!-- https://github.com/stefaniegehrke/PubSemWebBiblissimaMSS -->
+<!-- License GPL  -->
 <RecordList>   
     <DataBase uri="[URI base de données here]">[Name of the database]</DataBase>     
         <Book id="">
             <Concept uri="[AKR Medium, ARK Mandragore, ARK Rameau or other kind of URI goes here]" source=""></Concept>
             <ObjectType>"Manuscrit", "Manuscrit enluminé", "Volume conservé", "Volume attesté", "incunabula"</ObjectType>
             <Shelfmark>[Shelfmark goes here] 
-                <Organisation id="">[Name of the Organisation taht keeps the manuscript goes here]</Organisation>
+                <Organisation id="">[Name of the Organisation that keeps the manuscript goes here]</Organisation>
                 <Identifier type="">
                     <Idno>[Shelfmark]</Idno>
                     <Subidentifier>[Subidentifier]</Subidentifier>
