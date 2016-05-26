@@ -12,10 +12,10 @@ The data ingestion is realised in 5 separated phases, based on the spezialisatio
   e/ some transcriptions of texts.
 
 Currently we treat the following databases :
-  Bibale
-  CRII
-  Esprit des Livres
-  Europeana Regia.
+  a/ Bibale
+  b/ CRII
+  c/ Esprit des Livres
+  d/ Europeana Regia.
 
 Template and the dtd are adapted to these needs and will continue to evolve.
 
