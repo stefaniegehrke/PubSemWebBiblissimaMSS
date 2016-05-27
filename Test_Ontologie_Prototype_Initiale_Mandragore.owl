@@ -37,7 +37,7 @@ prov:qualifiedAssociation [a prov:Association;prov:person :agent_53c53697079df;p
     <owl:Ontology rdf:about="http://purl.org/NET/bibma/">
         <rdfs:label xml:lang="en">Ontology Biblissima / OWL</rdfs:label>
         <owl:versionInfo rdf:datatype="&xsd;string">bibma janvier 2015 export pour le prototype Initiale - Mandragore</owl:versionInfo>
-        <rdfs:comment xml:lang="en">An ontology to describe the written cultural heritage of the Middle Ages and the Renaissance focusing on the history of transmission of text and the history of collection. The ontology is developped in the frame of the French Equipex Biblissima project financed by the ARN. Please send your feedback to stefanie.gehrke@biblissima-condorcet.fr and pauline.charbonnier@biblissima-condorcet.fr . We sincerely thank Patrick Le Boeuf for his support.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An ontology to describe the written cultural heritage of the Middle Ages and the Renaissance focusing on the history of transmission of text and the history of collection. A HTML-version is available at <a>http://doc.biblissima-condorcet.fr/ontologie/bibma/</a>. The ontology is developped in the frame of the French Equipex Biblissima project financed by the ARN. Please send your feedback to stefanie.gehrke@biblissima-condorcet.fr and pauline.charbonnier@biblissima-condorcet.fr. We sincerely thank the BnF for all support.</rdfs:comment>
     </owl:Ontology>
 
 <!-- Classes FRBRoo -->
