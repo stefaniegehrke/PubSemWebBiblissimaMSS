@@ -1,0 +1,1390 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY bibma "http://purl.org/NET/bibma/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY current "http://erlangen-crm.org/current/">
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+<!-- ToDo : Mapping CIDOC CRM FRBR 2 Shared Canvas -->
+<!-- ToDo : OWL pour rôle (sous-propriété) voir la solution Prov-O : qualified (!) Association 
+(see also http://patterns.dataincubator.org/book/qualified-relation.html on qualified relations)  : 
+prov:qualifiedAssociation [a prov:Association;prov:person :agent_53c53697079df;prov:hadRole camelot:Mother; ]-->
+
+<rdf:RDF xmlns="http://purl.org/NET/bibma/"
+    xml:base="http://purl.org/NET/bibma/"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:efrbroo="http://erlangen-crm.org/efrbroo/"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:bibma="http://purl.org/NET/bibma/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:current="http://erlangen-crm.org/current/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:bnf-onto="http://data.bnf.fr/ontology/bnf-onto/"
+    xmlns:bnfroles="http://data.bnf.fr/vocabulary/roles">
+    <owl:Ontology rdf:about="http://purl.org/NET/bibma/">
+        <rdfs:label xml:lang="en">Ontology Biblissima / OWL</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;string">bibma janvier 2015 export pour le prototype Initiale - Mandragore</owl:versionInfo>
+        <rdfs:comment xml:lang="en">An ontology to describe the written cultural heritage of the Middle Ages and the Renaissance focusing on the history of transmission of text and the history of collection. The ontology is developped in the frame of the French Equipex Biblissima project financed by the ARN. Please send your feedback to stefanie.gehrke@biblissima-condorcet.fr and pauline.charbonnier@biblissima-condorcet.fr . We sincerely thank Patrick Le Boeuf for his support.</rdfs:comment>
+    </owl:Ontology>
+
+<!-- Classes FRBRoo -->
+
+<!-- http://erlangen-crm.org/efrbroo/F10_Person -->
+<owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F10_Person">
+    <rdfs:label xml:lang="en">F10 Person</rdfs:label>
+    <skos:notation rdf:datatype="&xsd;string">F10</skos:notation>
+    <rdfs:comment xml:lang="en">Scope note:
+        This class comprises real persons who live or are assumed to have lived. [Beginning of scope note for E21 Person in CIDOC CRM version 5.0.1] F10 Person covers the notion of persona.
+        
+        Examples:
+        Margaret Atwood
+        Hans Christian Andersen
+        Queen Victoria
+    </rdfs:comment>
+    <owl:equivalentClass rdf:resource="http://erlangen-crm.org/current/E21_Person"/>
+    <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F10"/>
+</owl:Class>
+
+<!-- http://erlangen-crm.org/efrbroo/F12_Nomen -->
+
+<owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F12_Nomen">
+    <rdfs:label xml:lang="en">F12 Nomen</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&current;E41_Appellation"/>
+    <skos:notation rdf:datatype="&xsd;string">F12</skos:notation>
+    <owl:equivalentClass rdf:resource="http://erlangen-crm.org/current/E41_Appellation"/>
+    <rdfs:comment xml:lang="en">Scope note:
+        This class comprises all sequences of signs of any nature, either meaningful or not, that are used or can be used to refer to and identify a specific instance of some class within a certain context. Instances of E41 Appellation do not identify things by their meaning even if they happen to have one, but by convention, tradition, or agreement. Instances of E41 Appellation are cultural constructs; as such, they have a context, a history, and a use in time and space by some group of users. [Beginning of Scope Note for E41 Appellation in CIDOC CRM version 5.0.1]   
+        
+        Examples:
+        ‘杜甫’ (E82) [the name of a Chinese poet of the 8th century, in Chinese characters]
+        ‘Du Fu’ (E82) [Pinyin romanised form of the name of a Chinese poet of the 8th century]
+        ‘Tu Fu’ (E82) [another romanised form of the name of a Chinese poet of the 8th century]
+        ‘Thơ Ðô Phủ’ (E82) [Vietnamese form of the name of a Chinese poet of the 8th century]
+        ‘جامعة صفاقس’ (E82) [Arabic name of the Sfax University (Tunisia), in Arabic script]
+        ‘Ğāmi ‘at `Ṣafāqis’ (E82) [Arabic name of the Sfax University (Tunisia), transliterated]
+        ‘Université de Sfax’ (E82) [French name of the Sfax University (Tunisia)]
+        ‘Murders in the rue Morgue’ (E35) [English title of a textual work]
+        ‘Poe, Edgar Allan, 1809-1849. Murders in the rue Morgue’ (F13) [controlled author/title heading for a textual work]
+        ‘modelling’ [not the activity, just the written signs that represent its English name in British spelling]
+        ‘modeling’ [not the activity, just the written signs that represent its English name in American spelling]	
+    </rdfs:comment>
+    <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F12"/>
+</owl:Class>
+
+
+
+<!-- http://erlangen-crm.org/efrbroo/F13_Identifier -->
+
+<owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F13_Identifier">
+    <rdfs:label xml:lang="en">F13 Identifier</rdfs:label>
+    <skos:notation rdf:datatype="&xsd;string">F13</skos:notation>
+    <rdfs:comment xml:lang="en">Scope note:
+        This class comprises strings or codes assigned to instances of E1 CRM Entity in order to identify them uniquely and permanently within the context of one or more organisations. Such codes are often known as inventory numbers, registration codes, etc. and are typically composed of alphanumeric sequences. The class E42 Identifier is not normally used for machine-generated identifiers used for automated processing unless these are also used by human agents. [Adapted from the Scope Note of CIDOC CRM E42 Identifier ver. 5.0.1]
+        F13 Identifier covers the notion of “controlled access points” in library practice – both preferred forms and cross references. A cross reference may not identify uniquely an entity, but can be shared by two entities; however, as it displays the same structural characteristics as preferred controlled access points, it is still regarded in the model as an instance of F13 Identifier.
+        Examples:
+        ISSN ‘0041-5278’ (F13)
+        ISRC ‘FIFIN8900116’ (F13)
+        Shelf mark ‘Res 8 P 10’ (E42)
+        ‘Guillaume de Machaut (1300?-1377)’ (F13) [a controlled personal name heading that follows the French rules]
+        ‘Guillaume, de Machaut, ca. 1300-1377’ (F13) [a controlled personal name heading that follows the AACR rules]
+        ‘Rite of spring (Choreographic work: Bausch)’ (F13)
+    </rdfs:comment>
+    <rdfs:subClassOf>
+        <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F12_Nomen"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass rdf:resource="http://erlangen-crm.org/current/E42_Identifier"/>
+    <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F13"/>
+</owl:Class>
+
+<!-- http://erlangen-crm.org/efrbroo/F15_Complex_Work -->
+
+<owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F15_Complex_Work">
+    <rdfs:label xml:lang="en">F15 Complex Work</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F1_Work"/>
+    <skos:notation rdf:datatype="&xsd;string">F15</skos:notation>
+    <rdfs:comment xml:lang="en">Scope note:
+        This class comprises works that have more than one work as members. 
+        The members of a Complex Work may constitute components of the overall concept or be alternatives to other members of the work. In practice, no clear line can be drawn between parallel and subsequent processes in the evolution of a work. One part may not be finished when another is already revised. An initially monolithic work may be taken up and evolve in pieces. The member relationship of Work is based on the conceptual relationship, and should not be confused with the internal structural parts of an individual expression. The fact that an expression may contain parts from other work(s) does not make the expressed work complex. For instance, an anthology for which only one version exists is not a complex work. 
+        The boundaries of a Complex Work have nothing to do with the value of the intellectual achievement but only with the dominance of a concept. Thus, derivations such as translations are regarded as belonging to the same Complex Work, even though in addition they constitute an Individual Work themselves. In contrast, a Work that significantly takes up and merges concepts of other works so that it is no longer dominated by the initial concept is regarded as a new work. In cataloguing practice, detailed rules are established prescribing which kinds of derivation should be regarded as crossing the boundaries of a complex work. Adaptation and derivation graphs allow the recognition of distinct sub-units, i.e. a complex work contained in a larger complex work.
+        As a Complex Work can be taken up by any creator who acquires the spirit of its concept, it is never finished in an absolute sense.
+        Examples:
+        Work entitled ‘La Porte de l’Enfer’ by Auguste Rodin
+        Work entitled ‘Hamlet’ by William Shakespeare
+        Work entitled ‘Der Ring der Nibelungen’ by Richard Wagner
+        Work entitled ‘Carceri d’invenzione’ by Giovanni Battista Piranesi
+        Work entitled ‘Mass in B minor BWV 232’ by Johann Sebastian Bach
+    </rdfs:comment>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty>
+                <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R10_has_member"/>
+            </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minCardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F1_Work"/>
+    <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F15"/>
+</owl:Class>
+
+<!-- http://erlangen-crm.org/efrbroo/F1 Work -->
+
+<owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F1_Work">
+    <rdfs:label xml:lang="en">F1 Work</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&current;E89_Propositional_Object"/>
+    <skos:notation rdf:datatype="&xsd;string">F1</skos:notation>
+    <rdfs:comment xml:lang="en">This class comprises the sums of concepts which appear in the course of the coherent evolution of an original idea into one or more expressions that are dominated by the original idea. The substance of Work is concepts. A Work may be elaborated by one or more Actors simultaneously or over time. A Work may have members that constitute components of the overall concept or that are alternatives to other members of the work. Members of a work may or may not represent the concept of the Work as a whole; for instance a translation reinterprets the whole, a volume of a trilogy represents a part of the concept.
+        A Work can be either individual or complex. If it is individual its concept is completely realised in a single F22 Self-Contained Expression. If it is complex its concept is embedded in an F15 Complex Work. An F15 Complex Work consists of members that are either F15 Complex Works themselves or F14 Individual Works. The member relationship of Work is based on the members respecting the same concept, and should not be confused with the structural parts of an expression, that might be taken from other work(s).
+        A Work is the product of an intellectual process of one or more persons, yet only indirect evidence about it is at our hands. This can be contextual information such as the existence of an order for a work, reflections of the creators themselves that are documented somewhere, and finally the expressions of the work created. As ideas normally take shape during discussion, elaboration and implementation, it is not reasonable to assume that a work starts with a complete concept. Moreover, it can be very difficult or impossible to define the whole of the concept of a work at some given time. The only objective evidence for such a notion can be based on a stage of expressions at a given time. In this sense, self-contained expressions serve as a kind of “snap-shots” of a work.
+        A Work may aggregate expressions of other works into a new expression. For instance, an anthology of poems is regarded as a work in its own right that makes use of expressions of the individual poems that have been selected and ordered as part of an intellectual process. This does not make the contents of the aggregated expressions part of this work, but only parts of the resulting expression.
+        
+        Examples:	Abstract content of Giovanni Battista Piranesi’s ‘Carcere XVI: the pier with chains: 1st state’ (F14)
+        ‘La Porte de l’Enfer’ by Auguste Rodin conceived between 1880 and 1917 (F15)
+        ‘Hamlet’ by William Shakespeare (F15)        
+    </rdfs:comment>
+    <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F1"/>
+</owl:Class>
+
+<!-- http://erlangen-crm.org/efrbroo/F22_Self-Contained_Expression -->
+
+<owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F22_Self-Contained_Expression">
+    <rdfs:label xml:lang="en">F22 Self-Contained Expression</rdfs:label>
+    <skos:notation rdf:datatype="&xsd;string">F22</skos:notation>
+    <rdfs:comment xml:lang="en">Scope note:
+        This class comprises the immaterial realisations of individual works at a particular time that are regarded as a complete whole. The quality of wholeness reflects the intention of its creator that this expression should convey the concept of the work. Such a whole can in turn be part of a larger whole.
+        Inherent to the notion of work is the completion of recognisable outcomes of the work. These outcomes, i.e. the Self-Contained Expressions, are regarded as the symbolic equivalents of Individual Works, which form the atoms of a complex work. A Self-Contained Expression may contain expressions or parts of expressions from other work, such as citations or items collected in anthologies. Even though they are incorporated in the Self-Contained Expression, they are not regarded as becoming members of the expressed container work by their inclusion in the expression, but are rather regarded as foreign or referred elements.
+        F22 Self-Contained Expression can be distinguished from F23 Expression Fragment in that an F23 Expression Fragment was not intended by its creator to make sense by itself. Normally creators would characterise an outcome of a work as finished. In other cases, one could recognise an outcome of a work as complete from the elaboration or logical coherence of its content, or if there is any historical knowledge about the creator deliberately or accidentally never finishing (completing) that particular expression. In all those cases, one would regard an expression as self-contained.
+        
+        Examples:
+        The Italian text of Dante’s ‘Inferno’ as found in the authoritative critical edition La Commedia secondo l’antica vulgata a cura di Giorgio Petrocchi, Milano: Mondadori, 1966-67 (= Le Opere di Dante Alighieri, Edizione Nazionale a cura della Società Dantesca Italiana, VII, 1-4)
+        The musical notation of Franz Schubert’s lied known as ‘Ave Maria’
+        The musical notation of Franz Schubert’s lieder cycle entitled ‘Seven Songs after Walter Scott’s The Lady of the Lake’, of which ‘Ave Maria’ is a distinct part
+        The musical notation of Franz Liszt’s piano transcription of Franz Schubert’s lied known as ‘Ave Maria’
+    </rdfs:comment>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty>
+                <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R9i_realises"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</owl:cardinality>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</owl:cardinality>
+            <owl:onProperty>
+                <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R3i_realises"/>
+            </owl:onProperty>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F2_Expression"/>
+    </rdfs:subClassOf>
+    <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F22"/>
+</owl:Class>
+
+<!-- http://erlangen-crm.org/efrbroo/F23_Expression_Fragment -->
+
+<owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F23_Expression_Fragment">
+    <rdfs:label xml:lang="en">F23 Expression Fragment</rdfs:label>
+    <skos:notation rdf:datatype="&xsd;string">F23</skos:notation>
+    <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F2_Expression"/>
+    <skos:notation rdf:datatype="&xsd;string"></skos:notation>
+    <rdfs:comment xml:lang="en">! un extrait est aussi un F23_Expression_Fragment eg. Histoire ecclesiastique dans Latin 12229  !</rdfs:comment>
+    <rdfs:comment xml:lang="en">This class comprises parts of Expressions and these parts are not Self-Contained Expressions themselves.
+        The existence of an instance of F23 Expression Fragment can be due to accident, such as loss of material over time, e.g. the only remaining manuscript of an antique text being partially eaten by worms, or due to deliberate isolation, such as excerpts taken from a text by the compiler of a collection of excerpts.
+        An F23 Expression Fragment is only identified with respect to its occurrence in a known or assumed whole. The size of an instance of F23 Expression Fragment ranges from more than 99% of an instance of F22 Self-Contained Expression to tiny bits (a few words from a text, one bar from a musical composition, one detail from a still image, a two-second clip from a movie, etc.).
+        
+        Examples:	
+        The only remnants of Sappho’s poems
+        The words ‘Beati  dition spiritu’ (excerpted from Matthew’s Gospel 5,3 in Latin translation)
+    </rdfs:comment>
+    <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F23"/>
+</owl:Class>
+   
+<!-- http://erlangen-crm.org/efrbroo/F27_Work_Conception -->
+    
+    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F27_Work_Conception">
+        <rdfs:label xml:lang="en">F27 Work Conception</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&current;E65_Creation"/>
+        <skos:notation rdf:datatype="&xsd;string">F27</skos:notation>
+            <rdfs:subClassOf>
+                <owl:Restriction>
+                    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >1</owl:maxCardinality>
+                    <owl:onProperty>
+                        <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R16_initiated"/>
+                    </owl:onProperty>
+                </owl:Restriction>
+            </rdfs:subClassOf>
+            <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E65_Creation"/>
+            <rdfs:comment xml:lang="en">Scope note:
+                This class comprises the births of original ideas. It marks the initiation of the creation of a work. This class should be used where there is historical evidence of the initiation before the appearance of physical evidence for the F1 Work. This does not always correlate with the date assigned in common library practice to the work; which is usually a later event.
+                
+                Examples:
+                Richard Wagner’s having the initial idea of composing the opera entitled ‘Der fliegende Holländer’ during a stormy sea crossing in July/August 1839
+                Oscar Wilde’s having by May 1897 the initial idea of writing his poem entitled ‘The ballad of the Reading gaol’, inspired by his stay in the Reading prison from November 20, 1895 to May 18, 1897, and the execution of Charles Thomas Woolridge on July 7, 1896
+            </rdfs:comment>
+        <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F27"/>
+    </owl:Class>
+    
+<!-- http://erlangen-crm.org/efrbroo/F28_Expression_Creation -->
+    
+    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F28_Expression_Creation">
+        <rdfs:label xml:lang="en">F28 Expression Creation</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">F28</skos:notation>
+        <rdfs:subClassOf>
+                <owl:Restriction>
+                    <owl:onProperty>
+                        <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R19_created_a_realisation_of"/>
+                    </owl:onProperty>
+                    <owl:someValuesFrom rdf:resource="http://erlangen-crm.org/efrbroo/F1_Work"/>
+                </owl:Restriction>
+            </rdfs:subClassOf>
+            <rdfs:subClassOf>
+                <owl:Restriction>
+                    <owl:onProperty>
+                        <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R18_created"/>
+                    </owl:onProperty>
+                    <owl:someValuesFrom rdf:resource="http://erlangen-crm.org/efrbroo/F4_Manifestation_Singleton"/>
+                </owl:Restriction>
+            </rdfs:subClassOf>
+            <rdfs:subClassOf>
+                <owl:Restriction>
+                    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >1</owl:cardinality>
+                    <owl:onProperty>
+                        <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R17_created"/>
+                    </owl:onProperty>
+                </owl:Restriction>
+            </rdfs:subClassOf>
+            <rdfs:subClassOf>
+                <owl:Class rdf:about="http://erlangen-crm.org/current/E65_Creation"/>
+            </rdfs:subClassOf>
+            <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E12_Production"/>
+            <rdfs:comment xml:lang="en">Scope note:
+                This class comprises activities that result in instances of F2 Expression coming into existence. This class characterises the externalisation of an Individual Work.
+                Although F2 Expression is an abstract entity, a conceptual object, the creation of an expression inevitably also affects the physical world: when you scribble the first draft of a poem on a sheet of paper, you produce an F4 Manifestation Singleton; F28 Expression Creation is a subclass of E12 Production because the recording of the expression causes a physical modification of the carrying E18 Physical Thing. The work becomes manifest by being expressed on a physical carrier different from the creator’s mind. The spatio-temporal circumstances under which the expression is created are necessarily the same spatio-temporal circumstances under which the first F4 Manifestation Singleton is produced. The mechanisms through which oral tradition (of myths, tales, music, etc.) operates are not further investigated in this model. As far as bibliographic practice is concerned, only those instances of F2 Expression that are externalised on physical carriers other than both the creator’s mind and the auditor’s mind are taken into account (for a discussion of the modelling of oral traditions, see: Nicolas, Yann. ‘Folklore Requirements for Bibliographic Records: oral traditions and FRBR.’ In: Cataloging &amp; Classification Quarterly (2005). Vol. 39, No. 3-4. P. 179-195).
+                
+                Examples:
+                The creation of the original manuscript score of ‘Uwertura tragiczna’ by Andrzej Panufnik in 1942 in Warsaw
+                The reconstruction from memory of the manuscript score of ‘Uwertura tragiczna’ by Andrzej Panufnik in 1945 after the original score was destroyed during the war
+                The recording of the third alternate take of ‘Blue Hawaii’ performed by Elvis Presley in Hollywood, Calif., Radio Recorders, on March 22nd, 1961 [each individual take is a distinct instance of F2 Expression]
+            </rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&current;E12_Production"/>
+        <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F28"/>
+    </owl:Class>
+ 
+    <!-- http://erlangen-crm.org/efrbroo/F2_Expression -->
+ 
+    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F2_Expression">
+        <rdfs:label xml:lang="en">F2 Expression</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">F2</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This class comprises the intellectual or artistic realisations of works in the form of identifiable immaterial objects, such as texts, poems, jokes, musical or choreographic notations, movement pattern, sound pattern, images, multimedia objects, or any combination of such forms that have objectively recognisable structures. The substance of F2 Expression is signs.
+            Expressions cannot exist without a physical carrier, but do not depend on a specific physical carrier and can exist on one or more carriers simultaneously. Carriers may include human memory.
+            Inasmuch as the form of F2 Expression is an inherent characteristic of the F2 Expression, any change in form (e.g., from alpha-numeric notation to spoken word, a poem created in capitals and rendered in lower case) is a new F2 Expression. Similarly, changes in the intellectual conventions or instruments that are employed to express a work (e.g., translation from one language to another) result in the creation of a new F2 Expression. Thus, if a text is revised or modified, the resulting F2 Expression is considered to be a new F2 Expression. Minor changes, such as corrections of spelling and punctuation, etc., are normally considered variations within the same F2 Expression. On a practical level, the degree to which distinctions are made between variant expressions of a work will depend to some extent on the nature of the F1 Work itself, and on the anticipated needs of users.
+            The genre of the work may provide an indication of which features are essential to the expression. In some cases, aspects of physical form, such as typeface and page layout, are not integral to the intellectual or artistic realisation of the work as such, and therefore are not distinctive criteria for the respective expressions. For another work features such as layout may be essential. For instance, the author or a graphic designer may wrap a poem around an image.
+            An expression of a work may include expressions of other works within it. For instance, an anthology of poems is regarded as a work in its own right that makes use of expressions of the individual poems that have been selected and ordered as part of an intellectual process. This does not make the contents of the aggregated expressions part of this work, but only parts of the resulting expression.
+            If an instance of F2 Expression is of a specific form, such as text, image, etc., it may be simultaneously instantiated in the specific classes representing these forms in CIDOC CRM. Thereby one can make use of the more specific properties of these classes, such as language (which is applicable to linguistic objects only).
+            
+            Examples:
+            The Italian text of Dante’s ‘Divina Commedia’ as found in the authoritative critical edition ‘La Commedia secondo l’antica vulgata a cura di Giorgio Petrocchi’, Milano: Mondadori, 1966-67 (= Le Opere di Dante Alighieri, Edizione Nazionale a cura della Società Dantesca Italiana, VII, 1-4) (F22)
+            The Italian text of Dante’s ‘Inferno’ as found in the same edition (F22)
+            Nel mezzo del cammin di nostra vita	
+            mi ritrovai per una selva oscura	
+            ché la diritta via era smarrita [the Italian text of the first stanza of Dante’s ‘Inferno’ and ‘Divina Commedia’] (F23)
+            The signs which make up Christian Morgenstern’s ‘Fisches Nachtgesang’ [a poem consisting simply of “-” and “˘” signs, arranged in a determined combination] (F22)
+        </rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:someValuesFrom rdf:resource="http://erlangen-crm.org/efrbroo/F28_Expression_Creation"/>
+                <owl:onProperty>
+                    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R17i_was_created_by"/>
+                </owl:onProperty>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E73_Information_Object"/>
+        <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F2"/>
+    </owl:Class>
+    
+    <!-- http://erlangen-crm.org/efrbroo/F33_Reproduction_Event -->
+    
+    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F33_Reproduction_Event">
+        <rdfs:label xml:lang="en">F33 Reproduction Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&current;E12_Production"/>
+        <skos:notation rdf:datatype="&xsd;string"></skos:notation>
+        <rdfs:comment xml:lang="en">This class comprises activities that consist in making copies, more or less mechanically, of an instance of E84 Information Carrier (such as an F5 Item or an F4 Manifestation Singleton which is also instance of E84 Information Carrier), preserving the expression carried by it. A Reproduction Event results in new instances of E84 Information Carrier coming into existence. In general, the copy will have different attributes from the original and they are therefore not regarded as siblings.
+            This class makes it possible to account for the legal distinction between private copying for the purpose of “fair use,” and mass production for the purpose of dissemination.
+            It can prove difficult to determine where to draw the line between F33 Reproduction Event and F32 Carrier Production Event in cases where multiple copies are produced. In this case, the copies, but not the original, may be regarded as instances of F5 Item. It is the existence of an explicit production plan that makes the difference. As a consequence, F33 Reproduction Event and F32 Carrier Production Event are not declared as disjoint, which makes it possible to account for such situations that could be regarded as instances of both Production Event and Reproduction Event.
+            
+            Examples:	
+            My photocopying now for my own private use an exemplar of the article entitled ‘Federal Court’s Ruling Against Photocopying Chain Will Not Destroy “Fair Use”’ by Kenneth D. Crews, issued in ‘Chronicle of higher education’, 17 April 1991, A48
+            The BnF’s producing in 1997 the microfilm identified by call number ‘Microfilm M-12169’ of the exemplar identified by shelf mark ‘Res 8 P 10’ of Amerigo Vespucci’s ‘Mundus novus’ published in Paris ca. 1503-1504
+            The BnF’s reproducing in 2001 the exemplar identified by call number ‘NC His Master’s Voice HC 20’ of a 78 rpm phonogram released by Gramophone in 1932, as part of the CD identified by call number ‘SDCR 2120’
+            The BnF’s making in 2003 a digitisation, identified by call number ‘IFN 7701015’, of the collection of drawings (held by the BnF) that were made by Étienne-Louis Boullée in 1784 for his project of a ‘Newton Cenotaph’</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Exemple Biblissima : F33 -&gt; P16 -&gt; F4 ou F5 ou microfiche, microfilm photographie argentique</rdfs:comment>
+        <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F33"/>
+    </owl:Class>
+    
+    <!-- http://erlangen-crm.org/efrbroo/F4_Manifestation_Singleton -->
+    
+    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F4_Manifestation_Singleton">
+        <rdfs:label xml:lang="en">F4_Manifestation_Singleton</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&current;E24_Physical_Man-Made_Thing"/>
+        <skos:notation rdf:datatype="&xsd;string">F4</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This class comprises physical objects that each carry an instance of F2 Expression, and that were produced as unique objects, with no siblings intended in the course of their production. It should be noted that if all but one copy of a given publication are destroyed, then that copy does not become an instance of F4 Manifestation Singleton, because it was produced together with sibling copies, even though it now happens to be unique. Examples of instances of F4 Manifestation Singleton include manuscripts, preparatory sketches and the final clean draft sent by an author or a composer to a publisher.
+            
+            Examples:
+            The manuscript known as ‘The Book of Kells’            
+            The manuscript score of Charles Racquet’s ‘Organ fantasy’, included in Marin Mersenne’s personal copy of his own ‘Harmonie universelle’ [Marin Mersenne planned a second edition of his ‘Harmonie universelle’ after it had been first published in 1636, and he asked the composer Charles Racquet to compose his organ fantasy especially for that planned second edition; but Mersenne died before he could finish and publish the second edition and Racquet’s score remained until the 20th century as a manuscript addition to Mersenne’s copy, held in Paris by the Library of the Conservatoire national des arts et métiers]
+            Marin Mersenne’s personal copy, held in Paris by the Library of the Conservatoire national des arts et métiers, of his own ‘Harmonie universelle’, containing all of his manuscript additions for a planned second edition that never took place before his death, but that served as a basis for the modern reprint published in 1986
+        </rdfs:comment>
+        <rdfs:label xml:lang="en">manifestation singleton</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R18i_was_created_by"/>
+                </owl:onProperty>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://erlangen-crm.org/current/E24_Physical_Man-Made_Thing"/>
+        </rdfs:subClassOf>
+        <owl:sameAs rdf:resource="http://iflastandards.info/ns/fr/frbr/frbroo/F4"/>
+    </owl:Class>
+    
+<!-- Classes CIDOC CRM -->
+
+    <owl:Class rdf:about="http://erlangen-crm.org/140617/E74_Group">
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E74</skos:notation>
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/140617/E39_Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/140617/P144i_gained_member_by"/>
+                </owl:onProperty>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >2</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/140617/P95i_was_formed_by"/>
+                </owl:onProperty>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/140617/P146i_lost_member_by"/>
+                </owl:onProperty>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >2</owl:minCardinality>
+                <owl:onProperty>
+                    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/140617/P107_has_current_or_former_member"/>
+                </owl:onProperty>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">E74 Group</rdfs:label>
+        <rdfs:comment xml:lang="en">Scope note:
+            This class comprises any gatherings or organizations of two or more people that act collectively or in a similar way due to any form of unifying relationship. In the wider sense this class also comprises official positions which used to be regarded in certain contexts as one actor, independent of the current holder of the office, such as the president of a country. A joint pseudonym (i.e., a name that seems indicative of an individual but that is actually used as a persona by two or more people) is a particular case of E74 Group. 
+            A gathering of people becomes an E74 Group when it exhibits organizational characteristics usually typified by a set of ideas or beliefs held in common, or actions performed together. These might be communication, creating some common artifact, a common purpose such as study, worship, business, sports, etc. Nationality can be modelled as membership in an E74 Group (cf. HumanML markup). Married couples and other concepts of family are regarded as particular examples of E74 Group. 
+            
+            Examples:
+            - the impressionists
+            - the Navajo
+            - the Greeks
+            - the peace protestors in n New York City on February 15 2003
+            - Exxon-Mobil
+            - King Solomon and his wives
+            - the President of the Swiss Confederation
+            - Nicolas Bourbaki 
+            - Betty Crocker</rdfs:comment>
+    </owl:Class>
+
+<!-- Classes bibma -->
+    
+<!-- bibma_Thumbnail -->
+    
+    <owl:Class rdf:about="#bibma_Thumbnail">
+        <rdfs:label xml:lang="en"><!-- ??? -->Thumbnail</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&current;E36_Visual_Item"/>
+        <skos:notation rdf:datatype="&xsd;string"><!-- ??? --></skos:notation>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <owl:sameAs rdf:resource="http://purl.org/NET/Claros/vocab#Thumbnail"/>
+    </owl:Class>
+    
+<!-- bibma_Digital_Surrogate -->
+    
+    <owl:Class rdf:about="#bibma_Digital_Surrogate">
+        <rdfs:label xml:lang="en"><!-- ??? --> Digital_Surrogate</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string"><!-- ??? --></skos:notation>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+    <!-- bibma_Component -->
+    
+    <owl:Class rdf:about="#bibma_Component">
+        <rdfs:label xml:lang="en"><!-- ??? --> Component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&current;E84_Information_Carrier"/>
+        <skos:notation rdf:datatype="&xsd;string"><!-- ??? --></skos:notation>
+        <rdfs:comment xml:lang="en">A physical component of a manuscript or printed book, not a textual unit. (Question : folio / page serve for indication of E53_Place of a feature in a book. But they can also be considered as component of a book.) </rdfs:comment>
+    </owl:Class>
+    
+    <!-- bibma_Caption -->
+    
+    <owl:Class rdf:about="#bibma_Caption">
+        <rdfs:label xml:lang="en"><!-- ??? --> Caption</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&current;E62_String"/>
+        <skos:notation rdf:datatype="&xsd;string"><!-- ??? --></skos:notation>
+        <rdfs:comment xml:lang="en">A title or brief explanation in a record associated with an illustration.</rdfs:comment>
+    </owl:Class>
+    
+    <!-- bibma_Folio -->
+    
+    <owl:Class rdf:about="#bibma_Folio">
+        <rdfs:label xml:lang="en"><!-- ??? --> Folio</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string"><!-- ??? --></skos:notation>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+    <!-- bibma_Illumination -->
+    
+    <owl:Class rdf:about="#bibma_Illumination">
+        <rdfs:label xml:lang="en"><!-- ??? --> Illumination</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&current;E25_Man-Made_Feature"/>
+        <skos:notation rdf:datatype="&xsd;string"><!-- ??? --></skos:notation>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+    <!-- bibma_Record -->
+    
+    <owl:Class rdf:about="#bibma_Record">
+        <rdfs:label xml:lang="en"><!-- ??? --> Record</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&current;E31_Document"/>
+        <rdfs:subClassOf rdf:resource="&current;E84_Information_Carrier"/>
+        <skos:notation rdf:datatype="&xsd;string"><!-- ??? --></skos:notation>
+        <rdfs:comment xml:lang="en"><rdfs:comment xml:lang="en">“A bibliographic record is an entry in a bibliographic database (or a library catalogue) which serves as a uniform representation and description of a specific content item, containing data elements required for the item&apos;s identification and retrieval, as well as additional supporting information, presented in a formalized bibliographic format.” (Source: Wikipedia &lt;http://en.wikipedia.org/wiki/Bibliographic_record&gt;)</rdfs:comment></rdfs:comment>
+    </owl:Class>
+    
+    <!-- http://purl.org/NET/bibma#bibma_Picture_Cycle -->
+    
+    <owl:Class rdf:about="http://purl.org/NET/bibma#bibma_Picture_Cycle">
+        <rdfs:label xml:lang="en"><!-- ??? -->Picture Cycle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/bibma#bibma_Illumination"/>
+        <skos:notation rdf:datatype="&xsd;string"></skos:notation>
+        <rdfs:comment xml:lang="en">A series of illustrations of related subject matter that forms a set. (Source : British Library)</rdfs:comment>
+    </owl:Class>
+    
+<!-- Propteries --> 
+<!-- Object Properties -->
+    
+    <!-- http://data.bnf.fr/vocabulary/roles/r710 -->
+    <!-- SKOS:Concept data.bnf.fr used as a property ; loc URI is objectProperty -->
+    
+    <owl:ObjectProperty rdf:about="http://data.bnf.fr/vocabulary/roles/r710">
+        <rdfs:label xml:lang="fr">Enlumineur</rdfs:label>
+        <rdfs:label xml:lang="en">Illuminator</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">INTERMARC Relator Code 710 - Illuminator</skos:notation>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&current;P14_carried_out_by"/>
+        <owl:sameAs rdf:resource="http://id.loc.gov/vocabulary/relators/ilu"/>
+    </owl:ObjectProperty>    
+  
+  
+    <!-- http://erlangen-crm.org/current/P102_has_title -->
+    
+    <owl:ObjectProperty rdf:about="&current;P102_has_title">
+        <rdfs:label xml:lang="en">P102 has title</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P102</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property describes the E35 Title applied to an instance of E71 Man-Made Thing. The E55 Type of Title is assigned in a sub property.
+            The P102.1 has type property of the P102 has title (is title of) property enables the relationship between the Title and the thing to be further clarified, for example, if the Title was a given Title, a supplied Title etc.
+            It allows any man-made material or immaterial thing to be given a Title. It is possible to imagine a Title being created without a specific object in mind.
+            
+            Examples:
+            - the first book of the Old Testament (E33) has title &quot;Genesis&quot; (E35) has type translated (E55)</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E35_Title"/>
+        <rdfs:domain rdf:resource="&current;E71_Man-Made_Thing"/>
+        <owl:inverseOf rdf:resource="&current;P102i_is_title_of"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P1_is_identified_by"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P102i_is_title_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P102i_is_title_of">
+        <rdfs:label xml:lang="en">P102i is title of</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P102i</skos:notation>
+        <rdfs:domain rdf:resource="&current;E35_Title"/>
+        <rdfs:range rdf:resource="&current;E71_Man-Made_Thing"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P1i_identifies"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P106_is_composed_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P106_is_composed_of">
+        <rdfs:label xml:lang="en">P106 is composed of</rdfs:label>
+        <rdfs:label xml:lang="fr">P106 est composé de</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P106</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property associates an instance of E90 Symbolic Object with a part of it that is by itself an instance of E90 Symbolic Object, such as fragments of texts or clippings from an image.
+            
+            Examples:
+            - this Scope note P106 (E33) is composed of fragments of texts (E33)
+            - &apos;recognizable&apos; P106 (E90) is composed of &apos;ecognizabl&apos; (E90)</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E90_Symbolic_Object"/>
+        <rdfs:domain rdf:resource="&current;E90_Symbolic_Object"/>
+        <owl:inverseOf rdf:resource="&current;P106i_forms_part_of"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P106i_forms_part_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P106i_forms_part_of">
+        <rdfs:label xml:lang="en">P106i forms part of</rdfs:label>
+        <rdfs:label xml:lang="fr">P106i fait partie de</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P106i</skos:notation>
+        <rdfs:domain rdf:resource="&current;E90_Symbolic_Object"/>
+        <rdfs:range rdf:resource="&current;E90_Symbolic_Object"/>
+    </owl:ObjectProperty>
+    
+    
+    <!-- http://erlangen-crm.org/current/P108_has_produced -->
+    
+    <owl:ObjectProperty rdf:about="&current;P108_has_produced">
+        <rdfs:label xml:lang="en">P108 has produced</rdfs:label>
+        <rdfs:label xml:lang="fr">P108 a produit</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P108</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property identifies the E24 Physical Man-Made Thing that came into existence as a result of an E12 Production.
+            The identity of an instance of E24 Physical Man-Made Thing is not defined by its matter, but by its existence as a subject of documentation. An E12 Production can result in the creation of multiple instances of E24 Physical Man-Made Thing.
+            
+            Examples:
+            - the building of Rome (E12) has produced Τhe Colosseum (E22)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E12_Production"/>
+        <rdfs:range rdf:resource="&current;E24_Physical_Man-Made_Thing"/>
+        <owl:inverseOf rdf:resource="&current;P108i_was_produced_by"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P31_has_modified"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P92_brought_into_existence"/>
+    </owl:ObjectProperty>
+        
+    <!-- http://erlangen-crm.org/current/P108i_was_produced_by -->
+    
+    <owl:ObjectProperty rdf:about="&current;P108i_was_produced_by">
+        <rdfs:label xml:lang="en">P108i was produced by</rdfs:label>
+        <rdfs:label xml:lang="fr">P108i a été produit par</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P108i</skos:notation>
+        <rdfs:range rdf:resource="&current;E12_Production"/>
+        <rdfs:domain rdf:resource="&current;E24_Physical_Man-Made_Thing"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P31i_was_modified_by"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P92i_was_brought_into_existence_by"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P128_carries -->
+    
+    <owl:ObjectProperty rdf:about="&current;P128_carries">
+        <rdfs:label xml:lang="en">P128 carries</rdfs:label>
+        <rdfs:label xml:lang="fr">P128 est le support de</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P128</skos:notation>
+        <rdfs:comment xml:lang="en"> ! F4 Manifestation Singleton {ms B}
+            P128 carries: E33 Linguistic Object {texte B} !</rdfs:comment>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property identifies an E90 Symbolic Object carried by an instance of E24 Physical Man-Made Thing.
+            In general this would be an E84 Information Carrier P65 shows visual item (is shown by) is a specialisation of P128 carries (is carried by) which should be used for carrying visual items. 
+            
+            Examples:
+            - Matthew&apos;s paperback copy of Reach for the Sky (E84) carries the text of Reach for the Sky (E73)</rdfs:comment>
+        <rdfs:comment xml:lang="fr">! F4 n&apos;est qu&apos;un objet physique fabriqué ; en tant que tel, il hérite de la propriété P128 qui établit la relation entre cet objet physique et le texte (entité immatérielle) dont il est le support. !</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E24_Physical_Man-Made_Thing"/>
+        <rdfs:range rdf:resource="&current;E90_Symbolic_Object"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P130_shows_features_of"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P128i_is_carried_by -->
+    
+    <owl:ObjectProperty rdf:about="&current;P128i_is_carried_by">
+        <rdfs:label xml:lang="en">P128i is carried by</rdfs:label>
+        <rdfs:label xml:lang="fr">P128i a pour support</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P128i</skos:notation>
+        <rdfs:range rdf:resource="&current;E24_Physical_Man-Made_Thing"/>
+        <rdfs:domain rdf:resource="&current;E90_Symbolic_Object"/>
+        <owl:inverseOf rdf:resource="&current;P128_carries"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P130i_features_are_also_found_on"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P129_is_about -->
+    
+    <owl:ObjectProperty rdf:about="&current;P129_is_about">
+        <rdfs:label xml:lang="en">P129 is about</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P129</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property documents that an E89 Propositional Object has as subject an instance of E1 CRM Entity.
+            This differs from P67 refers to (is referred to by), which refers to an E1 CRM Entity, in that it describes the primary subject or subjects of an E89 Propositional Object.
+            
+            Examples:
+            - the text entitled &apos;Reach for the sky&apos; (E33) is about Douglas Bader (E21)</rdfs:comment>
+        <rdfs:comment xml:lang="fr">! utiliser pour F15_Complex_Work !</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:domain rdf:resource="&current;E89_Propositional_Object"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P67_refers_to"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P129i_is_subject_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P129i_is_subject_of">
+        <rdfs:label xml:lang="en">P129i is subject of</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P129i</skos:notation>
+        <rdfs:domain rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:range rdf:resource="&current;E89_Propositional_Object"/>
+        <owl:inverseOf rdf:resource="&current;P129_is_about"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P67i_is_referred_to_by"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P131_is_identified_by -->
+    
+    <owl:ObjectProperty rdf:about="&current;P131_is_identified_by">
+        <rdfs:label xml:lang="en">P131 is identified by</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P131</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property identifies a name used specifically to identify an E39 Actor.
+            This property is a specialisation of P1 is identified by (identifies) is identified by.
+            
+            Examples:
+            - Tyler Withersopp IV (E39) is identified by &quot;US social security number 619-17-4204&quot; (E82)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E39_Actor"/>
+        <rdfs:range rdf:resource="&current;E82_Actor_Appellation"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P1_is_identified_by"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P131i_identifies -->
+    
+    <owl:ObjectProperty rdf:about="&current;P131i_identifies">
+        <rdfs:label xml:lang="en">P131i identifies</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P131i</skos:notation>
+        <rdfs:range rdf:resource="&current;E39_Actor"/>
+        <rdfs:domain rdf:resource="&current;E82_Actor_Appellation"/>
+        <owl:inverseOf rdf:resource="&current;P131_is_identified_by"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P1i_identifies"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P138_represents -->
+    
+    <owl:ObjectProperty rdf:about="&current;P138_represents">
+        <rdfs:label xml:lang="en">P138 represents</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P138</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property establishes the relationship between an E36 Visual Item and the entity that it visually represents. 
+            Any entity may be represented visually. This property is part of the fully developed path from E24 Physical Man-Made Thing through P65 shows visual item (is shown by), E36 Visual Item, P138 represents (has representation) to E1 CRM Entity, which is shortcut by P62depicts (is depicted by). P138.1 mode of representation allows the nature of the representation to be refined.  
+            This property is also used for the relationship between an original and a digitisation of the original by the use of techniques such as digital photography, flatbed or infrared scanning. Digitisation is here seen as a process with a mechanical, causal component rendering the spatial distribution of structural and optical properties of the original and does not necessarily include any visual similarity identifiable by human observation.&quot; 
+            
+            Examples:
+            - the digital file found at http://www.emunch.no/N/full/No-MM_N0001-01.jpg (E73) represents page 1 of Edward Munch&apos;s manuscript MM N 1, Munch-museet (E73) mode of representation Digitisation(E55)</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:domain rdf:resource="&current;E36_Visual_Item"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P67_refers_to"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P138i_has_representation -->
+    
+    <owl:ObjectProperty rdf:about="&current;P138i_has_representation">
+        <rdfs:label xml:lang="en">P138i has representation</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P138i</skos:notation>
+        <rdfs:domain rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:range rdf:resource="&current;E36_Visual_Item"/>
+        <owl:inverseOf rdf:resource="&current;P138_represents"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P67i_is_referred_to_by"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P148_has_component -->
+    
+    <owl:ObjectProperty rdf:about="&current;P148_has_component">
+        <rdfs:label xml:lang="en">P148 has component</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P148</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property associates an instance of E89 Propositional Object with a structural part of it that
+            is by itself an instance of E89 Propositional Object.
+            
+            Examples:
+            - Dante&apos;s &quot;Divine Comedy&quot; (E89) has component Dante&apos;s &quot;Hell&quot; (E89)</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Membre de CIDOC CRM CORE</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E89_Propositional_Object"/>
+        <rdfs:domain rdf:resource="&current;E89_Propositional_Object"/>
+        <owl:inverseOf rdf:resource="&current;P148i_is_component_of"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P148i_is_component_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P148i_is_component_of">
+        <rdfs:label xml:lang="en">P148i is component of</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P148i</skos:notation>
+        <rdfs:comment xml:lang="fr">Membre de CIDOC CRM CORE</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E89_Propositional_Object"/>
+        <rdfs:range rdf:resource="&current;E89_Propositional_Object"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P14_carried_out_by -->
+    
+    <owl:ObjectProperty rdf:about="&current;P14_carried_out_by">
+        <rdfs:label xml:lang="en">P14 carried out by</rdfs:label>
+        <rdfs:label xml:lang="fr">P14 réalisée par</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P14</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property describes the active participation of an E39 Actor in an E7 Activity.
+            It implies causal or legal responsibility. The P14.1 in the role of property of the property allows the nature of an Actor&apos;s participation to be specified.
+            
+            Examples:
+            - the painting of the Sistine Chapel (E7) carried out by Michaelangelo Buonaroti (E21) in the role of master craftsman (E55)</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Membre de CIDOC CRM CORE</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E39_Actor"/>
+        <rdfs:domain rdf:resource="&current;E7_Activity"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P11_had_participant"/>
+        <owl:inverseOf rdf:resource="&current;P14i_performed"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P14i_performed -->
+    
+    <owl:ObjectProperty rdf:about="&current;P14i_performed">
+        <rdfs:label xml:lang="en">P14i performed</rdfs:label>
+        <rdfs:label xml:lang="fr">P14i a exécuté</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P14i</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property describes the active participation of an E39 Actor in an E7 Activity. It implies causal or legal responsibility. The P14.1 in the role of property of the property allows the nature of an Actor’s participation to be specified.
+        </rdfs:comment>
+        <rdfs:comment xml:lang="fr">! avant publication Bbissima  V1.0 =&gt; supprimer P14i et ses sous-propriétés !</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Membre de CIDOC CRM CORE</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E39_Actor"/>
+        <rdfs:range rdf:resource="&current;E7_Activity"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P2_has_type -->
+    
+    <owl:ObjectProperty rdf:about="&current;P2_has_type">
+        <rdfs:label xml:lang="en">P2 has type</rdfs:label>
+        <rdfs:label xml:lang="fr">P2 est de type</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P2</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property allows sub typing of CRM entities - a form of specialisation – through the use of a terminological hierarchy, or thesaurus.
+            The CRM is intended to focus on the high-level entities and relationships needed to describe data structures. Consequently, it does not specialise entities any further than is required for this immediate purpose. However, entities in the isA hierarchy of the CRM may by specialised into any number of sub entities, which can be defined in the E55 Type hierarchy. E51 Contact Point, for example, may be specialised into &quot;e-mail address&quot;, &quot;telephone number&quot;, &quot;post office box&quot;, &quot;URL&quot; etc. none of which figures explicitly in the CRM hierarchy. Sub typing obviously requires consistency between the meaning of the terms assigned and the more general intent of the CRM entity in question.
+            
+            Examples:
+            - &quot;enquiries@cidoc-crm.org&quot; (E51) has type e-mail address (E55)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:range rdf:resource="&current;E55_Type"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P2i_is_type_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P2i_is_type_of">
+        <rdfs:label xml:lang="en">P2i is type of</rdfs:label>
+        <rdfs:label xml:lang="fr">P2i est le type de</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P2i</skos:notation>
+        <rdfs:range rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:domain rdf:resource="&current;E55_Type"/>
+        <owl:inverseOf rdf:resource="&current;P2_has_type"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P46_is_composed_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P46_is_composed_of">
+        <rdfs:label xml:lang="en">P46 is composed of</rdfs:label>
+        <rdfs:label xml:lang="fr">P46 est composée de</rdfs:label>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property allows instances of E18 Physical Thing to be analysed into component elements.
+            Component elements, since they are themselves instances of E18 Physical Thing, may be further analysed into sub-components, thereby creating a hierarchy of part decomposition. An instance of E18 Physical Thing may be shared between multiple wholes, for example two buildings may share a common wall.
+            This property is intended to describe specific components that are individually documented, rather than general aspects. Overall descriptions of the structure of an instance of E18 Physical Thing are captured by the P3 has note property.
+            The instances of E57 Materials of which an item of E18 Physical Thing is composed should be documented using P45 consists of (is incorporated in).
+            
+            Examples:
+            - the Royal carriage (E22) forms part of the Royal train (E22)
+            - the &quot;Hog&apos;s Back&quot; (E24) forms part of the &quot;Fosseway&quot; (E24)</rdfs:comment>
+        <rdfs:comment xml:lang="fr"> ! E78_Collection -&gt; P46_is_composed_of -&gt; F4_Manifestation_Singleton !</rdfs:comment>
+        <rdfs:comment xml:lang="fr">! une partie de manuscrit : F4 Manifestation Singleton -&gt; P46_is_composed_of -&gt; F4_Manifestation_Singleton !</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E18_Physical_Thing"/>
+        <rdfs:range rdf:resource="&current;E18_Physical_Thing"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P46i_forms_part_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P46i_forms_part_of">
+        <rdfs:label xml:lang="en">P46i forms part of</rdfs:label>
+        <rdfs:label xml:lang="fr">P46i fait partie de</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P46i</skos:notation>
+        <rdfs:comment xml:lang="fr">F4 Manifestation Singleton -&gt; P46i_forms_part_of -&gt; E78 Collection</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E18_Physical_Thing"/>
+        <rdfs:domain rdf:resource="&current;E18_Physical_Thing"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P48_has_preferred_identifier -->
+    
+    <owl:ObjectProperty rdf:about="&current;P48_has_preferred_identifier">
+        <rdfs:label xml:lang="en">P48 has preferred identifier</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P48</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property records the preferred E42 Identifier that was used to identify an instance of E1 CRM Entity at the time this property was recorded.
+            More than one preferred identifier may have been assigned to an item over time.
+            Use of this property requires an external mechanism for assigning temporal validity to the respective CRM instance.
+            P48 has preferred identifier (is preferred identifier of), is a shortcut for the path from E1 CRM Entity through P140 assigned attribute to (was attributed by), E15 Identifier Assignment, P37 assigned (was assigned by) to E42 Identifier. The fact that an identifier is a preferred one for an organisation can be better expressed in a context independent form by assigning a suitable E55 Type to the respective instance of E15 Identifier Assignment using the P2 has type property.
+            
+            Examples:
+            - the pair of Lederhosen donated by Dr Martin Doerr (E22) has preferred identifier OXCMS:2001.1.32 (E42)</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E42_Identifier"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P1_is_identified_by"/>
+        <owl:inverseOf rdf:resource="&current;P48i_is_preferred_identifier_of"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P48i_is_preferred_identifier_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P48i_is_preferred_identifier_of">
+        <rdfs:label xml:lang="en">P48i is preferred identifier of</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P48i</skos:notation>
+        <rdfs:domain rdf:resource="&current;E42_Identifier"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P1i_identifies"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P4_has_time-span -->
+    
+    <owl:ObjectProperty rdf:about="&current;P4_has_time-span">
+        <rdfs:label xml:lang="en">P4 has time-span</rdfs:label>
+        <rdfs:label xml:lang="fr">P4 a pour durée</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P4</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property describes the temporal confinement of an instance of an E2 Temporal Entity.
+            The related E52 Time-Span is understood as the real Time-Span during which the phenomena were active, which make up the temporal entity instance. It does not convey any other meaning than a positioning on the &quot;time-line&quot; of chronology. The Time-Span in turn is approximated by a set of dates (E61 Time Primitive). A temporal entity can have in reality only one Time-Span, but there may exist alternative opinions about it, which we would express by assigning multiple Time-Spans. Related temporal entities may share a Time-Span. Time-Spans may have completely unknown dates but other descriptions by which we can infer knowledge.
+            
+            Examples:
+            - the Yalta Conference (E7) has time-span Yalta Conference time-span (E52)</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Membre de CIDOC CRM CORE</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E2_Temporal_Entity"/>
+        <rdfs:range rdf:resource="&current;E52_Time-Span"/>
+        <owl:inverseOf rdf:resource="&current;P4i_is_time-span_of"/>
+    </owl:ObjectProperty>    
+    
+    <!-- http://erlangen-crm.org/current/P4i_is_time-span_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P4i_is_time-span_of">
+        <rdfs:label xml:lang="en">P4i is time-span of</rdfs:label>
+        <rdfs:label xml:lang="fr">P4i est la durée de</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P4i</skos:notation>
+        <rdfs:comment xml:lang="fr">Membre de CIDOC CRM CORE</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E2_Temporal_Entity"/>
+        <rdfs:domain rdf:resource="&current;E52_Time-Span"/>
+    </owl:ObjectProperty>
+       
+    <!-- http://erlangen-crm.org/current/P50_has_current_keeper -->
+    
+    <owl:ObjectProperty rdf:about="&current;P50_has_current_keeper">
+        <rdfs:label xml:lang="en">P50 has current keeper</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P50</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property identifies the E39 Actor or Actors who had custody of an instance of E18 Physical Thing at the time of validity of the record or database containing the statement that uses this property. P50 has current keeper (is current keeper of) is a shortcut for the more detailed path from E18 Physical Thing through P30 transferred custody of (custody transferred through), E10 Transfer of Custody, P29 custody received by (received custody through) to E39 Actor.
+            
+            Examples:
+            - painting from The Iveagh Bequest (E18) has current keeper The National Gallery (E40)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E18_Physical_Thing"/>
+        <rdfs:range rdf:resource="&current;E39_Actor"/>
+        <owl:inverseOf rdf:resource="&current;P50i_is_current_keeper_of"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P50i_is_current_keeper_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P50i_is_current_keeper_of">
+        <rdfs:label xml:lang="en">P50i is current keeper of</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P50i</skos:notation>
+        <rdfs:range rdf:resource="&current;E18_Physical_Thing"/>
+        <rdfs:domain rdf:resource="&current;E39_Actor"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P55_has_current_location -->
+    
+    <owl:ObjectProperty rdf:about="&current;P55_has_current_location">
+        <rdfs:label xml:lang="en">P55 has current location</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P55</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property records the location of an E19 Physical Object at the time of validity of the record or database containing the statement that uses this property.
+            This property is a specialisation of P53 has former or current location (is former or current location of). It indicates that the E53 Place associated with the E19 Physical Object is the current location of the object. The property does not allow any indication of how long the Object has been at the current location.
+            P55 has current location (currently holds) is a shortcut. A more detailed representation can make use of the fully developed (i.e. indirect) path from E19 Physical Object through P25 moved (moved by), E9 Move P26 moved to (was destination of) to E53 Place if and only if this Move is the most recent.
+            
+            Examples:
+            - silver cup 232 (E22) has current location Display cabinet 23, Room 4, British Museum (E53)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E19_Physical_Object"/>
+        <rdfs:range rdf:resource="&current;E53_Place"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P53_has_former_or_current_location"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P55i_is_current_location_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P50i_is_current_location_of">
+        <rdfs:label xml:lang="en">P55i is current location of</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P55i</skos:notation>
+        <rdfs:range rdf:resource="&current;E19_Physical_Object"/>
+        <rdfs:domain rdf:resource="&current;E53_Place"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P56_bears_feature -->
+    
+    <owl:ObjectProperty rdf:about="&current;P56_bears_feature">
+        <rdfs:label xml:lang="en">P56 bears feature</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P56</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property links an instance of E19 Physical Object to an instance of E26 Physical Feature that it bears. 
+            An E26 Physical Feature can only exist on one object. One object may bear more than one E26 Physical Feature. An E27 Site should be considered as an E26 Physical Feature on the surface of the Earth. 
+            An instance B of E26 Physical Feature being a detail of the structure of another instance A of E26 Physical Feature can be linked to B by use of the property P46 is composed of (forms part of). This implies that the subfeature B is P56i found on the same E19 Physical Object as A. P56 bears feature (is found on) is a shortcut. A more detailed representation can make use of the fully developed (i.e. indirect) path from E19 Physical Object through P59 has section (is located on or within), E53 Place, P53 has former or current location (is former or current location of) to E26 Physical Feature. 
+            
+            Examples:
+            - silver cup 232 (E22) bears feature 32 mm scratch on silver cup 232 (E26)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E19_Physical_Object"/>
+        <rdfs:range rdf:resource="&current;E26_Physical_Feature"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P46_is_composed_of"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P56i_is_found_on -->
+    
+    <owl:ObjectProperty rdf:about="&current;P56i_is_found_on">
+        <rdfs:label xml:lang="en">P56i is found on</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P56i</skos:notation>
+        <rdfs:range rdf:resource="&current;E19_Physical_Object"/>
+        <rdfs:domain rdf:resource="&current;E26_Physical_Feature"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P46i_forms_part_of"/>
+        <owl:inverseOf rdf:resource="&current;P56_bears_feature"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P58_has_section_definition -->
+    
+    <owl:ObjectProperty rdf:about="&current;P58_has_section_definition">
+        <rdfs:label xml:lang="en">P58 has section definition</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P58</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property links an area (section) named by a E46 Section Definition to the instance of E18 Physical Thing upon which it is found.
+            The CRM handles sections as locations (instances of E53 Place) within or on E18 Physical Thing that are identified by E46 Section Definitions. Sections need not be discrete and separable components or parts of an object.
+            This is part of a more developed path from E18 Physical Thing through P58, E46 Section Definition, P87 is identified by (identifies) that allows a more precise definition of a location found on an object than the shortcut P59 has section (is located on or within).
+            A particular instance of a Section Definition only applies to one instance of Physical Thing.
+            
+            Examples:
+            - HMS Victory (E22) has section definition &quot;poop deck of HMS Victory&quot; (E46)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E18_Physical_Thing"/>
+        <rdfs:range rdf:resource="&current;E46_Section_Definition"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P58i_defines_section -->
+    
+    <owl:ObjectProperty rdf:about="&current;P58i_defines_section">
+        <rdfs:label xml:lang="en">P58i defines section</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P58i</skos:notation>
+        <rdfs:range rdf:resource="&current;E18_Physical_Thing"/>
+        <rdfs:domain rdf:resource="&current;E46_Section_Definition"/>
+        <owl:inverseOf rdf:resource="&current;P58_has_section_definition"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P59_has_section -->
+    
+    <owl:ObjectProperty rdf:about="&current;P59_has_section">
+        <rdfs:label xml:lang="en">P59 has section</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P59</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property links an area to the instance of E18 Physical Thing upon which it is found.
+            It is typically used when a named E46 Section Definition is not appropriate.
+            E18 Physical Thing may be subdivided into arbitrary regions.
+            P59 has section (is located on or within) is a shortcut. If the E53 Place is identified by a Section Definition, a more detailed representation can make use of the fully developed (i.e. indirect) path from E18 Physical Thing through P58 has section definition (defines section), E46 Section Definition, P87 is identified by (identifies) to E53 Place. A Place can only be located on or within one Physical Object.
+            
+            Examples:
+            - HMS Victory (E22) has section HMS Victory section B347.6 (E53)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E18_Physical_Thing"/>
+        <rdfs:range rdf:resource="&current;E53_Place"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P157i_occupied"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P59i_is_located_on_or_within -->
+    
+    <owl:ObjectProperty rdf:about="&current;P59i_is_located_on_or_within">
+        <rdfs:label xml:lang="en">P59i is located on or within</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P59i</skos:notation>
+        <rdfs:range rdf:resource="&current;E18_Physical_Thing"/>
+        <rdfs:domain rdf:resource="&current;E53_Place"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P157_is_at_rest_relative_to"/>
+        <owl:inverseOf rdf:resource="&current;P59_has_section"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P62_depicts -->
+    
+    <owl:ObjectProperty rdf:about="&current;P62_depicts">
+        <rdfs:label xml:lang="en">P62 depicts</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P62</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property identifies something that is depicted by an instance of E24 Physical Man-Made Thing.
+            This property is a shortcut of the more fully developed path from E24 Physical Man-Made Thing through P65 shows visual item (is shown by), E36 Visual Item, P138 represents (has representation) to E1 CRM Entity. P62.1 mode of depiction allows the nature of the depiction to be refined.
+            
+            Examples:
+            - the painting &quot;La Liberté guidant le peuple&quot; by Eugène Delacroix (E84) depicts the French &quot;July Revolution&quot; of 1830 (E7)
+            - the 20 pence coin held by the Department of Coins and Medals of the British Museum under registration number 2006,1101.126 (E24) depicts Queen Elizabeth II (E21) mode of depiction Profile (E55)</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:domain rdf:resource="&current;E24_Physical_Man-Made_Thing"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P62i_is_depicted_by -->
+    
+    <owl:ObjectProperty rdf:about="&current;P62i_is_depicted_by">
+        <rdfs:label xml:lang="en">P62i is depicted by</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P62i</skos:notation>
+        <rdfs:domain rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:range rdf:resource="&current;E24_Physical_Man-Made_Thing"/>
+        <owl:inverseOf rdf:resource="&current;P62_depicts"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P65_shows_visual_item -->
+    
+    <owl:ObjectProperty rdf:about="&current;P65_shows_visual_item">
+        <rdfs:label xml:lang="en">P65 shows visual item</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P65</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property documents an E36 Visual Item shown by an instance of E24 Physical Man-Made Thing.
+            This property is similar to P62 depicts (is depicted by) in that it associates an item of E24 Physical Man-Made Thing with a visual representation. However, P65 shows visual item (is shown by) differs from the P62 depicts (is depicted by) property in that it makes no claims about what the E36 Visual Item is deemed to represent. E36 Visual Item identifies a recognisable image or visual symbol, regardless of what this image may or may not represent.
+            For example, all recent British coins bear a portrait of Queen Elizabeth II, a fact that is correctly documented using P62 depicts (is depicted by). Different portraits have been used at different periods, however. P65 shows visual item (is shown by) can be used to refer to a particular portrait.
+            P65 shows visual item (is shown by) may also be used for Visual Items such as signs, marks and symbols, for example the &apos;Maltese Cross&apos; or the &apos;copyright symbol&apos; that have no particular representational content.
+            This property is part of the fully developed path from E24 Physical Man-Made Thing through P65 shows visual item (is shown by), E36 Visual Item, P138 represents (has representation) to E1 CRM Entity which is shortcut by, P62 depicts (is depicted by).
+            
+            Examples:
+            - my T-Shirt (E22) shows visual item Mona Lisa (E38)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E24_Physical_Man-Made_Thing"/>
+        <rdfs:range rdf:resource="&current;E36_Visual_Item"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P128_carries"/>
+        <owl:inverseOf rdf:resource="&current;P65i_is_shown_by"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P65i_is_shown_by -->
+    
+    <owl:ObjectProperty rdf:about="&current;P65i_is_shown_by">
+        <rdfs:label xml:lang="en">P65i is shown by</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P65i</skos:notation>
+        <rdfs:range rdf:resource="&current;E24_Physical_Man-Made_Thing"/>
+        <rdfs:domain rdf:resource="&current;E36_Visual_Item"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P128i_is_carried_by"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P67_refers_to -->
+    
+    <owl:ObjectProperty rdf:about="&current;P67_refers_to">
+        <rdfs:label xml:lang="en">P67 refers to</rdfs:label>
+        <rdfs:label xml:lang="fr">P67 fait référence à</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P67</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            An E73 Information Object may refer to any other E1 CRM Entity.
+            This property documents that an E89 Propositional Object makes a statement about an instance of an E1 CRM Entity. P67 refers to (is referred to by) has the P67.1 has type link to an instance of E55 Type. This is intended to allow a more detailed description of the type of reference. This differs from P129 is about (is subject of), which describes the primary subject or subjects of the E89 Propositional Object.
+            
+            Examples:
+            - the eBay auction listing for 4 July 2002 (E73) refers to silver cup 232 (E22) has type auction listing (E55)</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Membre de CICOD CRM CORE</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:domain rdf:resource="&current;E89_Propositional_Object"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P67i_is_referred_to_by -->
+    
+    <owl:ObjectProperty rdf:about="&current;P67i_is_referred_to_by">
+        <rdfs:label xml:lang="en">P67 is referred to by</rdfs:label>
+        <rdfs:label xml:lang="fr">est référencé par</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P67i</skos:notation>
+        <rdfs:comment xml:lang="fr">Membre de CICOD CRM CORE</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:range rdf:resource="&current;E89_Propositional_Object"/>
+        <owl:inverseOf rdf:resource="&current;P67_refers_to"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P70_documents -->
+    
+    <owl:ObjectProperty rdf:about="&current;P70_documents">
+        <rdfs:label xml:lang="en">P70 documents</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P70</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property describes the CRM Entities documented by instances of E31 Document.
+            Documents may describe any conceivable entity, hence the link to the highest-level entity in the CRM hierarchy. This property is intended for cases where a reference is regarded as being of a documentary character, in the scholarly or scientific sense.
+            
+            Examples:
+            - the British Museum catalogue (E31) documents the British Museum&apos;s Collection (E78)</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:domain rdf:resource="&current;E31_Document"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P67_refers_to"/>
+        <owl:inverseOf rdf:resource="&current;P70i_is_documented_in"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P70i_is_documented_in -->
+    
+    <owl:ObjectProperty rdf:about="&current;P70i_is_documented_in">
+        <rdfs:label xml:lang="en">P70i is documented in</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P70i</skos:notation>
+        <rdfs:domain rdf:resource="&current;E1_CRM_Entity"/>
+        <rdfs:range rdf:resource="&current;E31_Document"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P67i_is_referred_to_by"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P72_has_language -->
+    
+    <owl:ObjectProperty rdf:about="&current;P72_has_language">
+        <rdfs:label xml:lang="en">P72 has language</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P72</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property describes the E56 Language of an E33 Linguistic Object.
+            Linguistic Objects are composed in one or more human Languages. This property allows these languages to be documented.
+            
+            Examples:
+            - the American Declaration of Independence (E33) has language 18th Century English (E56)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E33_Linguistic_Object"/>
+        <rdfs:range rdf:resource="&current;E56_Language"/>
+        <owl:inverseOf rdf:resource="&current;P72i_is_language_of"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P72i_is_language_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P72i_is_language_of">
+        <rdfs:label xml:lang="en">P72i is language of</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P72i</skos:notation>
+        <rdfs:range rdf:resource="&current;E33_Linguistic_Object"/>
+        <rdfs:domain rdf:resource="&current;E56_Language"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P73_has_translation -->
+    
+    <owl:ObjectProperty rdf:about="&current;P73_has_translation">
+        <rdfs:label xml:lang="en">P73 has translation</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P73</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property describes the source and target of instances of E33 Linguistic Object involved in a translation.
+            When a Linguistic Object is translated into a new language it becomes a new Linguistic Object, despite being conceptually similar to the source object.
+            
+            Examples:
+            - &quot;Les Baigneurs&quot; (E33) has translation &quot;The Bathers&quot; (E33)</rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E33_Linguistic_Object"/>
+        <rdfs:range rdf:resource="&current;E33_Linguistic_Object"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P130_shows_features_of"/>
+        <owl:inverseOf rdf:resource="&current;P73i_is_translation_of"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P73i_is_translation_of -->
+    
+    <owl:ObjectProperty rdf:about="&current;P73i_is_translation_of">
+        <rdfs:label xml:lang="en">P73i is translation of</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P73i</skos:notation>
+        <rdfs:range rdf:resource="&current;E33_Linguistic_Object"/>
+        <rdfs:domain rdf:resource="&current;E33_Linguistic_Object"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P130i_features_are_also_found_on"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P78_is_identified_by -->
+    
+    <owl:ObjectProperty rdf:about="&current;P78_is_identified_by">
+        <rdfs:label xml:lang="en">P78 is identified by</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P78</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property identifies an E52 Time-Span using an E49 Time Appellation.
+            
+            Examples:
+            - the time span 1926 to 1988 (E52) is identified by &quot;Showa&quot; (Japanese time appellation) (E49)</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E49_Time_Appellation"/>
+        <rdfs:domain rdf:resource="&current;E52_Time-Span"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P1_is_identified_by"/>
+        <owl:inverseOf rdf:resource="&current;P78i_identifies"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P78i_identifies -->
+    
+    <owl:ObjectProperty rdf:about="&current;P78i_identifies">
+        <rdfs:label xml:lang="en">P78 identifies</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P78i</skos:notation>
+        <rdfs:domain rdf:resource="&current;E49_Time_Appellation"/>
+        <rdfs:range rdf:resource="&current;E52_Time-Span"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P7_took_place_at -->
+    
+    <owl:ObjectProperty rdf:about="&current;P7_took_place_at">
+        <rdfs:label xml:lang="en">P7 took place at</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P7</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            his property describes the spatial location of an instance of E4 Period.
+            The related E53 Place should be seen as an approximation of the geographical area within which the phenomena that characterise the period in question occurred. P7 took place at (witnessed) does not convey any meaning other than spatial positioning (generally on the surface of the earth).  For example, the period &quot;Révolution française&quot; can be said to have taken place in &quot;France&quot;, the &quot;Victorian&quot; period, may be said to have taken place in &quot;Britain&quot; and its colonies, as well as other parts of Europe and north America.
+            A period can take place at multiple locations.
+            
+            Examples 
+            - the period &quot;Révolution française&quot; (E4) took place at France (E53)</rdfs:comment>
+        <rdfs:comment xml:lang="fr">! lieu de vente E8 Acquisition P7_took_place_at E53_Place! </rdfs:comment>
+        <rdfs:domain rdf:resource="&current;E4_Period"/>
+        <rdfs:range rdf:resource="&current;E53_Place"/>
+        <owl:inverseOf rdf:resource="&current;P7i_witnessed"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/current/P87_is_identified_by -->
+    
+    <owl:ObjectProperty rdf:about="&current;P87_is_identified_by">
+        <rdfs:label xml:lang="en">P87 is identified by</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P87</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property identifies an E53 Place using an E44 Place Appellation.
+            Examples of Place Appellations used to identify Places include instances of E48 Place Name, addresses, E47 Spatial Coordinates etc.
+            
+            Examples:
+            - the location of the Duke of Wellington&apos;s House (E53) is identified by &quot;No 1 London&quot; (E45)</rdfs:comment>
+        <rdfs:range rdf:resource="&current;E44_Place_Appellation"/>
+        <rdfs:domain rdf:resource="&current;E53_Place"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P1_is_identified_by"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/current/P87i_identifies -->
+    
+    <owl:ObjectProperty rdf:about="&current;P87i_identifies">
+        <rdfs:label xml:lang="en">P87i identifies</rdfs:label>
+        <skos:notation rdf:datatype="&xsd;string">P87i</skos:notation>
+        <rdfs:domain rdf:resource="&current;E44_Place_Appellation"/>
+        <rdfs:range rdf:resource="&current;E53_Place"/>
+        <rdfs:subPropertyOf rdf:resource="&current;P1i_identifies"/>
+        <owl:inverseOf rdf:resource="&current;P87_is_identified_by"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://erlangen-crm.org/efrbroo/R10_has_member -->
+    
+    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R10_has_member">
+        <skos:notation rdf:datatype="&xsd;string">R10</skos:notation>
+        <rdfs:comment xml:lang="en">This property associates an instance of F15 Complex Work with an instance of F1 Work that forms part of it. The Work becomes complex by the fact that it has other instances of Work as members.
+            Examples:	Dante’s textual work entitled ‘Divina Commedia’ (F15) R10 has member Dante’s textual work entitled ‘Inferno’ (F15)
+            Dante’s textual work entitled ‘Inferno’ (F15) R10 has member the abstract content of the pseudo-old French text of Émile Littré’s translation entitled ‘L’Enfer mis en vieux langage françois et en vers’ [a 19th century translation of Dante’s ‘Inferno’ into old French] published in Paris in 1879 (F14)
+            Giovanni Battista Piranesi’s graphic work entitled ‘Carceri’ (F15) R10 has member Giovanni Battista Piranesi’s graphic work entitled ‘Carcere XVI: the pier with chains’ (F15)
+            Giovanni Battista Piranesi’s graphic work entitled ‘Carcere XVI: the pier with chains’ (F15) R10 has member the abstract content of Giovanni Battista Piranesi’s graphic work entitled ‘Carcere XVI: the pier with chains: 2nd state’ (F14)
+        </rdfs:comment>
+        <rdfs:range rdf:resource="http://erlangen-crm.org/efrbroo/F15_Complex_Work"/>
+        <rdfs:domain rdf:resource="http://erlangen-crm.org/efrbroo/F15_Complex_Work"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/efrbroo/R14_incorporates -->
+    
+    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R14_incorporates">
+        <skos:notation rdf:datatype="&xsd;string"></skos:notation>
+        <rdfs:comment xml:lang="en">This property associates an instance of F22 Self-Contained Expression with an instance of F2 Expression that was included in it and that is a realisation of an independent work. The incorporated expression may be self-contained or fragmentary.
+            This property makes it possible to recognise the autonomous status of the incorporated expression, which was created in a distinct context, and can be incorporated in many distinct self-contained expressions, and to highlight the difference between structural and accidental whole-part relationships between conceptual entities.
+            It accounts for many cultural facts that are quite frequent and significant: the inclusion of a poem in an anthology, the re-use of an operatic aria in a new opera, the use of a reproduction of a painting for a book cover or a CD booklet, the integration of textual quotations, the presence of lyrics in a song that sets those lyrics to music, the presence of the text of a play in a movie based on that play, etc.
+            Examples:	The text of the present version of the FRBROO definition (F22) R14 incorporates the beginning of the Scope Note for E4 Period in the CIDOC CRM definition, version 4.4 (F23)
+            The text of the anthology entitled ‘American Women Poets of the Nineteenth Century: An Anthology’, edited by Cheryl Walker and published by Rutgers University Press in July 1992 (F22) R14 incorporates the text of the poem entitled ‘Acquainted with Grief’ and authored by Helen Hunt Jackson
+            The sonic content of the CD entitled ‘Great moments of Lucia Popp’ issued by EMI Music International in 1996 and identified by UPC/EAN ‘0724356577022’ (F24) R14 incorporates the recorded performance of Mozart’s aria entitled ‘Der Hölle Rache’ (also known as ‘The Queen of the Night’s Aria’) by Lucia Popp accompanied by the Philharmonia orchestra conducted by Otto Klemperer in London, Kingsway Hall, between March 24, 1964 and April 10, 1964 (F26)
+            The set of instructions for the production of ‘King Lear’, directed by Sergei Radlov in Moscow in 1935 (F25) R14 incorporates the Yiddish text of ‘King Lear’ as translated by Shmuel Galkin (F22)
+            The set of instructions for the production of ‘King Lear’, directed by Sergei Radlov in Moscow in 1935 (F25) R14 incorporates the musical content of the score of the incidental music composed by Lev Pulver (F22)
+            The set of instructions for the production of ‘King Lear’, directed by Sergei Radlov in Moscow in 1935 (F25) R14 incorporates the visual items (E36) shown in Alexander Tyschler’s scene settings and the models built by him for these settings (F22 and E36)
+            The set of instructions for the production of the ballet ‘Rite of spring’, as choreographed by Pina Bausch in Wuppertal in 1975 (F25) R14 incorporates the musical score of Igor Stravinsky’s musical work ‘Rite of spring’ (F22)
+        </rdfs:comment>
+        <rdfs:domain rdf:resource="http://erlangen-crm.org/efrbroo/F22_Self_Contained_Expression"/>
+        <rdfs:range rdf:resource="http://erlangen-crm.org/efrbroo/F2_Expression"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/efrbroo/R14i_is_incorporated_in -->
+    
+    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R14i_is_incorporated_in">
+        <skos:notation rdf:datatype="&xsd;string"></skos:notation>
+        <rdfs:range rdf:resource="http://erlangen-crm.org/efrbroo/F22_Self_Contained_Expression"/>
+        <rdfs:domain rdf:resource="http://erlangen-crm.org/efrbroo/F2_Expression"/>
+        <owl:inverseOf rdf:resource="http://erlangen-crm.org/efrbroo/R14_incorporates"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- http://erlangen-crm.org/efrbroo/R15_has_fragment -->
+    
+    <owl:ObjectProperty rdf:about="http://erlangen-crm.org/efrbroo/R15_has_fragment">
+        <skos:notation rdf:datatype="&xsd;string"></skos:notation>
+        <rdfs:comment xml:lang="en">This property associates the fragment of an expression and the expression of which it is a fragment.
+            Examples:	The ancient Greek text of the four stanzas from an ode by Sappho that were quoted by Pseudo-Longinus in his textual work entitled ‘On the sublime’ (F23) R15 is fragment of the complete ancient Greek text, now irremediably lost, of Sappho’s ode currently identified as Sappho’s poem #2 (F22)
+            The statement ‘fasc. 111’ (abridgement for ‘fascicle no. 111’) indicating the sequential position of the publication identified by ISBN ‘2-7018-0037-4’ within the series entitled ‘Bibliothèque des Écoles françaises d’Athènes et de Rome’ and identified by ISSN ‘0257-4101’ (F23) R15 is fragment of the overall content of the publication identified by ISBN ‘2-7018-0037-4’ (F24)
+        </rdfs:comment>
+        <rdfs:range rdf:resource="http://erlangen-crm.org/efrbroo/F23_Expression_Fragment"/>
+        <rdfs:domain rdf:resource="http://erlangen-crm.org/efrbroo/F2_Expression"/>
+    </owl:ObjectProperty>
+    
+    
+    
+    <!-- Datatype Properties -->
+    
+    <owl:DatatypeProperty rdf:about="http://erlangen-crm.org/140617/P79_beginning_is_qualified_by">
+        <rdfs:comment xml:lang="en">Scope note:
+            This property qualifies the beginning of an E52 Time-Span in some way.
+            The nature of the qualification may be certainty, precision, source etc.
+            
+            Examples:
+            - the time-span of the Holocene (E52) beginning is qualified by "approximately"</rdfs:comment>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >P79</skos:notation>
+        <rdfs:label xml:lang="en">P79 beginning is qualified by</rdfs:label>
+        <rdfs:domain rdf:resource="http://erlangen-crm.org/140617/E52_Time-Span"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://erlangen-crm.org/140617/P82_at_some_time_within">
+        <rdfs:label xml:lang="en">P82 at some time within</rdfs:label>
+        <rdfs:domain rdf:resource="http://erlangen-crm.org/140617/E52_Time-Span"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >P82</skos:notation>
+        <rdfs:comment xml:lang="en">Scope note:
+            This property describes the maximum period of time within which an E52 Time-Span falls.
+            Since Time-Spans may not have precisely known temporal extents, the CRM supports statements about the minimum and maximum temporal extents of Time-Spans. This property allows a Time-Span's maximum temporal extent (i.e. its outer boundary) to be assigned a value.
+            
+            Examples:
+            - the time-span of the development of the CIDOC CRM (E52) at some time within "1992-infinity"</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+    <!-- Implementation of P82a and P82b ? voir aussi : http://www.cidoc-crm.org/docs/How_to%20implement%20CRM_Time_in%20RDF.pdf -->
+</rdf:RDF>
