@@ -6,7 +6,7 @@ This repository contains the template and dtd of Biblissima's Pivot XML - define
 
 The data ingestion is realised in 5 separated phases, based on the spezialisation of the databases : 
   a/ provenance 
-  b/ history of textes 
+  b/ history of texts 
   c/ iconographic databases 
   d/ inventories 
   e/ some transcriptions of texts.
