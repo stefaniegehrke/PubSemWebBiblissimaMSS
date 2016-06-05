@@ -19,3 +19,10 @@ Currently we treat the following databases :
 
 Template and the dtd are adapted to these needs and will continue to evolve.
 
+The next steps are planning to include data from the following databases :
+
+a/ Jonas, Pinakes, BnF Archives et Manuscrits, Mandragore, Intiale, Books within Books, Manuscripta Medica, Mirroir des Classiques, RegeCart
+b/ Éditions électroniques des inventaires de Sanderus, Montfaucon et Mont Saint-Michel
+c/ Sermones.net, Glossae.net etc.
+
+
