@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RecordList SYSTEM "file:/Users/stefaniegehrke/Documents/Dumps_locales_portail/XML_Pivot_DeuxiemeBonDeCommande.dtd">
+<RecordList>   
+    <DataBase uri="[URI base de données here]">[Name of the database]</DataBase>     
+        <Book id="" state="attesté ou conservé">
+            <Concept source="BnF etc.">[to be added by Biblissima]</Concept>
+            <ObjectType uri="">"Manuscrit", "Manuscrit enluminé", "incunabula", "incunable"</ObjectType>
+            <Shelfmark>[Shelfmark goes here] 
+                <Organisation id="">[Name of the Organisation that keeps the manuscript goes here]</Organisation>
+                <Identifier type="">
+                    <Idno>[Shelfmark]</Idno>
+                    <Subidentifier>[Subidentifier]</Subidentifier>
+                    <Volume>[Number of volume]</Volume>
+                </Identifier>
+                <Identifier type="canonical">[Shelfmark as used by holding organisation goes here]</Identifier>
+            </Shelfmark>
+            <Name lang="[internal language ID database]">[a special name for the manuscript or incunabula or item in general goes here]</Name>
+            <Text id="">
+                <Title lang="[internal language ID database]">[the title of the text goes here]</Title>
+                <AssociatedWork id="" id_bbma="">
+                    <Title lang="[internal language ID database]">[the title of the work goes here]</Title>
+                </AssociatedWork>
+                <Language id="" uri="" type="">[Language of the text]</Language>
+                <Incipit>[Incipit]</Incipit>
+                <Explicit>[Explicit]</Explicit>
+                <Note>[Note]</Note>
+            </Text>
+            <Participant id="" role="[marc role or definition]" id_bbma="">
+                <Name lang="[internal language ID database]"></Name>
+            </Participant>
+            <Date uri=""><Century>[Century]</Century><Year uri="">[YYYY]</Year><Note></Note></Date>
+            <Place id="" type="[historical or precise]">
+                <Name lang="[internal language ID database]">[the name of the place goes here]</Name>
+            </Place>
+            <DigitalSurrogate type="[integral or partial]">[URL of the digital surrogate goes here]</DigitalSurrogate>
+            <Manifest>[URL of manifest Shared Canvas goes here]</Manifest>
+            <Thumbnail>[URL of Thumbnail goes here]</Thumbnail>
+            <Record id="" root="">[URL of the record goes here]</Record>
+            <Extent unit="[f or p or NP]">[number of folios or pages goes here]</Extent>
+            <Format unit="mm" uri="">[height x width of a page/folio goes here]</Format>
+            <BibliographicReference>[Bibliographic Reference goes here]</BibliographicReference>
+            <Term context="[some indication about the type of terms you provide]" id="" uri="">[Term goes here]</Term>
+            <Note></Note>
+            <HasPart id="">
+                <PartType id="">[e.g. textual unit, artistic unit, codicological unit, binding etc.]</PartType>
+                <Pages unit="[f or p or NP]">[folios or folio / pages or page go here]</Pages>
+                <Text id="">
+                    <Title lang="[internal language ID database]"></Title>
+                    <AssociatedWork id="" uri="[URI goes here]">
+                        <Title lang="[internal language ID database]"></Title>
+                    </AssociatedWork>
+                    <Language id="" uri="" type=""></Language>
+                    <Edition></Edition>
+                    <Incipit></Incipit>
+                    <Explicit></Explicit>
+                    <Note></Note>
+                </Text>
+                <Participant id="" role="[marc role or definition]" id_bbma="">
+                    <Name lang="[internal language ID database]"></Name>
+                </Participant>
+                <Date uri=""><Century>[Century]</Century><Year>[YYYY]</Year><Note></Note></Date>
+                <Place id="">         
+                    <Name lang="[internal language ID database]"></Name>     
+                </Place>
+                <Format unit="" uri=""></Format>
+                <Term context="[support]" id="" uri=""></Term>
+                <Record id="" root="">[URL notice component goes here]</Record>
+                <Note></Note>
+                <HasFeature id="">
+                    <FeatureType id=""></FeatureType>
+                    <Page unit=""></Page>
+                    <Canvas>[à remplir par Biblissima]</Canvas>
+                    <Descriptor id="">
+                        <Name></Name>
+                        <Concept>[URL authority record Biblissima]</Concept>
+                        <RelatedConcept></RelatedConcept>
+                    </Descriptor>
+                    <Caption>[cpation text-string goes here]
+                        <GenericTerm>[generic term if available]</GenericTerm>
+                        <RelatedText>[related text if available]</RelatedText>
+                    </Caption>
+                    <Rubrique>[Rubrique]</Rubrique>
+                    <Inscription>[Inscription]</Inscription>
+                    <Note>[Note]</Note>
+                    <Record id="">[URL record]</Record>
+                </HasFeature>
+            </HasPart>
+            <HasFeature id="">
+                <FeatureType id=""></FeatureType>
+                <Page unit=""></Page>
+                <Canvas>[à remplir par Biblissima]</Canvas>
+                <Descriptor id="">
+                    <Name></Name>
+                    <Concept>[URL authority record Biblissima]</Concept>
+                    <RelatedConcept>[URL authority record Biblissima]</RelatedConcept>
+                </Descriptor>
+                <Caption>[cpation text-string goes here]
+                    <GenericTerm>[generic term if available]</GenericTerm>
+                    <RelatedText>[related text if available]</RelatedText>
+                </Caption>
+                <Rubrique>[Rubrique]</Rubrique>
+                <Inscription>[Inscription]</Inscription>
+                <Note>[Note]</Note>
+                <Record id="">[URL record]</Record>
+            </HasFeature>
+            <RelatedManifestation id="">[Only for incunabula]</RelatedManifestation>
+        </Book>    
+
+        <Manifestation id="" state="attesté"><!-- [for incunabulas only] -->
+            <Date>
+                <Year></Year>
+            </Date>
+            <Place id="">
+                <Name></Name>
+            </Place>
+            <Text>
+                <AssociatedWork>
+                    <Concept></Concept>
+                </AssociatedWork>
+                <Title></Title>
+                <Language></Language>
+                <Language id="" uri="" type=""></Language>
+                <Edition></Edition>
+                <Incipit></Incipit>
+                <Explicit></Explicit>
+                <Note></Note>
+            </Text>
+            <HasPart>
+                <PartType>textual unit</PartType>
+                <Text>
+                    <AssociatedWork>
+                        <Concept/>
+                    </AssociatedWork>
+                </Text>
+            </HasPart>
+            <Participant id="" role="">
+                <Name></Name>
+            </Participant>
+            <Format></Format>
+            <Note></Note>
+            <BibliographicReference></BibliographicReference>
+            <Record></Record>
+            <Book id=""></Book>
+            <GroupDigitalSurrogates>
+                <DigitalSurrogate></DigitalSurrogate>
+            </GroupDigitalSurrogates>
+        </Manifestation>
+    
+        <GroupBooks>
+            <Shelfmark>
+                <Organisation id=""></Organisation>
+                <Identifier>
+                    <Idno></Idno>
+                    <Subidentifier></Subidentifier>
+                </Identifier>
+                <Identifier type="canonical">[Shelfmark as used by holding organisation goes here]</Identifier>
+            </Shelfmark>
+            <Name lang="[internal language ID database]"></Name>
+            <Record id="" root="">[URL goes here]</Record>
+            <Text id="">
+                <Title lang="[internal language ID database]"></Title>
+                <AssociatedWork id="" uri="[URI goes here]">
+                    <Title lang="[internal language ID database]"></Title>
+                </AssociatedWork>
+                <Language id="" uri=""></Language>
+            </Text>
+            <Participant id="" role="r4010 - r610 - r70 - etc. ">
+                <Name lang="[internal language ID database]"></Name><Identifier type="canonical">[Shelfmark as used by holding organisation goes here]</Identifier>
+            </Participant>
+            <HasPart>
+                <Book id="" uri="[ARK Medium or ARK Mandragore or URI volume]"></Book>
+            </HasPart>
+            <Note></Note>
+        </GroupBooks>
+
+    <Participant id="" id_bbma="">
+            <Name lang="[internal language ID database]"></Name>
+            <AltName lang="[internal language ID database]"></AltName>
+            <Name_Bbma lang="">[Name of the participant - preference Biblissima]</Name_Bbma>
+            <Concept uri="" source="BnF - VIAF - wikidata">[external reference goes here]</Concept>
+            <Birth>
+                <Date><Century>[Century]</Century><Year>[YYYY]</Year><Note></Note></Date>
+                <Place id="" geonames="">         
+                    <Name lang="[internal language ID database]"></Name>
+                </Place>
+            </Birth>
+            <Death>
+                <Date><Century>[Century]</Century><Year>[YYYY]</Year><Note></Note></Date>
+                <Place id="" geonames="">         
+                    <Name lang="[internal language ID database]"></Name>         
+                </Place>
+            </Death>
+            <QualifiedTitle></QualifiedTitle>
+            <Gender>"[Hh]omme", "[Ff]emme", "Organisation", "unknown"</Gender>
+            <Residence id="" geonames=""></Residence>
+            <Occupation id=""></Occupation>
+            <Note>[religion etc.]</Note>
+            <Record></Record>
+    </Participant>
+
+    <Place id="">
+            <Concept source="BnF_Rameau - BnF_CP - geonames - TGN - BnF_Org"></Concept>
+            <RelatedConcept type="skos_broader - skos_narrower"></RelatedConcept>
+            <Name lang="[internal language ID database]">[Name of the place]</Name>
+            <AltName lang="[internal language ID database]">[alternative Name of the place]</AltName>
+            <Name_Bbma>[Name of the place - preference Biblissima]</Name_Bbma>
+            <Note></Note>
+     </Place>
+
+     <Work id="" id_bbma="">[to be filled in after alignment by Biblissima]
+            <Title lang="[internal language ID database]"></Title>
+            <AltTitle lang="[internal language ID database]"></AltTitle>
+            <Title_Bbma lang="[internal language ID database]">[Name of the work - preference Biblissima]</Title_Bbma>
+            <Text id="">
+                <Participant id="" role="[marc role or definition]"></Participant>
+                <Language id=""></Language>
+                <Incipit></Incipit>
+                <Explicit></Explicit>
+            </Text>
+            <Concept source="BnF - VIAF etc."></Concept>
+            <Note></Note>  
+            <Record></Record>
+            <Repertory>[only for Pinakes]</Repertory>
+            <RelatedWork id="" type=""></RelatedWork>
+     </Work>
+    
+     <Repository>
+            <Concept source="BnF ect.">[to be added by Biblissima]</Concept>
+            <RelatedConcept type="skos_broader - skos_narrower"></RelatedConcept>
+            <Name></Name>
+            <AltName></AltName>
+            <Name_Bibma></Name_Bibma>
+            <Country id="" geonames="">[name of the country]</Country>
+            <City id="" geonames="">[name of the city]</City>
+            <Organisation id="" id_bbma="">[name of the organisation]</Organisation>
+            <Note></Note>
+     </Repository>
+    
+     <Collection state="historique ou historique_et_actuelle">
+            <Concept source="BnF etc.">[added by Biblisima]</Concept>
+            <Name></Name>
+            <Type>[privé ou public]</Type>
+            <Participant id="" role="r4010"></Participant>
+            <Book id="">
+                <Date type="entered - listed - left"><Century>[Century]</Century><Year uri="[added by Biblissima]">[YYYY]</Year><Note></Note></Date>
+                <InventoryPage invID="[ID of the data base for the Inventory goes here]" unit="[f or p or NP]">[number of the invenotries page where the book is listed]</InventoryPage>
+                <Canvas>[added by Biblissima]</Canvas>
+                <InventorySection></InventorySection>
+            </Book>
+            <Inventory id="[ID interne of data base for inventory goes here]">
+                <Title></Title>
+                <DigitalSurrogate></DigitalSurrogate>
+                <Manifest></Manifest>
+                <Record></Record>
+            </Inventory>
+            <Record></Record>
+            <Note></Note>
+        </Collection>
+</RecordList>
