@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE RecordList SYSTEM "file:/Users/stefaniegehrke/Documents/Dumps_locales_portail/XML_Pivot_DeuxiemeBonDeCommande.dtd">
 <RecordList>   
-    <DataBase uri="[URI base de données here]">[Name of the database]</DataBase>     
-        <Book id="" state="attesté ou conservé">
+    <DataBase uri="[URI database here]">[Name of the database]</DataBase>     
+        <Book id="" state="attesté or conservé">
             <Concept source="BnF etc.">[to be added by Biblissima]</Concept>
-            <ObjectType uri="">"Manuscrit", "Manuscrit enluminé", "incunabula", "incunable"</ObjectType>
+            <ObjectType uri="">['Manuscrit', 'Manuscrit enluminé', 'incunabula', 'incunable']</ObjectType>
             <Shelfmark>[Shelfmark goes here] 
                 <Organisation id="">[Name of the Organisation that keeps the manuscript goes here]</Organisation>
                 <Identifier type="">
@@ -42,7 +42,7 @@
             <Term context="[some indication about the type of terms you provide]" id="" uri="">[Term goes here]</Term>
             <Note></Note>
             <HasPart id="">
-                <PartType id="">[e.g. textual unit, artistic unit, codicological unit, binding etc.]</PartType>
+                <PartType id="">[e.g. textual unit, artistique unit, codicological unit, binding etc.]</PartType>
                 <Pages unit="[f or p or NP]">[folios or folio / pages or page go here]</Pages>
                 <Text id="">
                     <Title lang="[internal language ID database]"></Title>
@@ -67,16 +67,19 @@
                 <Record id="" root="">[URL notice component goes here]</Record>
                 <Note></Note>
                 <HasFeature id="">
-                    <FeatureType id=""></FeatureType>
+                    <FeatureType id="" uri="">[the type of the feature, for example "marque de provenance" or "enluminure" goes here]</FeatureType>
                     <Page unit=""></Page>
                     <Canvas>[à remplir par Biblissima]</Canvas>
                     <Descriptor id="">
                         <Name></Name>
                         <Concept>[URL authority record Biblissima]</Concept>
-                        <RelatedConcept></RelatedConcept>
+                        <RelatedConcept type="">[the URL of a related Concept goes here - example : skos_broader ou la personne à laquelle une marque de provenance appartient]</RelatedConcept>
+                        <AltName>[alternative name]</AltName>
+                        <Context>[code Dewey]</Context>
+                        <Note>[exlpanation or comment on the descriptor]</Note>
                     </Descriptor>
                     <Caption>[cpation text-string goes here]
-                        <GenericTerm>[generic term if available]</GenericTerm>
+                        <GenericTerm>[generic term if available - seulement Mandragore pour l'instant - et pas sûre si on l'affiche : certaines légendes commençant par un terme générique qui permet le regroupement dans l’index]</GenericTerm>
                         <RelatedText>[related text if available]</RelatedText>
                     </Caption>
                     <Rubrique>[Rubrique]</Rubrique>
@@ -93,9 +96,12 @@
                     <Name></Name>
                     <Concept>[URL authority record Biblissima]</Concept>
                     <RelatedConcept>[URL authority record Biblissima]</RelatedConcept>
+                    <AltName>[alternative name]</AltName>
+                    <Context>[code Dewey]</Context>
+                    <Note>[exlpanation or comment on the descriptor]</Note>
                 </Descriptor>
                 <Caption>[cpation text-string goes here]
-                    <GenericTerm>[generic term if available]</GenericTerm>
+                    <GenericTerm>[generic term if available - seulement Mandragore pour l'instant - et pas sûre si on l'affiche : certaines légendes commençant par un terme générique qui permet le regroupement dans l’index]</GenericTerm>
                     <RelatedText>[related text if available]</RelatedText>
                 </Caption>
                 <Rubrique>[Rubrique]</Rubrique>
@@ -248,12 +254,12 @@
                 <InventorySection></InventorySection>
             </Book>
             <Inventory id="[ID interne of data base for inventory goes here]">
-                <Title></Title>
-                <DigitalSurrogate></DigitalSurrogate>
-                <Manifest></Manifest>
-                <Record></Record>
+                <Title>[Title of the inventory]</Title>
+                <DigitalSurrogate>[URL of the digital surrogate]</DigitalSurrogate>
+                <Manifest>[URL of the sc:Manifest]</Manifest>
+                <Record>[URL of the record for this inventory in the original database]</Record>
             </Inventory>
-            <Record></Record>
-            <Note></Note>
+            <Record>[URL of the record for this historical collection in the original database]</Record>
+            <Note>[Note]</Note>
         </Collection>
 </RecordList>
