@@ -44,7 +44,7 @@
                 <Text id="">
                     <Title><xsl:attribute name="lang"><xsl:value-of select="../../../@subtype"/></xsl:attribute><xsl:value-of select="../../../@subtype"/></Title>
                     <AssociatedWork><xsl:attribute name="id"><xsl:value-of select="/tei:TEI/@xml:id"/></xsl:attribute>
-                        <Title lang=""><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:title"/></Title>
+                        <Title lang=""><xsl:value-of select="normalize-space(/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:title)"/></Title>
                         <Concept><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
                     </AssociatedWork>
                     <Language id="">français/occitan</Language>
@@ -86,7 +86,7 @@
         <xsl:for-each select=".//Text">
             <xsl:variable name="textrecord"> <xsl:value-of select="."/></xsl:variable>     
             <Work>
-                <Title><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title"/></Title>
+                <Title><xsl:value-of select="normalize-space(document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title)"/></Title>
                 <Concept><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
                 <Participant role="r70"><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Participant>
                 <Note></Note>
