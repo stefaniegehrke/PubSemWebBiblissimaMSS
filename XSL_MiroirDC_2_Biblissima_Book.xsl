@@ -49,7 +49,7 @@
                     </AssociatedWork>
                     <Language id="">français/occitan</Language>
                 </Text>
-                    <Date><Century><xsl:value-of select="./tei:msDesc/tei:history/tei:origin/tei:p/tei:origDate"/></Century><Year><xsl:value-of select="./tei:msDesc/tei:history/tei:origDate/@notbefore"/></Year><Year><xsl:value-of select="./msDesc/history/origDate/@notafter"/><Year><xsl:value-of select="./msDesc/history/origDate/@when"/></Year></Year><Note></Note></Date>
+                    <Date><Century><xsl:value-of select="./tei:msDesc/tei:history/tei:origin/tei:p/tei:origDate"/></Century><Year><xsl:value-of select="./tei:msDesc/tei:history/tei:origDate/@notbefore"/></Year><Year><xsl:value-of select="./tei:msDesc/tei:history/tei:origDate/@notafter"/><Year><xsl:value-of select="./msDesc/history/origDate/@when"/></Year></Year><Note></Note></Date>
                  <Participant id="">
                         <Name></Name>
                  </Participant>
