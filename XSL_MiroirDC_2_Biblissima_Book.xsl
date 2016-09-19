@@ -89,7 +89,7 @@
                 <Title><xsl:value-of select="normalize-space(document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title)"/></Title>
                 <Concept><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
                 <Participant role="r70"><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Participant>
-                <Note></Note>
+                <Note><xsl:value-of select="document($textrecord)//tei:text/tei:body/tei:div[tei:head = 'Diffusion latine']/tei:p"/></Note>
             </Work>
         </xsl:for-each>
     </xsl:template>
