@@ -81,14 +81,14 @@
 
     <!-- Transformation des fichiers "text" vers Recordlist/Work : tous dans un fichier -->  
     
-    <xsl:template match="textList" mode="repository">
+    <xsl:template match="textList" mode="work">
         <!-- one loop over all text files -->
         <xsl:for-each select=".//Text">
             <xsl:variable name="textrecord"> <xsl:value-of select="."/></xsl:variable>     
             <Work>
-                <Title><xsl:value-of select="document('$textrecord')//tei:titleStmt/tei:title/tei:bibl/tei:title"/></Title>
-                <Concept><xsl:value-of select="document('$textrecord')//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
-                <Participant role="r70"><xsl:value-of select="document('$textrecord')//tei:titleStmt/tei:title/tei:bibl/tei:title/tei:author"/></Participant>
+                <Title><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title"/></Title>
+                <Concept><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
+                <Participant role="r70"><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title/tei:author"/></Participant>
                 <Note></Note>
             </Work>
         </xsl:for-each>
