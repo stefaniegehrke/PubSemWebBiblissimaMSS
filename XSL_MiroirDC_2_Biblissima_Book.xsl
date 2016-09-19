@@ -63,7 +63,7 @@
                         <Title><xsl:attribute name="lang"><xsl:value-of select="../../../@subtype"/></xsl:attribute><xsl:value-of select="../../../@subtype"/></Title>
                         <AssociatedWork><xsl:attribute name="id"><xsl:value-of select="/tei:TEI/@xml:id"/></xsl:attribute>
                             <Title lang=""><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:title"/></Title>
-                            <Concept><xsl:value-of select="/tei:TEI//tei:titleStmt/title/bibl/@corresp"/></Concept>
+                            <Concept><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
                             <Participant role="r70"><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:title/tei:author"/></Participant>
                         </AssociatedWork>
                         <Language id="">français/occitan</Language>
