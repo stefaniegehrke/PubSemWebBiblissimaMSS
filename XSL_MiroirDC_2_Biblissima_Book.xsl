@@ -51,20 +51,20 @@
                 </Text>
                     <Date><Century><xsl:value-of select="./tei:msDesc/tei:history/tei:origin/tei:p/tei:origDate"/></Century><Year><xsl:value-of select="./tei:msDesc/tei:history/tei:origDate/@notbefore"/></Year><Year><xsl:value-of select="./tei:msDesc/tei:history/tei:origDate/@notafter"/><Year><xsl:value-of select="./msDesc/history/origDate/@when"/></Year></Year><Note></Note></Date>
                  <Participant id="">
-                        <Name></Name>
+                        <Name><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Name>
                  </Participant>
                  <Note></Note>
                
                     <Extent unit=""><xsl:value-of select="./tei:msDesc/tei:physDesc/tei:objectDesc/tei:p"/></Extent>
                     <BibliographicReference id="[internal ID from database]"></BibliographicReference> 
-                <HasPart id="[internal ID from database]">
+                    <HasPart id="[internal ID from database]">
                     <PartType id="[internal ID from database]">unité textuelle</PartType>
                     <Text id="">
                         <Title><xsl:attribute name="lang"><xsl:value-of select="../../../@subtype"/></xsl:attribute><xsl:value-of select="../../../@subtype"/></Title>
                         <AssociatedWork><xsl:attribute name="id"><xsl:value-of select="/tei:TEI/@xml:id"/></xsl:attribute>
                             <Title lang=""><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:title"/></Title>
                             <Concept><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
-                            <Participant role="r70"><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:title/tei:author"/></Participant>
+                            <Participant role="r70"><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Participant>
                         </AssociatedWork>
                         <Language id="">français/occitan</Language>
                     </Text>
