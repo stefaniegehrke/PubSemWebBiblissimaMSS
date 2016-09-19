@@ -20,7 +20,7 @@
                 <AssociatedWork id="" id_bbma="">
                     <Title lang="[internal language ID database]">[the title of the work goes here]</Title>
                 </AssociatedWork>
-                <Language id="" uri="" type="">[Language of the text]</Language>
+                <Language id="" uri="" type="[valeurs 'originale' et 'pas_originale'">[Language of the text]</Language>
                 <Incipit>[Incipit]</Incipit>
                 <Explicit>[Explicit]</Explicit>
                 <Note>[Note]</Note>
