@@ -88,7 +88,7 @@
             <Work>
                 <Title><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title"/></Title>
                 <Concept><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
-                <Participant role="r70"><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title/tei:author"/></Participant>
+                <Participant role="r70"><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Participant>
                 <Note></Note>
             </Work>
         </xsl:for-each>
