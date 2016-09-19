@@ -62,7 +62,7 @@
                     <Text id="">
                         <Title><xsl:attribute name="lang"><xsl:value-of select="../../../@subtype"/></xsl:attribute><xsl:value-of select="../../../@subtype"/></Title>
                         <AssociatedWork><xsl:attribute name="id"><xsl:value-of select="/tei:TEI/@xml:id"/></xsl:attribute>
-                            <Title lang=""><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:title"/></Title>
+                            <Title lang=""><xsl:value-of select="normalize-space(/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:title)"/></Title>
                             <Concept><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
                             <Participant role="r70"><xsl:value-of select="/tei:TEI//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Participant>
                         </AssociatedWork>
