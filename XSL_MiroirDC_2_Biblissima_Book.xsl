@@ -68,7 +68,7 @@
                         </AssociatedWork>
                         <Language id="">français/occitan</Language>
                     </Text>
-                    <Pages><xsl:value-of select="../../../../tei:div[@type='incipit' and .//tei:idno=$idno]/tei:msContents/tei:msItem/tei:div[@type='incipit']/tei:locus[1]"/>-<xsl:value-of select="../../../../div[@type='incipit' and .//idno=$idno]/msContents/msItem/div[@type='incipit']/locus[2]"/></Pages>
+                    <Pages><xsl:value-of select="../../../../tei:div[@type='incipit' and .//tei:idno=$idno]/tei:msContents/tei:msItem/tei:div[@type='incipit']/tei:locus[1]"/>-<xsl:value-of select="../../../../div[@type='incipit' and .//idno=$idno]/tei:msContents/tei:msItem/tei:div[@type='incipit']/tei:locus[2]"/></Pages>
                     <Incipit><xsl:value-of select="../../../../tei:div[@type='incipit' and .//tei:idno=$idno]/tei:msContents/tei:msItem/tei:div[@type='incipit']/tei:locus[1]"/></Incipit>
                     <Explicit></Explicit>
                 </HasPart>
