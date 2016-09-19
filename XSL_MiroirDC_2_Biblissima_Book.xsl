@@ -31,14 +31,14 @@
            
  
             <xsl:for-each select="document($textrecord)//tei:item">
-                <xsl:variable name="idno"><xsl:value-of select="./tei:msDesc/tei:msIdentifier/tei:Idno"/></xsl:variable>
+                <xsl:variable name="idno"><xsl:value-of select="./tei:msDesc/tei:msIdentifier/tei:idno"/></xsl:variable>
                 
                 <Book><xsl:attribute name="id"><xsl:value-of select="./@xml:id"/></xsl:attribute>
                     <ObjectType><xsl:value-of select="../../@type"/></ObjectType>
                 <Shelfmark>
-                    <Organisation><xsl:value-of select="./tei:msDesc/tei:msIdentifier/tei:Repository"/></Organisation>
+                    <Organisation><xsl:value-of select="./tei:msDesc/tei:msIdentifier/tei:repository"/></Organisation>
                     <Identifier>
-                        <Idno><xsl:value-of select="./tei:msDesc/tei:msIdentifier/tei:Idno"/></Idno>
+                        <Idno><xsl:value-of select="./tei:msDesc/tei:msIdentifier/tei:idno"/></Idno>
                     </Identifier>
                 </Shelfmark>
                 <Text id="">
