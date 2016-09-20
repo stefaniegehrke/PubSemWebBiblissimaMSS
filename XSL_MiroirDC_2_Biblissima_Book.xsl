@@ -30,7 +30,7 @@
             <xsl:variable name="textrecord"><xsl:value-of select="."/></xsl:variable>
            
  
-            <xsl:for-each select="document($textrecord)//tei:item">
+            <xsl:for-each select="document($textrecord)//tei:item[parent::tei:list[@type='listMs']]">
                 <xsl:variable name="idno"><xsl:value-of select="./tei:msDesc/tei:msIdentifier/tei:idno"/></xsl:variable>
                 
                 <Book><xsl:attribute name="id"><xsl:value-of select="./@xml:id"/></xsl:attribute>
