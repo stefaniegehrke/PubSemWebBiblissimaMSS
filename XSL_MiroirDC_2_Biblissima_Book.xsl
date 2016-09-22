@@ -76,9 +76,7 @@
             </xsl:for-each>
         </xsl:for-each>
     </xsl:template>
- 
     
-
     <!-- Transformation des fichiers "text" vers Recordlist/Work : tous dans un fichier -->  
     
     <xsl:template match="textList" mode="work">
@@ -93,8 +91,39 @@
             </Work>
         </xsl:for-each>
     </xsl:template>
-  
-
+    
+    <!-- merging of several Books with same id - only keeping the first one --> 
+    <!-- XSLT template to copy anything, priority="-1" -->
+    
+        <xsl:template match="/">
+            <!-- global output for all data goes here -->
+            <xsl:variable name="output_dir">./</xsl:variable> 
+            <xsl:variable name="outputDate"><xsl:value-of select="current-date()"/></xsl:variable>
+            <xsl:variable name="outputFile"><xsl:value-of select="$output_dir"/>ExportBdC2_MiroirDC_Biblissima<xsl:value-of select="substring-before($outputDate,'+')"/>.xml</xsl:variable>
+            <xsl:result-document href="{$outputFile}" method="xml"  encoding="UTF-8" indent="yes" >
+                <xsl:copy>
+                    <xsl:apply-templates select="node()|comment()"/>
+                </xsl:copy>
+             </xsl:result-document>
+        </xsl:template>
+        
+        
+        <!-- XSLT template to copy anything, priority="-1" -->
+        <xsl:template match="@*|node()|comment()" priority="-1">
+            <xsl:copy>
+                <xsl:apply-templates select="@*|node()|comment()"/>
+            </xsl:copy>
+        </xsl:template>
+        
+        <!-- Keep only the first occurance of a Book  -->
+        <xsl:template match="Book">
+            <xsl:variable name="thisID"><xsl:value-of select="@id"/></xsl:variable>
+            <xsl:if test="not(preceding::Book[@id = $thisID])">
+                <xsl:copy>
+                    <xsl:apply-templates select="@*|node()|comment()"/>
+                </xsl:copy>
+            </xsl:if>
+        </xsl:template>
         
 </xsl:transform>           
 
