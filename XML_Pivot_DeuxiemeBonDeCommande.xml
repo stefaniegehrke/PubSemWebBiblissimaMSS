@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE RecordList SYSTEM "file:/Users/stefaniegehrke/Documents/Dumps_locales_portail/XML_Pivot_DeuxiemeBonDeCommande.dtd">
-<!-- Sie müssen das folgende DOCTYPE löschen -->
-<!DOCTYPE RecordList SYSTEM "file:/Users/stefaniegehrke/Documents/Dumps_locales_portail/XML_Pivot_DeuxiemeBonDeCommande.dtd">
 <RecordList>   
     <DataBase uri="[URI database goes here]">[Name of the database]</DataBase>     
         <Book id="[internal id database]" state="attested or preserved or dispersed or identified">
