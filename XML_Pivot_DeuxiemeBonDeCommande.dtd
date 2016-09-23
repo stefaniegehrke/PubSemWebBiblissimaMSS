@@ -6,6 +6,7 @@
 <!ATTLIST Page unit CDATA #IMPLIED>
 <!ELEMENT Gender (#PCDATA)>
 <!ELEMENT Thumbnail (#PCDATA)>
+<!ELEMENT SalesNumber (#PCDATA)>
 <!ELEMENT DigitalSurrogate (#PCDATA)>
 <!ATTLIST DigitalSurrogate type CDATA #IMPLIED>
 <!ELEMENT Name (#PCDATA)>
@@ -16,7 +17,7 @@
 <!ELEMENT AssociatedWork (#PCDATA | Title | Concept)*>
 <!ATTLIST AssociatedWork id CDATA #IMPLIED>
 <!ATTLIST AssociatedWork id_bbma CDATA #IMPLIED>
-<!ELEMENT Book (#PCDATA | Concept | ObjectType | Shelfmark | Name | AttestedTitle | Text | Participant | Date | Place | DigitalSurrogate | Manifest | Thumbnail | Record | Extent | Format | BibliographicReference | Term | Note | HasPart | HasFeature | RelatedManifestation | InventoryPage | Canvas | InventorySection)*>
+<!ELEMENT Book (#PCDATA | Concept | ObjectType | Shelfmark | Name | AttestedTitle | Text | Participant | Date | Place | DigitalSurrogate | Manifest | Thumbnail | Record | Extent | Format | BibliographicReference | Term | Note | HasPart | HasFeature | RelatedManifestation | InventoryPage | Canvas | InventorySection | SalesNumber)*>
 <!ATTLIST Book state CDATA #IMPLIED>
 <!ATTLIST Book id CDATA #IMPLIED>
 <!ELEMENT RelatedText (#PCDATA)>
@@ -51,8 +52,8 @@
 <!ELEMENT GenericTerm (#PCDATA)>
 <!ELEMENT Participant (#PCDATA | Name | AltName | Name_Bbma | Concept | Birth | Death | QualifiedTitle | Gender | Residence | Occupation | Note | Record)*>
 <!ATTLIST Participant id CDATA #IMPLIED>
-<!ATTLIST Participant id_bbma CDATA #IMPLIED>
 <!ATTLIST Participant role CDATA #IMPLIED>
+<!ATTLIST Participant id_bbma CDATA #IMPLIED>
 <!ELEMENT RecordList (#PCDATA | DataBase | Book | Manifestation | GroupBooks | Participant | Place | Work | Repository | Collection)*>
 <!ELEMENT Volume (#PCDATA)>
 <!ELEMENT Note (#PCDATA)>
@@ -67,11 +68,12 @@
 <!ELEMENT RelatedManifestation (#PCDATA)>
 <!ATTLIST RelatedManifestation id CDATA #IMPLIED>
 <!ELEMENT Repertory (#PCDATA)>
-<!ELEMENT Inventory (#PCDATA | Title | Date | Place | DigitalSurrogate | Manifest | Record)*>
+<!ELEMENT Inventory (#PCDATA | Title | Sale | Shelfmark | Date | Place | Participant | DigitalSurrogate | Manifest | Record | Note)*>
 <!ATTLIST Inventory id CDATA #IMPLIED>
 <!ELEMENT PartType (#PCDATA)>
 <!ATTLIST PartType id CDATA #IMPLIED>
 <!ATTLIST PartType uri CDATA #IMPLIED>
+<!ELEMENT Sale (#PCDATA)>
 <!ELEMENT FeatureType (#PCDATA)>
 <!ATTLIST FeatureType id CDATA #IMPLIED>
 <!ATTLIST FeatureType uri CDATA #IMPLIED>
