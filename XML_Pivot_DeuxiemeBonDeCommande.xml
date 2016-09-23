@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE RecordList SYSTEM "file:/Users/stefaniegehrke/Documents/Dumps_locales_portail/XML_Pivot_DeuxiemeBonDeCommande.dtd">
+<!-- Sie müssen das folgende DOCTYPE löschen -->
+<!DOCTYPE RecordList SYSTEM "file:/Users/stefaniegehrke/Documents/Dumps_locales_portail/XML_Pivot_DeuxiemeBonDeCommande.dtd">
 <RecordList>   
     <DataBase uri="[URI database goes here]">[Name of the database]</DataBase>     
         <Book id="[internal id database]" state="attested or preserved or dispersed or identified">
@@ -82,6 +84,7 @@
                 <HasFeature id="[internal id database]">
                     <FeatureType id="[internal id database]" uri="[URL of thesaurus Biblissima goes here]">[the type of the feature, for example "marque de provenance" or "enluminure" goes here]</FeatureType>
                     <Page unit="p or f or NP">[folio or page on which the feature is found]</Page>
+                    <DigitalSurrogate>[URL of an image of the folio or page goes here]</DigitalSurrogate>
                     <Canvas>[by Biblissima]</Canvas>
                     <Descriptor id="[internal id database]">
                         <Name lang="">[label of descriptor]</Name>
@@ -103,7 +106,8 @@
             </HasPart>
             <HasFeature id="[internal id database]">
                 <FeatureType id="[internal id database]" uri=""></FeatureType>
-                <Page unit=""></Page>
+                <Page unit="p or f or NP">[folio or page on which the feature is found]</Page>
+                <DigitalSurrogate>[URL of an image of the folio or page goes here]</DigitalSurrogate>
                 <Canvas>[to be added by Biblissima]</Canvas>
                 <Descriptor id="[internal id database]">
                     <Name lang="">[Name of descriptor]</Name>
@@ -167,7 +171,7 @@
             <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
             <Book id="[internal id database]"></Book>
             <GroupDigitalSurrogates>
-                <DigitalSurrogate>[URL of a digital surrogate of an item goes here]</DigitalSurrogate>
+                <DigitalSurrogate type="[integral or partial]">[URL of a digital surrogate of an item goes here]</DigitalSurrogate>
             </GroupDigitalSurrogates>
         </Manifestation>
     
@@ -308,7 +312,7 @@
                 <Participant id="[internal id database]" role="[value of http://data.bnf.fr/vocaulary/roles/]" id_bbma="[SHA-1]">
                     <Name>[name of printer or editor or former owner]</Name>
                 </Participant>
-                <DigitalSurrogate>[URL of digital surrogate of sales catalogue or inventory goes here]</DigitalSurrogate>
+                <DigitalSurrogate type="[integral or partial]">[URL of digital surrogate of sales catalogue or inventory goes here]</DigitalSurrogate>
                 <Manifest>[URL of sc:manifest goes here]</Manifest>
                 <Record id="[internal id database]" root="[root used for constructing the URL]">[URL of record of inventory or sales catalogue in database goes here]</Record>
                 <Note>[note about the sales catalogue or inventory]</Note>
