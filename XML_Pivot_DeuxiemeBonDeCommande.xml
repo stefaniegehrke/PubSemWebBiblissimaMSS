@@ -63,7 +63,7 @@
                     <Explicit></Explicit>
                     <Note>[Note]</Note>
                 </Text>
-                <Participant id="[internal id database]" role="[value of http://data.bnf.fr/vocabulary/roles/]" id_bbma="">
+                <Participant id="[internal id database]" role="[value of http://data.bnf.fr/vocabulary/roles/]" id_bbma="[SHA-1]">
                     <Name lang="[internal language ID database]"></Name>
                 </Participant>
                 <Date uri="[URL of thesaurus Biblissima goes here]">
@@ -120,7 +120,7 @@
                 <Rubric>[Rubric]</Rubric>
                 <Inscription>[Inscription]</Inscription>
                 <Note>[Note]</Note>
-                <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record]</Record>
+                <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
             </HasFeature>
             <RelatedManifestation id="[internal id database of edition]">[Only for incunabula]</RelatedManifestation>
         </Book>    
@@ -164,7 +164,7 @@
             <Format uri="[URL thesaurus Biblissima goes here]">[format of the items of the edition]</Format>
             <Note>[note]</Note>
             <BibliographicReference>[Bibliographic reference goes here]</BibliographicReference>
-            <Record>[URL of the record goes here]</Record>
+            <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
             <Book id="[internal id database]"></Book>
             <GroupDigitalSurrogates>
                 <DigitalSurrogate>[URL of a digital surrogate of an item goes here]</DigitalSurrogate>
@@ -181,7 +181,7 @@
                 <Identifier type="canonical or dummy">[Shelfmark as used by holding organisation goes here]</Identifier>
             </Shelfmark>
             <Name lang="[internal language ID database]">[name used for the group of books</Name>
-            <Record id="[internal id database]" root="[root used for constructing the URL]">[URL goes here]</Record>
+            <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
             <Text id="[internal id database]">
                 <Title lang="[internal language ID database]">[Title]</Title>
                 <AssociatedWork id="[internal id database]" id_bbma="[URI goes here]">
@@ -208,7 +208,7 @@
                 <Date>
                     <Century>[Century]</Century>
                     <Year uri="http://data.bnf.fr/dates/yyyy/">[YYYY]</Year>
-                    <Note></Note>
+                    <Note>[note]</Note>
                 </Date>
                 <Place id="[internal id database]">         
                     <Name lang="[internal language ID database]"></Name>
@@ -227,19 +227,19 @@
                 </Place>
             </Death>
             <QualifiedTitle>[Qualified title goes here]</QualifiedTitle>
-            <Gender>"[Hh]omme", "[Ff]emme", "Organisation", "unknown"</Gender>
-            <Residence id="[internal id database]" geonames="[ID geonames goes here]">[name of the place of residence]</Residence>
+            <Gender>[[Hh]omme or [Ff]emme or [Oo]rganisation or unknown]</Gender>
+            <Residence id="[internal id database]" geonames="[ID geonames goes here - to be added by Biblissima]">[name of the place of residence]</Residence>
             <Occupation id="[internal id database]">[Occupation]</Occupation>
             <Note>[Note]</Note>
             <Record id="[internal id database goes here]" root="[root for constructing the URL goes here]">[URL of the record of the database goes here]</Record>
     </Participant>
 
     <Place id="[internal id database]">
-            <Concept source="BnF_Rameau or BnF_CP or geonames or TGN or BnF_Org"></Concept>
-            <RelatedConcept type="skos_broader or skos_narrower"></RelatedConcept>
             <Name lang="[internal language ID database]">[name of the place]</Name>
             <AltName lang="[internal language ID database]">[alternative name of the place]</AltName>
             <Name_Bbma lang="[language]">[name of the place - preference Biblissima]</Name_Bbma>
+            <Concept source="BnF_Rameau or BnF_CP or geonames or TGN or BnF_Org"></Concept>
+            <RelatedConcept type="skos_broader or skos_narrower"></RelatedConcept>
             <Note>[Note]</Note>
      </Place>
 
@@ -248,7 +248,9 @@
             <AltTitle lang="[internal language ID database]">[alternative title of the work]</AltTitle>
             <Title_Bbma lang="[internal language ID database]">[name of the work - preference Biblissima]</Title_Bbma>
             <Text id="[internal id database]">
-                <Participant id="[internal id database]" role="[value of http://data.bnf.fr/vocabulary/roles/]" id_bbma="[SHA-1]"></Participant>
+                <Participant id="[internal id database]" role="[value of http://data.bnf.fr/vocabulary/roles/]" id_bbma="[SHA-1]">
+                    <Name>[name of the participant]</Name>
+                </Participant>
                 <Language id="[internal id database]">[language of the text]</Language>
                 <Incipit>[Incipit]</Incipit>
                 <Explicit>[Explicit]</Explicit>
@@ -256,7 +258,7 @@
             </Text>
             <Concept source="BnF or dnb or LoC or VIAF or wikidata">[URL external reference goes here]</Concept>
             <Note>[Note]</Note>  
-            <Record id="" root="">[URL Record in database]</Record>
+            <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
             <Repertory>[only for Pinakes - repertory and repertory number of work]</Repertory>
             <RelatedWork id="[internal id database]" type="[to be defined by Biblissima]" id_bbma="[SHA-1]">[Concept of a related work]</RelatedWork>
      </Work>
@@ -274,12 +276,14 @@
      </Repository>
     
      <Collection state="historical or historical_and_current">
-            <Concept source="BnF">[added by Biblisima]</Concept>
+            <Concept source="BnF">[added by Biblissima]</Concept>
             <Name>[name of the collection]</Name>
             <Type>[privat or public]</Type>
-            <Participant id="[internal id database]" id_bbma="[SHA-1]" role="r4010"></Participant>
+            <Participant id="[internal id database]" id_bbma="[SHA-1]" role="r4010">
+                <Name>[name]</Name>
+            </Participant>
             <Book id="[internal id database]">
-                <Date type="entered - listed - left"><Century>[Century]</Century><Year uri="[added by Biblissima]">[YYYY]</Year><Note></Note></Date>
+                <Date type="entered or listed or left"><Century>[Century]</Century><Year uri="[http://data.bnf.fr/dates/yyy/]">[YYYY]</Year><Note></Note></Date>
                 <InventoryPage invID="[ID of the data base for the Inventory goes here]" unit="[f or p or NP]">[number of the invenotries page where the book is listed]</InventoryPage>
                 <Canvas>[added by Biblissima]</Canvas>
                 <InventorySection>[title of the section of the inventory that mentiones the book]</InventorySection>
@@ -295,21 +299,21 @@
                     </Identifier>
                 </Shelfmark>
                 <Date>
-                    <Year uri="http://data.bnf.fr/dates/yyyy/">[Year of print]</Year>
+                    <Year uri="http://data.bnf.fr/dates/yyyy/">[Year of printing]</Year>
                 </Date>
                 <Place id="[internal id database goes here]">
                     <Name></Name>
-                    <Concept>[to be added by Biblissima]</Concept>
+                    <Concept>[Concept geonames (PPL) to be added by Biblissima]</Concept>
                 </Place>
-                <Participant id="[]internal id database" role="[value of http://data.bnf.fr/vocaulary/roles/]" id_bbma="SHA-1">
+                <Participant id="[internal id database]" role="[value of http://data.bnf.fr/vocaulary/roles/]" id_bbma="[SHA-1]">
                     <Name>[name of printer or editor or former owner]</Name>
                 </Participant>
                 <DigitalSurrogate>[URL of digital surrogate of sales catalogue or inventory goes here]</DigitalSurrogate>
                 <Manifest>[URL of sc:manifest goes here]</Manifest>
-                <Record>[URL of record of inventory or sales catalogue in database goes here]</Record>
+                <Record id="[internal id database]" root="[root used for constructing the URL]">[URL of record of inventory or sales catalogue in database goes here]</Record>
                 <Note>[note about the sales catalogue or inventory]</Note>
             </Inventory>
-            <Record>[URL of record of collection in database goes here]</Record>
+            <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database for the collection]</Record>
             <Note>[Note]</Note>
         </Collection>
 </RecordList>
