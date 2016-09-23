@@ -86,7 +86,7 @@
                     <Descriptor id="[internal id database]">
                         <Name lang="">[label of descriptor]</Name>
                         <Concept>[URL authority record goes here - to be added by Biblissima]</Concept>
-                        <RelatedConcept type="[to be defined]">[the URL of a related Concept goes here - example : skos_broader ou la personne à laquelle une marque de provenance appartient]</RelatedConcept>
+                        <RelatedConcept type="[to be defined]">[the URL of a related Concept goes here - example : URL of the authority record of the person responsible for the provenance mark]</RelatedConcept>
                         <AltName>[alternative name]</AltName>
                         <Context>[code Dewey]</Context>
                         <Note>[explanation or comment on the descriptor]</Note>
@@ -276,26 +276,38 @@
      <Collection state="historical or historical_and_current">
             <Concept source="BnF">[added by Biblisima]</Concept>
             <Name>[name of the collection]</Name>
-            <Type>[privé ou public]</Type>
+            <Type>[privat or public]</Type>
             <Participant id="[internal id database]" id_bbma="[SHA-1]" role="r4010"></Participant>
             <Book id="[internal id database]">
                 <Date type="entered - listed - left"><Century>[Century]</Century><Year uri="[added by Biblissima]">[YYYY]</Year><Note></Note></Date>
                 <InventoryPage invID="[ID of the data base for the Inventory goes here]" unit="[f or p or NP]">[number of the invenotries page where the book is listed]</InventoryPage>
                 <Canvas>[added by Biblissima]</Canvas>
                 <InventorySection>[title of the section of the inventory that mentiones the book]</InventorySection>
+                <SalesNumber>[number of the item in the sale - for sales catalgues only]</SalesNumber>
             </Book>
             <Inventory id="[ID interne of data base for inventory goes here]">
-                <Title></Title>
+                <Title>[inventory title]</Title>
+                <Sale>[name of sale - for sales catalogues only]</Sale>
+                <Shelfmark>
+                    <Organisation></Organisation>
+                    <Identifier>
+                        <Idno></Idno>
+                    </Identifier>
+                </Shelfmark>
                 <Date>
-                    <Year uri="http://data.bnf.fr/dates/yyyy/"></Year>
+                    <Year uri="http://data.bnf.fr/dates/yyyy/">[Year of print]</Year>
                 </Date>
                 <Place id="[internal id database goes here]">
                     <Name></Name>
                     <Concept>[to be added by Biblissima]</Concept>
                 </Place>
+                <Participant id="[]internal id database" role="[value of http://data.bnf.fr/vocaulary/roles/]" id_bbma="SHA-1">
+                    <Name>[name of printer or editor or former owner]</Name>
+                </Participant>
                 <DigitalSurrogate>[URL of digital surrogate of sales catalogue or inventory goes here]</DigitalSurrogate>
                 <Manifest>[URL of sc:manifest goes here]</Manifest>
                 <Record>[URL of record of inventory or sales catalogue in database goes here]</Record>
+                <Note>[note about the sales catalogue or inventory]</Note>
             </Inventory>
             <Record>[URL of record of collection in database goes here]</Record>
             <Note>[Note]</Note>
