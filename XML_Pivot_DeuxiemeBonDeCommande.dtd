@@ -1,4 +1,4 @@
-<!ELEMENT HasFeature (#PCDATA | FeatureType | Page | Canvas | Descriptor | Caption | Rubric | Inscription | Note | Record)*>
+<!ELEMENT HasFeature (#PCDATA | FeatureType | Page | DigitalSurrogate | Canvas | Descriptor | Caption | Rubric | Inscription | Note | Record)*>
 <!ATTLIST HasFeature id CDATA #IMPLIED>
 <!ELEMENT Subidentifier (#PCDATA)>
 <!ELEMENT Explicit (#PCDATA)>
@@ -134,7 +134,7 @@
 <!ATTLIST Year uri CDATA #IMPLIED>
 <!ELEMENT AltName (#PCDATA)>
 <!ATTLIST AltName lang CDATA #IMPLIED>
-<!ELEMENT Place (#PCDATA | Name | Concept | RelatedConcept | AltName | Name_Bbma | Note)*>
+<!ELEMENT Place (#PCDATA | Name | Concept | AltName | Name_Bbma | RelatedConcept | Note)*>
 <!ATTLIST Place type CDATA #IMPLIED>
 <!ATTLIST Place id CDATA #IMPLIED>
 <!ELEMENT RelatedWork (#PCDATA)>
