@@ -1,4 +1,4 @@
-<!ELEMENT HasFeature (#PCDATA | FeatureType | Page | Canvas | Descriptor | Caption | Rubrique | Inscription | Note | Record)*>
+<!ELEMENT HasFeature (#PCDATA | FeatureType | Page | Canvas | Descriptor | Caption | Rubric | Inscription | Note | Record)*>
 <!ATTLIST HasFeature id CDATA #IMPLIED>
 <!ELEMENT Subidentifier (#PCDATA)>
 <!ELEMENT Explicit (#PCDATA)>
@@ -14,22 +14,21 @@
 <!ATTLIST Identifier type CDATA #IMPLIED>
 <!ELEMENT Inscription (#PCDATA)>
 <!ELEMENT AssociatedWork (#PCDATA | Title | Concept)*>
-<!ATTLIST AssociatedWork id_bbma CDATA #IMPLIED>
 <!ATTLIST AssociatedWork id CDATA #IMPLIED>
-<!ATTLIST AssociatedWork uri CDATA #IMPLIED>
-<!ELEMENT Book (#PCDATA | Concept | ObjectType | Shelfmark | Name | Text | Participant | Date | Place | DigitalSurrogate | Manifest | Thumbnail | Record | Extent | Format | BibliographicReference | Term | Note | HasPart | HasFeature | RelatedManifestation | InventoryPage | Canvas | InventorySection)*>
+<!ATTLIST AssociatedWork id_bbma CDATA #IMPLIED>
+<!ELEMENT Book (#PCDATA | Concept | ObjectType | Shelfmark | Name | AttestedTitle | Text | Participant | Date | Place | DigitalSurrogate | Manifest | Thumbnail | Record | Extent | Format | BibliographicReference | Term | Note | HasPart | HasFeature | RelatedManifestation | InventoryPage | Canvas | InventorySection)*>
 <!ATTLIST Book state CDATA #IMPLIED>
-<!ATTLIST Book uri CDATA #IMPLIED>
 <!ATTLIST Book id CDATA #IMPLIED>
 <!ELEMENT RelatedText (#PCDATA)>
 <!ELEMENT Work (#PCDATA | Title | AltTitle | Title_Bbma | Text | Concept | Note | Record | Repertory | RelatedWork)*>
 <!ATTLIST Work id CDATA #IMPLIED>
 <!ATTLIST Work id_bbma CDATA #IMPLIED>
+<!ELEMENT AttestedTitle (#PCDATA)>
+<!ATTLIST AttestedTitle lang CDATA #IMPLIED>
 <!ELEMENT Title_Bbma (#PCDATA)>
 <!ATTLIST Title_Bbma lang CDATA #IMPLIED>
 <!ELEMENT Idno (#PCDATA)>
 <!ELEMENT Concept (#PCDATA)>
-<!ATTLIST Concept uri CDATA #IMPLIED>
 <!ATTLIST Concept source CDATA #IMPLIED>
 <!ELEMENT GroupDigitalSurrogates (#PCDATA | DigitalSurrogate)*>
 <!ELEMENT GroupBooks (#PCDATA | Shelfmark | Name | Record | Text | Participant | HasPart | Note)*>
@@ -40,7 +39,6 @@
 <!ELEMENT Canvas (#PCDATA)>
 <!ELEMENT RelatedConcept (#PCDATA)>
 <!ATTLIST RelatedConcept type CDATA #IMPLIED>
-<!ELEMENT Rubrique (#PCDATA)>
 <!ELEMENT Term (#PCDATA)>
 <!ATTLIST Term context CDATA #IMPLIED>
 <!ATTLIST Term id CDATA #IMPLIED>
@@ -48,13 +46,12 @@
 <!ELEMENT City (#PCDATA)>
 <!ATTLIST City id CDATA #IMPLIED>
 <!ATTLIST City geonames CDATA #IMPLIED>
-<!ELEMENT Edition (#PCDATA)>
 <!ELEMENT Pages (#PCDATA)>
 <!ATTLIST Pages unit CDATA #IMPLIED>
 <!ELEMENT GenericTerm (#PCDATA)>
-<!ELEMENT Participant (#PCDATA | Name | Identifier | AltName | Name_Bbma | Concept | Birth | Death | QualifiedTitle | Gender | Residence | Occupation | Note | Record)*>
-<!ATTLIST Participant id_bbma CDATA #IMPLIED>
+<!ELEMENT Participant (#PCDATA | Name | AltName | Name_Bbma | Concept | Birth | Death | QualifiedTitle | Gender | Residence | Occupation | Note | Record)*>
 <!ATTLIST Participant id CDATA #IMPLIED>
+<!ATTLIST Participant id_bbma CDATA #IMPLIED>
 <!ATTLIST Participant role CDATA #IMPLIED>
 <!ELEMENT RecordList (#PCDATA | DataBase | Book | Manifestation | GroupBooks | Participant | Place | Work | Repository | Collection)*>
 <!ELEMENT Volume (#PCDATA)>
@@ -70,13 +67,15 @@
 <!ELEMENT RelatedManifestation (#PCDATA)>
 <!ATTLIST RelatedManifestation id CDATA #IMPLIED>
 <!ELEMENT Repertory (#PCDATA)>
-<!ELEMENT Inventory (#PCDATA | Title | DigitalSurrogate | Manifest | Record)*>
+<!ELEMENT Inventory (#PCDATA | Title | Date | Place | DigitalSurrogate | Manifest | Record)*>
 <!ATTLIST Inventory id CDATA #IMPLIED>
 <!ELEMENT PartType (#PCDATA)>
 <!ATTLIST PartType id CDATA #IMPLIED>
+<!ATTLIST PartType uri CDATA #IMPLIED>
 <!ELEMENT FeatureType (#PCDATA)>
-<!ATTLIST FeatureType uri CDATA #IMPLIED>
 <!ATTLIST FeatureType id CDATA #IMPLIED>
+<!ATTLIST FeatureType uri CDATA #IMPLIED>
+<!ELEMENT Rubric (#PCDATA)>
 <!ELEMENT Extent (#PCDATA)>
 <!ATTLIST Extent unit CDATA #IMPLIED>
 <!ELEMENT Shelfmark (#PCDATA | Organisation | Identifier)*>
@@ -92,8 +91,8 @@
 <!ATTLIST Format unit CDATA #IMPLIED>
 <!ATTLIST Format uri CDATA #IMPLIED>
 <!ELEMENT Language (#PCDATA)>
-<!ATTLIST Language type CDATA #IMPLIED>
 <!ATTLIST Language uri CDATA #IMPLIED>
+<!ATTLIST Language type CDATA #IMPLIED>
 <!ATTLIST Language id CDATA #IMPLIED>
 <!ELEMENT QualifiedTitle (#PCDATA)>
 <!ELEMENT Record (#PCDATA)>
@@ -111,7 +110,7 @@
 <!ELEMENT Name_Bibma (#PCDATA)>
 <!ELEMENT Title (#PCDATA)>
 <!ATTLIST Title lang CDATA #IMPLIED>
-<!ELEMENT Text (#PCDATA | Title | AssociatedWork | Language | Incipit | Explicit | Note | Edition | Participant)*>
+<!ELEMENT Text (#PCDATA | Title | AssociatedWork | Language | Incipit | Explicit | Note | Participant)*>
 <!ATTLIST Text id CDATA #IMPLIED>
 <!ELEMENT Residence (#PCDATA)>
 <!ATTLIST Residence id CDATA #IMPLIED>
@@ -135,8 +134,8 @@
 <!ATTLIST AltName lang CDATA #IMPLIED>
 <!ELEMENT Place (#PCDATA | Name | Concept | RelatedConcept | AltName | Name_Bbma | Note)*>
 <!ATTLIST Place type CDATA #IMPLIED>
-<!ATTLIST Place geonames CDATA #IMPLIED>
 <!ATTLIST Place id CDATA #IMPLIED>
 <!ELEMENT RelatedWork (#PCDATA)>
 <!ATTLIST RelatedWork id CDATA #IMPLIED>
 <!ATTLIST RelatedWork type CDATA #IMPLIED>
+<!ATTLIST RelatedWork id_bbma CDATA #IMPLIED>
