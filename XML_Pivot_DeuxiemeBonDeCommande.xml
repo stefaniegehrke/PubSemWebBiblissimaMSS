@@ -79,6 +79,7 @@
                 <Term context="[support]" id="[internal id database]" uri="[URL thesaurus Biblissima goes here]">[term related to the manuscript part]</Term>
                 <Record id="[internal id database]" root="[root used in order to construct the URL of the record]">[URL notice component goes here]</Record>
                 <Note>[note]</Note>
+                <RelatedManifestation id="[internal id database of edition]">[Only for Sammelbände]</RelatedManifestation>
                 <HasFeature id="[internal id database]">
                     <FeatureType id="[internal id database]" uri="[URL of thesaurus Biblissima goes here]">[the type of the feature, for example "marque de provenance" or "enluminure" goes here]</FeatureType>
                     <Page unit="p or f or NP">[folio or page on which the feature is found]</Page>
