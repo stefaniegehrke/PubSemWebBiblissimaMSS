@@ -81,7 +81,7 @@
 <!ELEMENT Extent (#PCDATA)>
 <!ATTLIST Extent unit CDATA #IMPLIED>
 <!ELEMENT Shelfmark (#PCDATA | Organisation | Identifier)*>
-<!ELEMENT HasPart (#PCDATA | PartType | Pages | Text | Participant | Date | Place | Format | Term | Record | Note | HasFeature | Book)*>
+<!ELEMENT HasPart (#PCDATA | PartType | Pages | Text | Participant | Date | Place | Format | Term | Record | Note | RelatedManifestation | HasFeature | Book)*>
 <!ATTLIST HasPart id CDATA #IMPLIED>
 <!ELEMENT Birth (#PCDATA | Date | Place)*>
 <!ELEMENT DataBase (#PCDATA)>
