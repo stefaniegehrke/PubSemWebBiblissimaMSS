@@ -19,7 +19,7 @@
             <Text id="[internal id database]" >
                 <Title lang="[internal language ID database]">[the title of the text goes here]</Title>
                 <AssociatedWork id="[internal id database]" id_bbma="[SHA-1]">
-                    <Title lang="[internal language ID database]">[the title of the work goes here]</Title>
+                    <Title lang="[internal language ID databased]">[the title of the work goes here]</Title>
                     <Concept>[URL of an authority record goes here]</Concept>
                 </AssociatedWork>
                 <Language id="[internal language ID database]" uri="[URL de thesaurus Biblissima]" type="[original or non_original]">[language of the text]</Language>
@@ -52,6 +52,7 @@
             <HasPart id="[internal id database]">
                 <PartType id="[internal id database]" uri="[URL of thesaurus Biblissima goes here]">[e.g. textual unit, artistique unit, codicological unit, binding]</PartType>
                 <Pages unit="[f or p or NP]">[folios or folio / pages or page go here]</Pages>
+                <Thumbnail>[URL of Thumbnail of the first folio or page if digitised goes here]</Thumbnail>
                 <Text id="[internal id database]">
                     <Title lang="[internal language ID database]"></Title>
                     <AssociatedWork id="[internal id database]" id_bbma="[SHA-1]">
@@ -84,6 +85,7 @@
                     <FeatureType id="[internal id database]" uri="[URL of thesaurus Biblissima goes here]">[the type of the feature, for example "marque de provenance" or "enluminure" goes here]</FeatureType>
                     <Page unit="p or f or NP">[folio or page on which the feature is found]</Page>
                     <DigitalSurrogate>[URL of an image of the folio or page goes here]</DigitalSurrogate>
+                    <Thumbnail>[URL of Thumbnail goes here]</Thumbnail>
                     <Canvas>[by Biblissima]</Canvas>
                     <Descriptor id="[internal id database]">
                         <Name lang="">[label of descriptor]</Name>
@@ -107,6 +109,7 @@
                 <FeatureType id="[internal id database]" uri=""></FeatureType>
                 <Page unit="p or f or NP">[folio or page on which the feature is found]</Page>
                 <DigitalSurrogate>[URL of an image of the folio or page goes here]</DigitalSurrogate>
+                <Thumbnail>[URL of Thumbnail goes here]</Thumbnail>
                 <Canvas>[to be added by Biblissima]</Canvas>
                 <Descriptor id="[internal id database]">
                     <Name lang="">[Name of descriptor]</Name>
@@ -290,7 +293,7 @@
                 <InventoryPage invID="[ID of the data base for the Inventory goes here]" unit="[f or p or NP]">[number of the invenotries page where the book is listed]</InventoryPage>
                 <Canvas>[added by Biblissima]</Canvas>
                 <InventorySection>[title of the section of the inventory that mentiones the book]</InventorySection>
-                <SalesNumber>[number of the item in the sale - for sales catalgues only]</SalesNumber>
+                <SalesNumber invID="[ID of the data base for the Inventory goes here]">[number of the item in the sale - for sales catalgues only]</SalesNumber>
             </Book>
             <Inventory id="[ID interne of data base for inventory goes here]">
                 <Title>[inventory title]</Title>
@@ -312,6 +315,7 @@
                     <Name>[name of printer or editor or former owner]</Name>
                 </Participant>
                 <DigitalSurrogate type="[integral or partial]">[URL of digital surrogate of sales catalogue or inventory goes here]</DigitalSurrogate>
+                <Thumbnail>[URL of Thumbnail goes here]</Thumbnail>
                 <Manifest>[URL of sc:manifest goes here]</Manifest>
                 <Record id="[internal id database]" root="[root used for constructing the URL]">[URL of record of inventory or sales catalogue in database goes here]</Record>
                 <Note>[note about the sales catalogue or inventory]</Note>
