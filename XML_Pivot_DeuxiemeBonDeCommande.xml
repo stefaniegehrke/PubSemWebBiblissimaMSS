@@ -2,17 +2,17 @@
 <!DOCTYPE RecordList SYSTEM "file:/Users/stefaniegehrke/Documents/Dumps_locales_portail/XML_Pivot_DeuxiemeBonDeCommande.dtd">
 <RecordList>   
     <DataBase uri="[URI database goes here]">[Name of the database]</DataBase>     
-        <Book id="[internal id database]" state="attested or preserved or dispersed or identified">
-            <Concept source="BnF or IRHT">[ARK BAM or Medium]</Concept>
-            <ObjectType uri="[URL de thesaurus Biblissima]">"Manuscrit", "Manuscrit enluminé", "incunabula", "incunable"</ObjectType>
+        <Book id="[internal id database]" state="[attested or preserved or dispersed or identified]">
+            <Concept source="[BnF or IRHT]">[ARK BAM or Medium]</Concept>
+            <ObjectType uri="[URL de thesaurus Biblissima]">[Values : "Manuscrit", "Manuscrit enluminé", "incunabula", "incunable"]</ObjectType>
             <Shelfmark>[Shelfmark goes here] 
                 <Organisation id="[internal id database]" id_bbma="">[Name of the Organisation that keeps the manuscript goes here]</Organisation>
                 <Identifier type="[current or former]">
-                    <Idno>[Shelfmark]</Idno>
+                    <Idno>[Shelfmark - main identifier]</Idno>
                     <Subidentifier>[Subidentifier]</Subidentifier>
                     <Volume>[Number of volume]</Volume>
                 </Identifier>
-                <Identifier type="canonical or dummy">[Shelfmark as used by holding organisation or as defined by Biblissima for the attested manuscripts goes here]</Identifier>
+                <Identifier type="[canonical or dummy]">[Shelfmark as used by holding organisation or as defined by Biblissima for the attested manuscripts goes here]</Identifier>
             </Shelfmark>
             <Name lang="[internal language ID database]">[a special name for the manuscript or incunabula or item in general goes here]</Name>
             <AttestedTitle lang="[internal language ID database]">[Title for the manuscript or incunabula as provided by an inventory or a sales catalogue]</AttestedTitle>
@@ -83,12 +83,12 @@
                 <RelatedManifestation id="[internal id database of edition]">[Only for Sammelbände]</RelatedManifestation>
                 <HasFeature id="[internal id database]">
                     <FeatureType id="[internal id database]" uri="[URL of thesaurus Biblissima goes here]">[the type of the feature, for example "marque de provenance" or "enluminure" goes here]</FeatureType>
-                    <Page unit="p or f or NP">[folio or page on which the feature is found]</Page>
+                    <Page unit="[p or f or NP]">[folio or page on which the feature is found]</Page>
                     <DigitalSurrogate>[URL of an image of the folio or page goes here]</DigitalSurrogate>
                     <Thumbnail>[URL of Thumbnail goes here]</Thumbnail>
                     <Canvas>[by Biblissima]</Canvas>
                     <Descriptor id="[internal id database]">
-                        <Name lang="">[label of descriptor]</Name>
+                        <Name lang="[language in ISO-639-2 used for the label of the descriptor]">[label of descriptor]</Name>
                         <Concept>[URL authority record goes here - to be added by Biblissima]</Concept>
                         <RelatedConcept type="[to be defined]">[the URL of a related Concept goes here - example : URL of the authority record of the person responsible for the provenance mark]</RelatedConcept>
                         <AltName>[alternative name]</AltName>
@@ -107,12 +107,12 @@
             </HasPart>
             <HasFeature id="[internal id database]">
                 <FeatureType id="[internal id database]" uri=""></FeatureType>
-                <Page unit="p or f or NP">[folio or page on which the feature is found]</Page>
+                <Page unit="[p or f or NP]">[folio or page on which the feature is found]</Page>
                 <DigitalSurrogate>[URL of an image of the folio or page goes here]</DigitalSurrogate>
                 <Thumbnail>[URL of Thumbnail goes here]</Thumbnail>
                 <Canvas>[to be added by Biblissima]</Canvas>
                 <Descriptor id="[internal id database]">
-                    <Name lang="">[Name of descriptor]</Name>
+                    <Name lang="[language in ISO 639-2 as used for the label of the descriptor]">[Name of descriptor]</Name>
                     <Concept>[URL authority record Biblissima]</Concept>
                     <RelatedConcept>[URL authority record Biblissima]</RelatedConcept>
                     <AltName>[alternative name]</AltName>
@@ -133,7 +133,7 @@
 
         <Manifestation id="[internal id database]" state="attested"><!-- [for incunabulas only] -->
             <Date>
-                <Year uri="http://data.bnf.fr/dates/yyyy/"></Year>
+                <Year uri="[http://data.bnf.fr/dates/yyyy/]"></Year>
             </Date>
             <Place id="[internal id database]">
                 <Name>[Name]</Name>
@@ -184,7 +184,7 @@
                     <Idno>[Identifier]</Idno>
                     <Subidentifier>[Subidentifier]</Subidentifier>
                 </Identifier>
-                <Identifier type="canonical or dummy">[Shelfmark as used by holding organisation goes here]</Identifier>
+                <Identifier type="[canonical or dummy]">[Shelfmark as used by holding organisation goes here]</Identifier>
             </Shelfmark>
             <Name lang="[internal language ID database]">[name used for the group of books</Name>
             <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
@@ -209,11 +209,11 @@
             <Name lang="[internal language ID database]"></Name>
             <AltName lang="[internal language ID database]"></AltName>
             <Name_Bbma lang="[language]">[Name of the participant - preference Biblissima]</Name_Bbma>
-            <Concept source="BnF or dnb or LoC or VIAF or wikidata">[external reference goes here - URL of an authority record]</Concept>
+            <Concept source="[BnF or dnb or LoC or VIAF or wikidata]">[external reference goes here - URL of an authority record]</Concept>
             <Birth>
                 <Date>
                     <Century>[Century]</Century>
-                    <Year uri="http://data.bnf.fr/dates/yyyy/">[YYYY]</Year>
+                    <Year uri="[http://data.bnf.fr/dates/yyyy/]">[YYYY]</Year>
                     <Note>[note]</Note>
                 </Date>
                 <Place id="[internal id database]">         
@@ -224,7 +224,7 @@
             <Death>
                 <Date>
                     <Century>[Century]</Century>
-                    <Year uri="http://data.bnf.fr/dates/yyyy/">[YYYY]</Year>
+                    <Year uri="[http://data.bnf.fr/dates/yyyy/]">[YYYY]</Year>
                     <Note></Note>
                 </Date>
                 <Place id="[internal id database]">         
@@ -244,25 +244,25 @@
             <Name lang="[internal language ID database]">[name of the place]</Name>
             <AltName lang="[internal language ID database]">[alternative name of the place]</AltName>
             <Name_Bbma lang="[language]">[name of the place - preference Biblissima]</Name_Bbma>
-            <Concept source="BnF_Rameau or BnF_CP or geonames or TGN or BnF_Org"></Concept>
-            <RelatedConcept type="skos_broader or skos_narrower"></RelatedConcept>
+            <Concept source="[BnF_Rameau or BnF_CP or geonames or TGN or BnF_Org]"></Concept>
+            <RelatedConcept type="[skos_broader or skos_narrower]">[URL of a concept of a related place - preferred GeoNames]</RelatedConcept>
             <Note>[Note]</Note>
      </Place>
 
      <Work id="[internal id database]" id_bbma="[SHA-1]">[to be filled in after alignment by Biblissima]
-            <Title lang="[internal language ID database]">[title of the work]</Title>
-            <AltTitle lang="[internal language ID database]">[alternative title of the work]</AltTitle>
-            <Title_Bbma lang="[internal language ID database]">[name of the work - preference Biblissima]</Title_Bbma>
+            <Title lang="[internal language ID database]">[Title of the work]</Title>
+            <AltTitle lang="[internal language ID database]">[Alternative title of the work]</AltTitle>
+            <Title_Bbma lang="[internal language ID database]">[Name of the work - preference Biblissima]</Title_Bbma>
             <Text id="[internal id database]">
                 <Participant id="[internal id database]" role="[value of http://data.bnf.fr/vocabulary/roles/]" id_bbma="[SHA-1]">
                     <Name>[name of the participant]</Name>
                 </Participant>
-                <Language id="[internal id database]">[language of the text]</Language>
+                <Language id="[internal id database]">[Language of the text]</Language>
                 <Incipit>[Incipit]</Incipit>
                 <Explicit>[Explicit]</Explicit>
                 <!-- <Edition></Edition> -->
             </Text>
-            <Concept source="BnF or dnb or LoC or VIAF or wikidata">[URL external reference goes here]</Concept>
+            <Concept source="[BnF or dnb or LoC or VIAF or wikidata]">[URL external reference goes here]</Concept>
             <Note>[Note]</Note>  
             <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
             <Repertory>[only for Pinakes - repertory and repertory number of work]</Repertory>
@@ -270,15 +270,15 @@
      </Work>
     
      <Repository>
-            <Concept source="BnF ect.">[to be added by Biblissima]</Concept>
-            <RelatedConcept type="skos_broader - skos_narrower">[to be added by Biblissima]</RelatedConcept>
-            <Name>[repository name]</Name>
-            <AltName>[alternative name]</AltName>
-            <Name_Bibma>[preferred name by Biblissima]</Name_Bibma>
-            <Country id="[internal id database]" geonames="[ïd concept geonames]">[name of the country]</Country>
-            <City id="[internal id database]" geonames="[id concept geonames]">[name of the city]</City>
-            <Organisation id="[internal id database]" id_bbma="[SHA-1]">[name of the organisation as given by database]</Organisation>
-            <Note>[note]</Note>
+            <Concept source="[BnF etc.]">[to be added by Biblissima]</Concept>
+            <RelatedConcept type="[skos_broader - skos_narrower]">[to be added by Biblissima]</RelatedConcept>
+            <Name>[Repository name as given by BnF]</Name>
+            <AltName>[Alternative name of the holding institution]</AltName>
+            <Name_Bibma>[Preferred name of the holding institution by Biblissima]</Name_Bibma>
+            <Country id="[internal id database]" geonames="[ïd concept geonames]">[Name of the country]</Country>
+            <City id="[internal id database]" geonames="[id concept geonames]">[Name of the city]</City>
+            <Organisation id="[internal id database]" id_bbma="[SHA-1]">[Name of the holding institution as given by database]</Organisation>
+            <Note>[Note]</Note>
      </Repository>
     
      <Collection state="historical or historical_and_current">
