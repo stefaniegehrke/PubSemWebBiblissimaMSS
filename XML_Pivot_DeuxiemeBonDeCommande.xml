@@ -12,7 +12,7 @@
                     <Subidentifier>[Subidentifier]</Subidentifier>
                     <Volume>[Number of volume]</Volume>
                 </Identifier>
-                <Identifier type="[canonical or dummy]">[Shelfmark as used by holding organisation or as defined by Biblissima for the attested manuscripts goes here]</Identifier>
+                <Identifier type="[canonical or dummy shelfmark]">[Shelfmark as used by holding organisation or as defined by Biblissima for the attested manuscripts goes here]</Identifier>
             </Shelfmark>
             <Name lang="[internal language ID database]">[a special name for the manuscript or incunabula or item in general goes here]</Name>
             <AttestedTitle lang="[internal language ID database]">[Title for the manuscript or incunabula as provided by an inventory or a sales catalogue]</AttestedTitle>
@@ -184,7 +184,7 @@
                     <Idno>[Identifier]</Idno>
                     <Subidentifier>[Subidentifier]</Subidentifier>
                 </Identifier>
-                <Identifier type="[canonical or dummy]">[Shelfmark as used by holding organisation goes here]</Identifier>
+                <Identifier type="[canonical or dummy shelfmark]">[Shelfmark as used by holding organisation goes here]</Identifier>
             </Shelfmark>
             <Name lang="[internal language ID database]">[name used for the group of books</Name>
             <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
