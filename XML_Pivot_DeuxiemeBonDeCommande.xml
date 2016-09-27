@@ -264,6 +264,7 @@
             </Text>
             <Concept source="[BnF or dnb or LoC or VIAF or wikidata]">[URL external reference goes here]</Concept>
             <Note>[Note]</Note>  
+            <Term>[Subject headings go here]</Term>
             <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
             <Repertory>[only for Pinakes - repertory and repertory number of work]</Repertory>
             <RelatedWork id="[internal id database]" type="[to be defined by Biblissima]" id_bbma="[SHA-1]">[Concept of a related work]</RelatedWork>
