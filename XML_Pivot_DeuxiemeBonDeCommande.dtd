@@ -22,7 +22,7 @@
 <!ATTLIST Book state CDATA #IMPLIED>
 <!ATTLIST Book id CDATA #IMPLIED>
 <!ELEMENT RelatedText (#PCDATA)>
-<!ELEMENT Work (#PCDATA | Title | AltTitle | Title_Bbma | Text | Concept | Note | Record | Repertory | RelatedWork)*>
+<!ELEMENT Work (#PCDATA | Title | AltTitle | Title_Bbma | Text | Concept | Note | Term | Record | Repertory | RelatedWork)*>
 <!ATTLIST Work id CDATA #IMPLIED>
 <!ATTLIST Work id_bbma CDATA #IMPLIED>
 <!ELEMENT AttestedTitle (#PCDATA)>
@@ -113,7 +113,7 @@
 <!ELEMENT Name_Bibma (#PCDATA)>
 <!ELEMENT Title (#PCDATA)>
 <!ATTLIST Title lang CDATA #IMPLIED>
-<!ELEMENT Text (#PCDATA | Title | AssociatedWork | Language | Incipit | Explicit | Note | Participant)*>
+<!ELEMENT Text (#PCDATA | Title | AssociatedWork | Language | Incipit | Explicit | Note | Term | Participant)*>
 <!ATTLIST Text id CDATA #IMPLIED>
 <!ELEMENT Residence (#PCDATA)>
 <!ATTLIST Residence id CDATA #IMPLIED>
