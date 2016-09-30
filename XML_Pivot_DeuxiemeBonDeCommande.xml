@@ -275,7 +275,7 @@
             <RelatedConcept type="[skos_broader - skos_narrower]">[to be added by Biblissima]</RelatedConcept>
             <Name>[Repository name as given by BnF]</Name>
             <AltName>[Alternative name of the holding institution]</AltName>
-            <Name_Bibma>[Preferred name of the holding institution by Biblissima]</Name_Bibma>
+            <Name_Bbma>[Preferred name of the holding institution by Biblissima]</Name_Bbma>
             <Country id="[internal id database]" geonames="[ïd concept geonames]">[Name of the country]</Country>
             <City id="[internal id database]" geonames="[id concept geonames]">[Name of the city]</City>
             <Organisation id="[internal id database]" id_bbma="[SHA-1]">[Name of the holding institution as given by database]</Organisation>
