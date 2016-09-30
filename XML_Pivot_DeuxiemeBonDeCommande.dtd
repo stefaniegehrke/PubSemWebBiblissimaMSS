@@ -110,7 +110,6 @@
 <!ELEMENT Organisation (#PCDATA)>
 <!ATTLIST Organisation id CDATA #IMPLIED>
 <!ATTLIST Organisation id_bbma CDATA #IMPLIED>
-<!ELEMENT Name_Bibma (#PCDATA)>
 <!ELEMENT Title (#PCDATA)>
 <!ATTLIST Title lang CDATA #IMPLIED>
 <!ELEMENT Text (#PCDATA | Title | AssociatedWork | Language | Incipit | Explicit | Note | Term | Participant)*>
@@ -129,7 +128,7 @@
 <!ATTLIST Name_Bbma lang CDATA #IMPLIED>
 <!ELEMENT Occupation (#PCDATA)>
 <!ATTLIST Occupation id CDATA #IMPLIED>
-<!ELEMENT Repository (#PCDATA | Concept | RelatedConcept | Name | AltName | Name_Bibma | Country | City | Organisation | Note)*>
+<!ELEMENT Repository (#PCDATA | Concept | RelatedConcept | Name | AltName | Name_Bbma | Country | City | Organisation | Note)*>
 <!ELEMENT Type (#PCDATA)>
 <!ELEMENT Year (#PCDATA)>
 <!ATTLIST Year uri CDATA #IMPLIED>
