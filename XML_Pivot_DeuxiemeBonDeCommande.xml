@@ -237,6 +237,7 @@
             <Residence id="[internal id database]" geonames="[ID geonames goes here - to be added by Biblissima]">[name of the place of residence]</Residence>
             <Occupation id="[internal id database]">[Occupation]</Occupation>
             <Note>[Note]</Note>
+            <Note_Bbma>[Note by Biblissima]</Note_Bbma>
             <Record id="[internal id database goes here]" root="[root for constructing the URL goes here]">[URL of the record of the database goes here]</Record>
     </Participant>
 
