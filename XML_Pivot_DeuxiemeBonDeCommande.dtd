@@ -1,3 +1,4 @@
+<!ELEMENT Note_Bbma (#PCDATA)>
 <!ELEMENT HasFeature (#PCDATA | FeatureType | Page | DigitalSurrogate | Thumbnail | Canvas | Descriptor | Caption | Rubric | Inscription | Note | Record)*>
 <!ATTLIST HasFeature id CDATA #IMPLIED>
 <!ELEMENT Subidentifier (#PCDATA)>
@@ -51,7 +52,7 @@
 <!ELEMENT Pages (#PCDATA)>
 <!ATTLIST Pages unit CDATA #IMPLIED>
 <!ELEMENT GenericTerm (#PCDATA)>
-<!ELEMENT Participant (#PCDATA | Name | AltName | Name_Bbma | Concept | Birth | Death | QualifiedTitle | Gender | Residence | Occupation | Note | Record)*>
+<!ELEMENT Participant (#PCDATA | Name | AltName | Name_Bbma | Concept | Birth | Death | QualifiedTitle | Gender | Residence | Occupation | Note | Note_Bbma | Record)*>
 <!ATTLIST Participant id CDATA #IMPLIED>
 <!ATTLIST Participant role CDATA #IMPLIED>
 <!ATTLIST Participant id_bbma CDATA #IMPLIED>
