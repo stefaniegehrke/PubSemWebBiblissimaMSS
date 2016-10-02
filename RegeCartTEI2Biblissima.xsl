@@ -2,7 +2,7 @@
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         version="2.0" xmlns:tei="http://www.tei-c.org/ns/1.0">
         
-<!-- Transformation des fichiers Miroir des Classiques par fichier "Text" -->
+<!-- Transformation d'export RegeCart en TEI-P5 vers Biblissima XML - Stefanie Gehrke pour Biblissima, September 2016 -->
 <xsl:template match="/">
     <!-- global output for all data goes here -->
     <xsl:variable name="output_dir">./</xsl:variable> 
@@ -51,10 +51,8 @@
                     </xsl:for-each>
             </Book>   
         </xsl:for-each>
-    
 
-    <!-- Transformation vers /Recordlist/Participant -->  
-    
+    <!-- Transformation vers /RecordList/Participant -->     
         <xsl:for-each select=".//tei:additional//tei:bibl[@type='prod_cartulR']/tei:ptr">
             <xsl:variable name="URL_Telma"><xsl:value-of select="../../tei:bibl[@type='entite_cartulR']/tei:ptr[1]/@target"/></xsl:variable>
         <xsl:variable name="Producteur_Telma"><xsl:value-of select="unparsed-text($URL_Telma)"/></xsl:variable>
@@ -65,9 +63,8 @@
                 <Record><xsl:value-of select="$URL_Telma"/></Record>
             </Participant>
     </xsl:for-each>
- 
-    <!-- Transformation vers /Recordlist/Repository -->  
-    
+                
+    <!-- Transformation vers /RecordList/Repository -->    
     <xsl:for-each-group select=".//tei:msIdentifier/tei:settlement" group-by="text()">
         <xsl:for-each-group select="../tei:institution" group-by="text()">
             <Repository>
@@ -76,43 +73,9 @@
                 <Organisation><xsl:value-of select="../tei:settlement[1]"/><xsl:text>, </xsl:text><xsl:value-of select="../tei:institution[1]"/></Organisation>
             </Repository>
         </xsl:for-each-group>
-    </xsl:for-each-group>
-            
+    </xsl:for-each-group>    
         </RecordList>
     </xsl:result-document>
 </xsl:template>
         
-      <!--  
-         XSLT template to copy anything, priority="-1" 
-    
-    <xsl:template match="document-node()">
-             global output for all data goes here
-            <xsl:variable name="output_dir">./</xsl:variable> 
-            <xsl:variable name="outputDate"><xsl:value-of select="current-date()"/></xsl:variable>
-            <xsl:variable name="outputFile"><xsl:value-of select="$output_dir"/>ExportBdC2_MiroirDC_Biblissima<xsl:value-of select="substring-before($outputDate,'+')"/>.xml</xsl:variable>
-            <xsl:result-document href="{$outputFile}" method="xml"  encoding="UTF-8" indent="yes" >
-                <xsl:copy>
-                    <xsl:apply-templates select="node()|comment()"/>
-                </xsl:copy>
-             </xsl:result-document>
-        </xsl:template>
-        
-        
-        XSLT template to copy anything, priority="-1"
-        <xsl:template match="@*|node()|comment()" priority="-1">
-            <xsl:copy>
-                <xsl:apply-templates select="@*|node()|comment()"/>
-            </xsl:copy>
-        </xsl:template>
-        
-         Keep only the first occurance of a ./Repository 
-        <xsl:template match="Repository">
-            <xsl:variable name="thisName"><xsl:value-of select="."/></xsl:variable>
-            <xsl:if test="not(preceding::Repository[. = $thisName])">
-                <xsl:copy>
-                    <xsl:apply-templates select="@*|node()|comment()"/>
-                </xsl:copy>
-            </xsl:if>
-        </xsl:template> -->
 </xsl:transform>           
-
