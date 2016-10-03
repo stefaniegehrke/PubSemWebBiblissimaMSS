@@ -24,7 +24,11 @@
                         <Idno><xsl:value-of select="./tei:msIdentifier/tei:idno"/></Idno>
                     </Identifier>
                     </Shelfmark>
-                    <Name><xsl:value-of select="./tei:msIdentifier/tei:msName"/></Name>
+                        <HasPart>
+                                <PartType>unité textuelle</PartType>
+                                <Text><Title><xsl:value-of select="./tei:msIdentifier/tei:msName"/></Title></Text>
+                                <Pages><xsl:value-of select="./tei:msContents/tei:msItem/tei:locus"/></Pages>
+                        </HasPart>
                     <xsl:for-each select="./tei:additional/tei:listBibl/tei:bibl[@type='entite_cartulR']/tei:ptr">
                         <xsl:variable name="URL_Telma"><xsl:value-of select="./@target"/></xsl:variable>
                         <xsl:variable name="Producteur_Telma"><xsl:value-of select="unparsed-text($URL_Telma)"/></xsl:variable>
