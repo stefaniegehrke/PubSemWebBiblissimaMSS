@@ -60,7 +60,7 @@
                 <Name><xsl:value-of select="../../../../tei:history/tei:origin//tei:orgName"/></Name>
                 <Name><xsl:value-of select="substring-before(substring-after($Producteur_Telma,'&lt;span property=&quot;dcterms:creator&quot;&gt;'),'&lt;/span&gt;')"/></Name>
                 <Note><xsl:value-of select="substring-before(substring-after($Producteur_Telma,'&lt;h3&gt;Note&lt;/h3&gt;'),'&lt;/p&gt;')"/></Note>
-                <Record><xsl:value-of select="$URL_Telma"/></Record>
+                <Record><xsl:value-of select="./@target"/></Record>
             </Participant>
     </xsl:for-each>
                 
