@@ -3,7 +3,7 @@
         version="2.0" xmlns:tei="http://www.tei-c.org/ns/1.0">
         
 
-<!-- Transformation des fichiers Miroir des Classiques en TEI-P5 par fichier "Text" - Stefanie Gehrke pour Biblissima, September 2016 -->
+<!-- Transformation des fichiers Miroir des Classiques en TEI-P5 par fichier "Text" - Stefanie Gehrke pour Biblissima, Septembre 2016 -->
 <xsl:template match="/">
     <xsl:variable name="output_dir">./</xsl:variable> 
     <xsl:variable name="outputDate"><xsl:value-of select="current-date()"/></xsl:variable>
