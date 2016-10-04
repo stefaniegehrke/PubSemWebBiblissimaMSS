@@ -3,13 +3,13 @@
         version="2.0" xmlns:tei="http://www.tei-c.org/ns/1.0">
         
 
-<!-- Transformation des fichiers Miroir des Classiques par fichier "Text" -->
+<!-- Transformation des fichiers Miroir des Classiques en TEI-P5 par fichier "Text" - Stefanie Gehrke pour Biblissima, September 2016 -->
 <xsl:template match="/">
-    <!-- global output for all data goes here --><xsl:variable name="output_dir">./</xsl:variable> 
+    <xsl:variable name="output_dir">./</xsl:variable> 
     <xsl:variable name="outputDate"><xsl:value-of select="current-date()"/></xsl:variable>
     <xsl:variable name="outputFile"><xsl:value-of select="$output_dir"/>ExportBdC2_MiroirDC_Biblissima<xsl:value-of select="substring-before($outputDate,'+')"/>.xml</xsl:variable>
     <xsl:result-document href="{$outputFile}" method="xml"  encoding="UTF-8" indent="yes" >
-        <!-- create data set here -->
+        
         <RecordList>   
             <DataBase>Miroir des Classiques</DataBase>
             
@@ -23,9 +23,7 @@
 
 
     <xsl:template match="textList" mode="book">
-        <!-- global output for all books goes here -->
-        
-        <!-- one loop over all text files -->
+      
         <xsl:for-each select=".//Text">
             <xsl:variable name="textrecord"><xsl:value-of select="."/></xsl:variable>
            
@@ -139,8 +137,6 @@
             </Book>   
             </xsl:for-each>
         
-        <!-- Liste of preserved manuscripts goes here -->
-        
         <xsl:for-each select="document($textrecord)//tei:list[@type='deperdita']/tei:item">
             <Book state="dispersed">
                 <ObjectType>manuscrit</ObjectType>
@@ -154,10 +150,6 @@
         </xsl:for-each>
         </xsl:for-each>
     </xsl:template>
- 
-    
-
-    <!-- Transformation des fichiers "text" vers Recordlist/Work : tous dans un fichier -->  
     
     <xsl:template match="textList" mode="work">
         <!-- one loop over all text files -->
