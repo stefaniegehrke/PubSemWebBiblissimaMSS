@@ -98,7 +98,7 @@
                              </xsl:for-each>
                              <Incipit><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:incipit"/></Incipit>
                              <Explicit><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:explicit"/></Explicit>
-                             <xsl:for-each select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:title/persName">
+                             <xsl:for-each select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:title/tei:persName">
                              <Participant><xsl:attribute name="id"><xsl:value-of select="@ref"/></xsl:attribute>
                                  <xsl:attribute name="role"><xsl:value-of select="@role"/></xsl:attribute>
                                  <Name><xsl:value-of select="normalize-space(.)"/></Name>
@@ -118,7 +118,7 @@
                     <Date>
                         <Century><xsl:value-of select="./tei:msDesc/tei:history/tei:origin//tei:origDate"/></Century>
                         <Year><xsl:value-of select="./tei:msDesc/tei:history/tei:origin//tei:origDate/@notBefore"/></Year>
-                        <Year><xsl:value-of select="./msDesc/history/tei:origin//origDate/@notAfter"/></Year>
+                        <Year><xsl:value-of select="./msDesc/history/tei:origin//tei:origDate/@notAfter"/></Year>
                     </Date>
                         <Place>
                             <Name><xsl:value-of select="./tei:msDesc/tei:history/tei:origin//tei:origPlace"/></Name>
