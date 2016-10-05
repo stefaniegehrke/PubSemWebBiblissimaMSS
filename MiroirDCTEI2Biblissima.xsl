@@ -118,7 +118,7 @@
                     <Date>
                         <Century><xsl:value-of select="./tei:msDesc/tei:history/tei:origin//tei:origDate"/></Century>
                         <Year><xsl:value-of select="./tei:msDesc/tei:history/tei:origin//tei:origDate/@notBefore"/></Year>
-                        <Year><xsl:value-of select="./msDesc/history/tei:origin//tei:origDate/@notAfter"/></Year>
+                        <Year><xsl:value-of select="./tei:msDesc/tei:history/tei:origin//tei:origDate/@notAfter"/></Year>
                     </Date>
                         <Place>
                             <Name><xsl:value-of select="./tei:msDesc/tei:history/tei:origin//tei:origPlace"/></Name>
