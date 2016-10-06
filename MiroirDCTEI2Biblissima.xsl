@@ -24,7 +24,7 @@
 
     <xsl:template match="textList" mode="book">
       
-        <xsl:for-each select=".//Text">
+         <xsl:for-each select=".//Text">
             <xsl:variable name="textrecord"><xsl:value-of select="."/></xsl:variable>
            
  
@@ -39,18 +39,22 @@
                         <Idno><xsl:value-of select=".//tei:msIdentifier/tei:idno"/></Idno>
                     </Identifier>
                     </Shelfmark>
+                    <Concept><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]/tei:ref/@corresp"/></Concept>
                     <xsl:for-each select="/tei:TEI//tei:item[@xml:id=$idno]">
                         <xsl:choose>
                             <xsl:when test="count(.//tei:msContents/tei:msItem) != 1">
                                 <xsl:for-each select=".//tei:msContents/tei:msItem">
-                    <HasPart><PartType>unité textuelle</PartType>
+                    <HasPart>
+                        <PartType>unité textuelle</PartType>
                         <Pages><xsl:value-of select="./tei:locus/@from"/><xsl:text>-</xsl:text><xsl:value-of select="./tei:locus/@to"/></Pages>
                         <Text><xsl:attribute name="id"><xsl:value-of select="$idno_text"/></xsl:attribute>
                             <Title lang="lat"><xsl:value-of select="normalize-space(./tei:title)"/></Title>
-                            <Title lang="fro"><xsl:value-of select="./tei:title/tei:title[@type='ancien']"/></Title>
+                            <xsl:for-each select=".//tei:title[@type='ancien']">
+                            <Title lang="fro"><xsl:value-of select="."/></Title>
+                            </xsl:for-each>
                             <AssociatedWork><xsl:attribute name="id"><xsl:value-of select="/tei:TEI/@xml:id"/></xsl:attribute>
-                                <Title><xsl:value-of select="normalize-space(./tei:title/tei:title[@type='oeuvre'])"/></Title>
-                                <Concept><xsl:value-of select="./tei:title/tei:title[@type='oeuvre']/@corresp"/></Concept>
+                                <Title><xsl:value-of select="normalize-space(.//tei:title[@type='oeuvre'])"/></Title>
+                                <Concept><xsl:value-of select=".//tei:title[@type='oeuvre']/@corresp"/></Concept>
                             </AssociatedWork>
                         <Language><xsl:attribute name="id"><xsl:value-of select="./tei:title/tei:lang/@xml:lang"/></xsl:attribute>
                             <xsl:value-of select="./tei:title/tei:lang[@n='lang_arrivée']"/></Language>
@@ -61,8 +65,6 @@
                         </xsl:for-each>
                            </xsl:when>
                        </xsl:choose>
-                        <Incipit></Incipit>
-                        <Explicit></Explicit>
                             <xsl:for-each select="./tei:title/tei:persName">
                         <Participant><xsl:attribute name="id"><xsl:value-of select="@ref"/></xsl:attribute>
                             <xsl:attribute name="role"><xsl:value-of select="@role"/></xsl:attribute>
@@ -70,6 +72,7 @@
                         </Participant>
                             </xsl:for-each>
                             <Note><xsl:value-of select="normalize-space(../tei:summary)"/></Note>
+                            <Note><xsl:value-of select="normalize-space(../tei:p)"/></Note>
                             <xsl:for-each select=".">    
                                 <Note><xsl:value-of select="ancestor::tei:div[@type='expression']/@xml:id"/>
                                     <xsl:text> </xsl:text><xsl:value-of select="ancestor::tei:div[@type='expression']/@n"/>
@@ -84,11 +87,13 @@
                      </xsl:when>
                      <xsl:otherwise>
                          <Text><xsl:attribute name="id"><xsl:value-of select="$idno_text"/></xsl:attribute>
-                             <Title lang="lat"><xsl:value-of select="normalize-space(/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:title)"/></Title>
-                             <Title lang="fro"><xsl:value-of select="normalize-space(/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:title/tei:title[@type='ancien'])"/></Title>
+                             <Title lang="lat"><xsl:value-of select="normalize-space(/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents//tei:title)"/></Title>
+                             <xsl:for-each select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents//tei:title[@type='ancien']">
+                             <Title lang="fro"><xsl:value-of select="normalize-space(.)"/></Title>
+                             </xsl:for-each>
                              <AssociatedWork><xsl:attribute name="id"><xsl:value-of select="/tei:TEI/@xml:id"/></xsl:attribute>
-                                 <Title lang=""><xsl:value-of select="normalize-space(/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:title/tei:title[@type='oeuvre'])"/></Title>
-                                 <Concept><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:title/tei:title[@type='oeuvre']/@corresp"/></Concept>
+                                 <Title lang=""><xsl:value-of select="normalize-space(/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents//tei:title[@type='oeuvre'])"/></Title>
+                                 <Concept><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents//tei:title[@type='oeuvre']/@corresp"/></Concept>
                          </AssociatedWork>
                              <Language><xsl:attribute name="id"><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:lang/@xml:lang"/></xsl:attribute>
                                  <xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:lang[@n='lang_arrivée']"/>
@@ -96,15 +101,16 @@
                              <xsl:for-each select="/tei:TEI//tei:listBibl[tei:head='Editions']/tei:bibl">
                                  <Edition><xsl:value-of select="."/></Edition> 
                              </xsl:for-each>
-                             <Incipit><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:incipit"/></Incipit>
-                             <Explicit><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:explicit"/></Explicit>
-                             <xsl:for-each select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:msItem/tei:title/tei:persName">
+                             <Incipit><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents//tei:incipit"/></Incipit>
+                             <Explicit><xsl:value-of select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents//tei:explicit"/></Explicit>
+                             <xsl:for-each select="/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents//tei:persName">
                              <Participant><xsl:attribute name="id"><xsl:value-of select="@ref"/></xsl:attribute>
                                  <xsl:attribute name="role"><xsl:value-of select="@role"/></xsl:attribute>
                                  <Name><xsl:value-of select="normalize-space(.)"/></Name>
                              </Participant>
                              </xsl:for-each>
                              <Note><xsl:value-of select="normalize-space(/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:summary)"/></Note>
+                             <Note><xsl:value-of select="normalize-space(/tei:TEI//tei:item[@xml:id=$idno]//tei:msContents/tei:p)"/></Note>
                              <Note>
                                  <xsl:value-of select="/tei:TEI//tei:div[@type='expression' and descendant::tei:item[@xml:id=$idno]]/@subtype"/>
                                  <xsl:text> </xsl:text><xsl:value-of select="/tei:TEI//tei:div[@type='expression' and descendant::tei:item[@xml:id=$idno]]/@xml:id"/>
@@ -137,9 +143,11 @@
             </Book>   
             </xsl:for-each>
         
+        <!-- List of preserved manuscripts goes here -->
+        
         <xsl:for-each select="document($textrecord)//tei:list[@type='deperdita']/tei:item">
             <Book state="dispersed">
-                <ObjectType>manuscrit</ObjectType>
+                <ObjectType>manuscrit dispersé</ObjectType>
                 <Text>
                     <Title></Title>
                     <AssociatedWork>
@@ -149,7 +157,18 @@
             </Book>
         </xsl:for-each>
         </xsl:for-each>
+    
+    <!-- List of incunabulas and éditions (?) goes here -->
+ 
+    <xsl:for-each select="tei:item[ancestor::tei:div[@type='imprime']]">
+        <Book>
+            
+        </Book>
+    </xsl:for-each>
     </xsl:template>
+    
+    
+    <!-- Transformation to Recordlist/Work -->  
     
     <xsl:template match="textList" mode="work">
         <!-- one loop over all text files -->
@@ -159,14 +178,29 @@
                 <Title><xsl:value-of select="normalize-space(document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title)"/></Title>
                 <Concept><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/@corresp"/></Concept>
                 <Text>
-                <Participant role="r70">
-                    <Name><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Name>
-                </Participant>
+                    <Title><xsl:value-of select="normalize-space(document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title)"/><xsl:text> [latin]</xsl:text></Title>
+                    <Language>latin</Language>
+                    <Participant role="r70">
+                        <Name><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Name>
+                    </Participant>
+                    <Note><xsl:value-of select="document($textrecord)//tei:text/tei:body/tei:div[@type='presentation' and tei:head='Diffusion latine']/tei:p"/></Note>
                 </Text>
-                <Note><xsl:value-of select="document($textrecord)//tei:text/tei:body/tei:div[@type='presentation']/tei:p"/></Note>
+                <Text>
+                    <Title><xsl:value-of select="normalize-space(document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:title)"></xsl:value-of><xsl:text> [français]</xsl:text></Title>
+                    <Language></Language>
+                    <Participant role="r70">
+                        <Name><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Name>
+                    </Participant>
+                    <Participant role="r680">
+                        <Name><xsl:value-of select="document($textrecord)//tei:titleStmt/tei:title/tei:bibl/tei:author"/></Name>
+                    </Participant>
+                    <Note><xsl:value-of select="document($textrecord)//tei:text/tei:body/tei:div[@type='presentation' and tei:head='Diffusion latine']/tei:p"/></Note>
+                </Text>
             </Work>
         </xsl:for-each>
     </xsl:template>
        
 </xsl:transform>           
+
+
 
