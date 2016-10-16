@@ -49,7 +49,7 @@
                  </Participant>
                     </xsl:for-each>
                  <xsl:for-each select="./tei:additional/tei:listBibl/tei:bibl[@type='images_regeste' or @type='images_notice' or @type='images_auteurs' or @type='images_chronologique' or @type='images_index' or @type='images_divers' or @type='images_concordance' or @type='images_transcriptions']">
-                        <Record><xsl:text>http://regecart.irht.cnrs.fr/</xsl:text><xsl:value-of select="substring-before(./tei:ref/@facs,'_')"/><xsl:text>/ms-</xsl:text><xsl:value-of select="$ID_CR"/></Record>
+                        <Record><xsl:text>http://regecart.irht.cnrs.fr/dossier-</xsl:text><xsl:value-of select="substring-before(./tei:ref/@facs,'_')"/><xsl:text>/ms-</xsl:text><xsl:value-of select="$ID_CR"/></Record>
                     </xsl:for-each>
                 <Record><xsl:value-of select="./tei:additional/tei:listBibl/tei:bibl[@type='medium']/tei:ref/@target"/></Record>
                     <xsl:for-each select="./tei:additional/tei:listBibl/tei:bibl[@type='entite_cartulR']/tei:ptr">
