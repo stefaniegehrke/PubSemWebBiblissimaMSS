@@ -48,7 +48,9 @@
                         <Name><xsl:value-of select="substring-before(substring-after($Producteur_Telma,'&lt;span property=&quot;dcterms:creator&quot;&gt;'),'&lt;/span&gt;')"/></Name>
                  </Participant>
                     </xsl:for-each>
-                <Record><xsl:text>http://regecart.irht.cnrs.fr/dossier-811-N1/ms-</xsl:text><xsl:value-of select="$ID_CR"/></Record>
+                 <xsl:for-each select="./tei:additional/tei:listBibl/tei:bibl[@type='images_regeste' or 'images_notice' or 'images_auteurs' or 'images_chronologique' or 'images_index' or 'images_divers' or 'images_concordance' or 'images_transcriptions']">
+                        <Record><xsl:text>http://regecart.irht.cnrs.fr/</xsl:text><xsl:value-of select="substring-before(./tei:ref/@facs,'_')"/><xsl:text>/ms-</xsl:text><xsl:value-of select="$ID_CR"/></Record>
+                    </xsl:for-each>
                 <Record><xsl:value-of select="./tei:additional/tei:listBibl/tei:bibl[@type='medium']/tei:ref/@target"/></Record>
                     <xsl:for-each select="./tei:additional/tei:listBibl/tei:bibl[@type='entite_cartulR']/tei:ptr">
                 <Record><xsl:value-of select="./@target"/></Record>
