@@ -45,7 +45,6 @@
                         <xsl:variable name="Producteur_Telma"><xsl:value-of select="unparsed-text($URL_Telma)"/></xsl:variable>
                         <xsl:attribute name="id"><xsl:value-of select="./@target"/></xsl:attribute>
                         <Name><xsl:value-of select="../../../../tei:history/tei:origin//tei:orgName"/></Name>
-                        <Name><xsl:value-of select="substring-before(substring-after($Producteur_Telma,'&lt;span property=&quot;dcterms:creator&quot;&gt;'),'&lt;/span&gt;')"/></Name>
                  </Participant>
                     </xsl:for-each>
                   <xsl:for-each select="./tei:additional/tei:listBibl/tei:bibl[@type='images_regeste' or @type='images_notice' or @type='images_auteurs' or @type='images_chronologique' or @type='images_index' or @type='images_divers' or @type='images_concordance' or @type='images_transcriptions']">
