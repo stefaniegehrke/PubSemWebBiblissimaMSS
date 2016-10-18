@@ -57,17 +57,22 @@
             </Book>   
         </xsl:for-each>
 
-    <!-- Transformation vers /RecordList/Participant -->     
-        <xsl:for-each select=".//tei:additional//tei:bibl[@type='prod_cartulR']/tei:ptr">
-            <xsl:variable name="URL_Telma"><xsl:value-of select="../../tei:bibl[@type='entite_cartulR']/tei:ptr[1]/@target"/></xsl:variable>
-        <xsl:variable name="Producteur_Telma"><xsl:value-of select="unparsed-text($URL_Telma)"/></xsl:variable>
-            <Participant><xsl:attribute name="id"><xsl:value-of select="./@target"/></xsl:attribute>
+     <!-- Transformation vers /Recordlist/Participant -->  
+    
+        <xsl:for-each-group select=".//tei:additional//tei:bibl[@type='prod_cartulR']/tei:ptr" group-by="@target">
+            <Participant><xsl:attribute name="id"><xsl:value-of select="substring-before(substring-after(@target,'producteur'),'/')"/></xsl:attribute>
                 <Name><xsl:value-of select="../../../../tei:history/tei:origin//tei:orgName"/></Name>
-                <Name><xsl:value-of select="substring-before(substring-after($Producteur_Telma,'&lt;span property=&quot;dcterms:creator&quot;&gt;'),'&lt;/span&gt;')"/></Name>
-                <Note><xsl:value-of select="substring-before(substring-after($Producteur_Telma,'&lt;h3&gt;Note&lt;/h3&gt;'),'&lt;/p&gt;')"/></Note>
-                <Record><xsl:value-of select="./@target"/></Record>
+                <Record><xsl:value-of select="@target"/></Record>
             </Participant>
-    </xsl:for-each>
+        </xsl:for-each-group>
+ 
+   <!-- Transformation vers /Recordlist/Place -->  
+            
+        <xsl:for-each-group select=".//tei:placeName" group-by="text()">
+            <Place>
+                 <Name><xsl:value-of select="current-group()[1]"/></Name>
+            </Place>
+        </xsl:for-each-group>
                 
     <!-- Transformation vers /RecordList/Repository -->    
     <xsl:for-each-group select=".//tei:msIdentifier/tei:settlement" group-by="text()">
