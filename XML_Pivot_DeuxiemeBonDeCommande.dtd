@@ -34,7 +34,7 @@
 <!ELEMENT Concept (#PCDATA)>
 <!ATTLIST Concept source CDATA #IMPLIED>
 <!ELEMENT GroupDigitalSurrogates (#PCDATA | DigitalSurrogate)*>
-<!ELEMENT GroupBooks (#PCDATA | Shelfmark | Name | Record | Text | Participant | HasPart | Note)*>
+<!ELEMENT GroupBooks (#PCDATA | Shelfmark | Name | Concept | Record | Text | Participant | HasPart | Note)*>
 <!ELEMENT InventorySection (#PCDATA)>
 <!ELEMENT Manifestation (#PCDATA | Date | Place | Text | HasPart | Participant | Format | Note | BibliographicReference | Record | Book | GroupDigitalSurrogates)*>
 <!ATTLIST Manifestation id CDATA #IMPLIED>
@@ -65,7 +65,7 @@
 <!ELEMENT Country (#PCDATA)>
 <!ATTLIST Country id CDATA #IMPLIED>
 <!ATTLIST Country geonames CDATA #IMPLIED>
-<!ELEMENT Collection (#PCDATA | Concept | Name | Type | Participant | Book | Inventory | Record | Note)*>
+<!ELEMENT Collection (#PCDATA | Concept | Name | Type | Participant | Book | Inventory | Record | Note | BibliographicReference)*>
 <!ATTLIST Collection state CDATA #IMPLIED>
 <!ELEMENT RelatedManifestation (#PCDATA)>
 <!ATTLIST RelatedManifestation id CDATA #IMPLIED>
