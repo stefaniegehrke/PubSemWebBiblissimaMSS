@@ -187,6 +187,7 @@
                 <Identifier type="[canonical or dummy shelfmark]">[Shelfmark as used by holding organisation goes here]</Identifier>
             </Shelfmark>
             <Name lang="[internal language ID database]">[name used for the group of books</Name>
+            <Concept>[ARK Medium or ARK BAM goes here]</Concept>
             <Record id="[internal id database]" root="[root used for constructing the URL]">[URL record in database]</Record>
             <Text id="[internal id database]">
                 <Title lang="[internal language ID database]">[Title]</Title>
