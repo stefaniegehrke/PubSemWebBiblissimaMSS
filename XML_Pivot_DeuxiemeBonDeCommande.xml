@@ -179,7 +179,7 @@
     
         <GroupBooks>
             <Shelfmark>
-                <Organisation id="[internal id database]" id_bbma="[SHA-1]"></Organisation>
+                <Organisation id="[internal id database]" id_bbma="[SHA-1]">[Name of the repository goes here]</Organisation>
                 <Identifier>
                     <Idno>[Identifier]</Idno>
                     <Subidentifier>[Subidentifier]</Subidentifier>
