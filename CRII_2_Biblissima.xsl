@@ -41,10 +41,11 @@
                             <xsl:if test="count(document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='a'])=0 or count(document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='a'])=1">
                            
                                 <xsl:if test="count(document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='i'])=0 or count(document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='i'])=1"> 
-                             <Text><Title><xsl:if test="document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='f']!=''"><xsl:value-of select="document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='f']"/><xsl:text>: </xsl:text></xsl:if>
-                                <xsl:if test="document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='a' or 'g' or 'i' or 'c']!=''">
+                             <Text><Title>
+                                <xsl:if test="document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='a' or 'c' or 'i']!=''">
                                     <xsl:for-each select="document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code!='f']"><xsl:value-of select="."/><xsl:text> </xsl:text></xsl:for-each>
                                 </xsl:if></Title>
+                                 <Participant role="r70"><xsl:value-of select="document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='f']"/></Participant>
                                  <xsl:choose>
                                  <xsl:when test="document($editionrecord)//marcxchange:collection//marcxchange:datafield[@tag='101'][@ind1='1' or @ind1='2']">
                                  <Language type="non_original"><xsl:value-of select="document($editionrecord)//marcxchange:collection//marcxchange:datafield[@tag='101']/marc21:subfield[@code='a']"/></Language>
@@ -61,7 +62,7 @@
                                     <xsl:choose>
                                         <xsl:when test="count(document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='a'])=0 or count(document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='a'])=1">
                                             <Text>
-                                                <Title><xsl:value-of select="document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='i']"/></Title>
+                                                <Title><xsl:value-of select="document($editionrecord)/marcxchange:collection//marc21:datafield[@tag='200']/marc21:subfield[@code='a' or @code='c']"/></Title>
                                                 <xsl:choose>
                                                     <xsl:when test="document($editionrecord)//marcxchange:collection//marcxchange:datafield[@tag='101'][@ind1='1' or @ind1='2']">
                                                         <Language type="non_original"><xsl:value-of select="document($editionrecord)//marcxchange:collection//marcxchange:datafield[@tag='101']/marc21:subfield[@code='a']"/></Language>
