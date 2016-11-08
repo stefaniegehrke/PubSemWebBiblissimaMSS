@@ -11,6 +11,7 @@
                 />ExportBdC2_BVMM<xsl:value-of select="substring-before($outputDate, '+')"
             />.xml</xsl:variable>
         <xsl:result-document href="{$outputFile}" method="xml" encoding="UTF-8" indent="yes">
+            <RecordList>
             <xsl:for-each select=".//input">
                 <xsl:variable name="firstLink">
                     <xsl:value-of select="@value"/>
@@ -48,7 +49,6 @@
                         select="substring-before(substring-after($manifest, 'Source métadonnées&quot;,&quot;value&quot;:&quot;'), '&quot;}],&quot;license&quot;')"
                     />
                 </xsl:variable>
-                <RecordList>
                     <DataBase uri="http://bvmm.irht.cnrs.fr/">BVMM</DataBase>
                     <Book>
                         <xsl:attribute name="id">
@@ -77,8 +77,8 @@
                             <xsl:value-of select="$URL_Record_Medium"/>
                         </Record>
                     </Book>
-                </RecordList>
             </xsl:for-each>
+                </RecordList>
         </xsl:result-document>
     </xsl:template>
 
