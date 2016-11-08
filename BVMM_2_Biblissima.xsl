@@ -12,6 +12,7 @@
             />.xml</xsl:variable>
         <xsl:result-document href="{$outputFile}" method="xml" encoding="UTF-8" indent="yes">
             <RecordList>
+            <DataBase uri="http://bvmm.irht.cnrs.fr/">BVMM</DataBase>
             <xsl:for-each select=".//input">
                 <xsl:variable name="firstLink">
                     <xsl:value-of select="@value"/>
@@ -49,7 +50,6 @@
                         select="substring-before(substring-after($manifest, 'Source métadonnées&quot;,&quot;value&quot;:&quot;'), '&quot;}],&quot;license&quot;')"
                     />
                 </xsl:variable>
-                    <DataBase uri="http://bvmm.irht.cnrs.fr/">BVMM</DataBase>
                     <Book>
                         <xsl:attribute name="id">
                             <xsl:value-of select="$URL_Record_Medium"/>
