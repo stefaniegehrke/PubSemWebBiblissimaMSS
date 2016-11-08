@@ -69,9 +69,9 @@
                         <Thumbnail>
                             <xsl:value-of select="$thumbnail"/>
                         </Thumbnail>
-                        <Dimensions>
+                        <Format>
                             <xsl:value-of select="$dimensions"/>
-                        </Dimensions>
+                        </Format>
                         <Extent><xsl:value-of select="$foliotation"/></Extent>
                         <Record>
                             <xsl:value-of select="$URL_Record_Medium"/>
