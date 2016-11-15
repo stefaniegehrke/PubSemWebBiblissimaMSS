@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         version="2.0" xmlns:tei="http://www.tei-c.org/ns/1.0">
-<!-- Transformation of Text-Files of Miroir des Classiques (ENC) in TEI-P5 to XML Biblissima -->
+<!-- Transformation de fichiers texte de Miroir des Classiques (ENC) en TEI-P5 vers XML pivot Biblissima - Stefanie Gehrke - Septembre/Novembre 2016 pour Biblissima -->
 <xsl:template match="/">
     <xsl:variable name="output_dir">./</xsl:variable> 
     <xsl:variable name="outputDate"><xsl:value-of select="current-date()"/></xsl:variable>
