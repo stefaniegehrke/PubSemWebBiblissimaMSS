@@ -521,7 +521,7 @@
                                             </xsl:for-each>
                                         </Book>
                                     </xsl:for-each>
-                                        <Groupbook>
+                                        <GroupBooks>
                                             <Concept>
                                                 <xsl:text>http://data.bnf.fr/ark:/12148/cc</xsl:text>
                                                 <xsl:value-of
@@ -847,7 +847,7 @@
                                                   </Book>
                                                 </xsl:for-each>
                                             </HasPart>
-                                        </Groupbook>
+                                        </GroupBooks>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:if>
