@@ -3,7 +3,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs"
     xmlns:ead="http://www.loc.gov/ead/2002/schema050823" version="2.0">
 
-    <!-- Transformation de fichiers EAD de BnF Archives et Manuscrits vers XML pivot Biblissima en se basant sur le XSL créé dans le cadre de Europeana Regia (https://sourceforge.net/projects/eregia2eseedm/) - Stefanie Gehrke 2014 et Septembre - Novembre 2016 pour Biblissima -->
+    <!-- Transformation de fichiers EAD de BnF Archives et Manuscrits vers le XML pivot Biblissima en se basant sur le XSL créé dans le cadre de Europeana Regia (https://sourceforge.net/projects/eregia2eseedm/) - Stefanie Gehrke 2014 et Septembre - Novembre 2016 pour Biblissima -->
 
     <xsl:template match="/">
         <xsl:variable name="output_dir">./</xsl:variable>
