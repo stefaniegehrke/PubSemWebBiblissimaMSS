@@ -221,7 +221,7 @@
                                             </HasPart>
                                         </xsl:for-each>
                                             </xsl:for-each>
-                                        <xsl:for-each select=".//c[not(@type = 'cote')]">
+                                        <xsl:for-each select="..//c[not(@type = 'cote')]">
                                             <HasPart>
                                                 <xsl:attribute name="id">
                                                   <xsl:value-of select="@id"/>
@@ -425,7 +425,7 @@
                                         <xsl:for-each select="../..//bibliography/bibref[not(@linktype='simple')]">
                                         <BibliographicReference><xsl:value-of select="."/></BibliographicReference>
                                         </xsl:for-each>
-                                        <xsl:for-each select="../..//physfacet[@type = 'écriture' and ancestor::physfacet]">
+                                        <xsl:for-each select="../..//physfacet[@type = 'écriture']">
                                         <Term context="script">
                                             <xsl:value-of
                                                 select="substring-before(., '.') or substring-before(.,';')"
