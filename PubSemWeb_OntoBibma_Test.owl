@@ -1,20 +1,21 @@
-﻿<?xml version="1.0"?>
-<rdf:RDF xmlns:sc="http://www.shared-canvas.org/ns/"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+<?xml version="1.0"?>
+<rdf:RDF
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:ecrm="http://erlangen-crm.org/current" 
-     xmlns:efrbroo="http://erlangen-crm.org/efrbroo"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:bibma="https://w3id.org/bibma/"
-     xmlns:bnf-onto="http://data.bnf.fr/ontology/bnf-onto/"
-     xmlns:bnf-vocabulary="http://data.bnf.fr/vocabulary/roles/"
      xmlns:rda="http://rdaregistry.info"
+     xmlns:sc="http://www.shared-canvas.org/ns/"
+     xmlns:bnf-onto="http://data.bnf.fr/ontology/bnf-onto/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ecrm="http://erlangen-crm.org/current"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:bibma="https://w3id.org/bibma/"
+     xmlns:efrbroo="http://erlangen-crm.org/efrbroo"
+     xmlns:bnf-vocabulary="http://data.bnf.fr/vocabulary/roles/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:dc="http://dublincore.org/documents/dcmi-namespace/">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/stefaniegehrke/ontologies/2016/10/untitled-ontology-256">
+    <owl:Ontology rdf:about="">
         <rdfs:comment xml:lang="en">Built on Erlangen FRBRoo - An OWL DL 0.1 implementation of the FRBRoo originally created by Judith Merges at the Friedrich-Alexander-University of Erlangen-Nuremberg, Department of Computer Science, Chair of Computer Science 8 (Artificial Intelligence). It is based on the official definition of the FRBRoo (http://www.cidoc-crm.org/docs/frbr_oo/frbr_docs/FRBRoo_V1.0.2.pdf). This implementation is currently under development by the Erlangen CRM community (http://groups.google.com/group/erlangen-crm).The Erlangen FRBRoo implementation is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.</rdfs:comment>
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EFRBRoo 121016 / FRBRoo 1.0.2 / ECRM current / CIDOC-CRM 5.0.4</owl:versionInfo>
         <rdfs:comment xml:lang="en">Ontology (test) for the Semantic Web Publication of Biblissima&apos;s Data Cluster</rdfs:comment>
@@ -1998,7 +1999,61 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P14i</skos:notation>
     </owl:ObjectProperty>
     
+    <!-- https://w3id.org/bibma/r0270 -->
+    
+    <owl:ObjectProperty rdf:about="https://w3id.org/bibma/r270">
+        <rdfs:label>r270_carried_out_by_as_scribe</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string"></skos:notation>
+        <rdfs:comment>rôle = copiste</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+    </owl:ObjectProperty>
+    
+    <!-- https://w3id.org/bibma/r70 -->
+    
+    <owl:ObjectProperty rdf:about="https://w3id.org/bibma/r70">
+        <rdfs:label>r70_carried_out_by_as_author</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string"></skos:notation>
+        <rdfs:comment>rôle = auteur</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+    </owl:ObjectProperty>
+    
+    <!-- https://w3id.org/bibma/r680 -->
+    
+    <owl:ObjectProperty rdf:about="https://w3id.org/bibma/r680">
+        <rdfs:label>r680_carried_out_by_as_translator</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string"></skos:notation>
+        <rdfs:comment>rôle = traducteur</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+    </owl:ObjectProperty>
 
+    <!-- https://w3id.org/bibma/r680 -->
+    
+    <owl:ObjectProperty rdf:about="https://w3id.org/bibma/r710">
+        <rdfs:label>r710_carried_out_by_as_illuminator</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string"></skos:notation>
+        <rdfs:comment>rôle = enlumineur</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+    </owl:ObjectProperty>
 
     <!-- http://erlangen-crm.org/current/P150_defines_typical_parts_of -->
 
@@ -9623,18 +9678,34 @@ The area referred to as ‘verso of the title page of the Library of Congress’
     
 
 
-    <!-- http://purl.org/science/owl/sciencecommons/Collection -->
+    <!-- http://www.shared-canvas.org/ns/Canvas -->
 
-    <owl:Class rdf:about="http://purl.org/science/owl/sciencecommons/Collection">
+    <owl:Class rdf:about="http://www.shared-canvas.org/ns/Canvas">
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E36_Visual_Item"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.shared-canvas.org/ns/Collection -->
+
+    <owl:Class rdf:about="http://www.shared-canvas.org/ns/Collection">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/science/owl/sciencecommons/Manifest -->
+    <!-- http://www.shared-canvas.org/ns/Manifest -->
 
-    <owl:Class rdf:about="http://purl.org/science/owl/sciencecommons/Manifest">
+    <owl:Class rdf:about="http://www.shared-canvas.org/ns/Manifest">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bibma/Provenance_Mark -->
+
+    <owl:Class rdf:about="https://w3id.org/bibma/Provenance_Mark">
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E37_Mark"/>
     </owl:Class>
     
 
@@ -9724,21 +9795,17 @@ The area referred to as ‘verso of the title page of the Library of Congress’
     <owl:Class rdf:about="https://w3id.org/bibma/Inventory">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
     </owl:Class>
-
-    <!-- https://w3id.org/bibma/Medieval_Manuscript -->
-
-    <owl:Class rdf:about="https://w3id.org/bibma/Medieval_Manuscript">
-        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F4_Manifestation_Singleton"/>
-        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E84_Information_Carrier"/>
-    </owl:Class>
     
 
 
-    <!-- https://w3id.org/bibma/Provenance_Mark -->
+    <!-- https://w3id.org/bibma/Manuscript -->
 
-    <owl:Class rdf:about="https://w3id.org/bibma/Provenance_Mark">
-        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E25_Man-Made_Feature"/>
+    <owl:Class rdf:about="https://w3id.org/bibma/Manuscript">
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E84_Information_Carrier"/>
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F4_Manifestation_Singleton"/>
     </owl:Class>
+    
+
 
     <!-- https://w3id.org/bibma/Shelfmark -->
 
@@ -9750,4 +9817,3 @@ The area referred to as ‘verso of the title page of the Library of Congress’
 
 
 <!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
-
