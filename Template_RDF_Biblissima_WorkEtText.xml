@@ -19,6 +19,7 @@
         <efrbroo:F50_Controlled_Access_Point rdf:resource="[pref label data.bnf.fr Work]"/>
     </ecrm:P1_is_identified_by>
     <ecrm:P102_has_title rdf:resource="[URI Title (Blank Node)]"/>
+    <ecrm:P70i_is_documented_in rdf:resource="[URI Record]"/>
     <owl:sameAs rdf:resource="VIAF ou dnb"/>
     <efrbroo:R3_is_realised_in rdf:resource="URL_Expression"/> <!-- répétable -->
     <bnfroles:r70 rdf:resource="[URL auteur]"/>
@@ -56,6 +57,7 @@
     <ecrm:P73_has_translation rdf:resource="URL_Expression_en_autre_langue - pour la 1 expression seulement"/>
     <bnfroles:r680 rdf:resource="[URL traducteur]"/> <!-- si il s'agit d'une traduction-->
     <ecrm:P102_has_title rdf:resource="[URI Title Expression (blank node)]"/>
+    <ecrm:P70i_is_documented_in rdf:resource="[URI Record]"/>
 </rdf:Description>
     
     <rdf:Description rdf:about="[URI Title Expression (Blank Node)]">
@@ -68,3 +70,4 @@
         <ecrm:P14_carried_out_by rdf:resource="[URL base de données ou BnF]"/>
 </rdf:Description>
 </rdf:RDF>
+
