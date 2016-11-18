@@ -50,6 +50,7 @@
     
 <rdf:Description rdf:about="[URL Expression]">
     <rdf:type rdf:resource="http://erlangen-crm.org/efrbroo/F22_Self-Contained_Expression"/>
+    <rdf:type rdf:resource="https://schema.org/CreativeWork"/>
     <rdf:type rdf:resource="'bibma:First_Expression' pour la 1 expression seulement - classe à créer par Biblissima"></rdf:type>
     <rdf:type rdf:resource="http://erlangen-crm.org/current/E33_Linguistic_Object"/>
     <owl:sameAs rdf:resource="URL_data.bnf.fr#frbr:Work - pour la 1 expression seulement"/>
@@ -70,4 +71,3 @@
         <ecrm:P14_carried_out_by rdf:resource="[URL base de données ou BnF]"/>
 </rdf:Description>
 </rdf:RDF>
-
