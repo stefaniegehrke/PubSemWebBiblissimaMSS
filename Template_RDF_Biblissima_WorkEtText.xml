@@ -34,6 +34,8 @@
     <rdf:Description rdf:about="[URI Work Conception]">
         <rdf:type rdf:resource="ecrm:E27_Work_Conception"/> 
         <bnfroles:r70 rdf:resource="[URL Auteur]"/>
+        <ecrm:P4_has_time-span rdf:resource="[URL year 'http://data.bnf.fr/date/[yyyy]/']"/>
+        <bnf-onto:first-year>[Year]</bnf-onto:first-year>
     </rdf:Description>
     
 <rdf:Description rdf:about="[URI Attribute Assignement (Blank Node)]">
