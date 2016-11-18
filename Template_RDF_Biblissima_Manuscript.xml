@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ecrm="http://erlangen-crm.org/current" 
+    xmlns:efrbroo="http://erlangen-crm.org/efrbroo"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:owl="https://www.w3.org/TR/owl-guide/"
+    xmlns:bibma="https://w3id.org/bibma/"
+    xmlns:bnf-onto="http://data.bnf.fr/ontology/bnf-onto/"
+    xmlns:bnfroles="http://data.bnf.fr/vocabulary/roles/"
+    xmlns:rda="http://rdaregistry.info"
+    xmlns:dc="http://dublincore.org/documents/dcmi-namespace/">
+    
+<!-- Manuscript -->
+    
+    <rdf:Description rdf:about="[URL_Manuscript]">
+        <rdf:type rdf:resource="bibma:Manuscript"/>
+        <ecrm:P48_has_preferred_identifier rdf:resource="[URI canoncial Shelfmark (Blank Node)]"/>
+        <bnf-onto:cote>[canonical Shelfmark]</bnf-onto:cote>
+        <ecrm:P102_has_title rdf:resource="[URI Title  (Blank Node)]"/>
+        <ecrm:P2_has_type rdf:resource="[URL Thesaurus Biblissima]"/>
+        <ecrm:P50_has_current_keeper rdf:resource="[URL Library]"/>
+        <ecrm:P51_has_former_or_current_owner rdf:resource="[URL former owner]"/> 
+        <!-- si pas des HasPart PartType = unité codicologique : -->
+        <efrbroo:R18i_was_created_by rdf:resource="[URI Expression_Creation (Blank Node)]"/><!-- pour tous les mss enluminés et first known externalisation (c'est à dire copiste = auteur ou traducteur ::: exemple Français 603 (Book @id='1885' EuropeanaRegia) https://extranet.logilab.fr/demo/BIBLISSIMA/ark:/43093/mdatacc130219) -->
+        <efrbroo:R18i_was_created_by rdf:resource="[URI Production (Blank Node)]"/><!-- pour tous les autres mss) -->
+        <!-- si des HasPart Part type = "unité codicologique -->
+        <ecrm:P46_is_composed_of rdf:resource="[URL HASPART]"/>
+        <ecrm:P128_carries rdf:resource="[URL Self-Contained Expression (concatenation oeuvre, langue, intervenants et rôles)]"/><!-- répétable : par text :: HasPart PartType = 'Unité textuelle' -->
+        <ecrm:P45_consists_of rdf:resource="[URL Material - thésaurus Biblissima]"/>
+        <ecrm:P43_has_dimension rdf:resource="[URL_Format]"/>
+        <ecrm:P43_has_dimension rdf:resource="[URL Extent]"/>
+        <ecrm:P138i_has_representation rdf:resource="URL Thumbnail (avec ecrm:E55_Type = Thumbnail) ou URL Digital Surrogate (avec ecrm:E55_Type = Digital Surrogate)"/>
+        <ecrm:P129i_is_subject_of rdf:resource="[URL Work]"/>
+        <ecrm:P70i_is_documented_in rdf:resource="[URL sc:Manifest]"/>
+        <ecrm:P70i_is_documented_in rdf:resource="[URL record]"/>
+        <ecrm:P70i_is_documented_in rdf:resource="[URL Inventory]"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:resource="[URL HasPart]">
+        <rdf:type rdf:resource="bibma:Manuscript"/>
+        <ecrm:P55_has_current_location rdf:resource="[URL Pages (Blank Node)]">
+            <ecrm:P87_is_identified_by rdf:resource="URL_Section_Definition"/>
+        </ecrm:P55_has_current_location>
+    </rdf:Description>
+    <rdf:Description rdf:about="[URL Pages (Blank Node)]">
+        <ecrm:P87_is_identified_by rdf:resource="[URL_Section_Definition]"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="[URL Section Definition]">
+        <rdf:label>[exemple : 'f.3r-7v']</rdf:label>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL_Format]">
+        <rdf:type rdf:resource="bibma:HeightxWidth"/>
+            <ecrm:P90_has_value>[Numbers height and width]</ecrm:P90_has_value>
+            <ecrm:P91_has_unit rdf:resource="[URL Measurement Unit (cm ou mm)]"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="[URL Extent]">
+        <rdf:type rdf:resource="bibma:Extent"/>
+            <ecrm:P90_has_value>[Number pages]</ecrm:P90_has_value>
+            <ecrm:P91_has_unit rdf:resource="Measurement Unit (ff ou pp)"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URI canonical Shelfmark]">
+        <rdf:type rdf:resource="[bibma:Shelfmark]"/>
+        <rdfs:label>[canonical Shelfmark]</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="[URI Title]">
+        <rdf:type rdf:resource="ecrm:E35_Title"/>
+        <rdfs:label>[Title]</rdfs:label>
+        <!-- + Attribute Assignement comme d'hab -->
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="URL Self-Contained Expression">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/efrbroo:E22_Self-Contained_Expression"/>
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E33_Linguistic_Object"/>
+        <rdf:type rdf:resource="frbr-rda:Expression"></rdf:type>
+        <ecrm:P2_has_type rdf:ressource="URL Type"/>
+        <ecrm:P72_has_language rdf:resource="URL Language"/>
+        <dc:language rdf:resource=""/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL Expression Creation]"><!-- condition : si copiste = auteur ou traducteur => autographe = ou enlumineur involve-->
+        <efrbroo:R19_created_a_realisation_of rdf:resource="[URL Work]"/>
+        <efrbroo:R18_created rdf:resource="[URL Expression]"/>
+        <bnfroles:r70 rdf:resource="[URL_Auteur#F10_Person]"/>
+        <bnfroles:r680 rdf:resource="[URL_Traducteur#F10_Person]"/>
+        <bnfroles:r710 rdf:resource="[URL_Enlumineur#F10_Person]"/>
+        <bnfroles:r270 rdf:resource="[URL_Copiste#F10_Person]"/>
+        <bnfroles:r190 rdf:resource="URL_Commanditaire#F10_Person"/>  
+        <ecrm:P4_has_time-span rdf:resource="[URL 'http://data.bnf.fr/date/[YYYY]/]"/>
+        <ecrm:P7_took_place_at rdf:resource="[URL Place #F9_Place]"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URI Production (Blank Node)]"><!-- condition : si copiste != auteur ou traducteur -->
+        <bnfroles:r270 rdf:resource="[URL Copiste#F10_Person]"/>
+        <bnfroles:r190 rdf:resource="[URL Commanditaire#F10_Person]"/>  
+        <ecrm:P4_has_time-span rdf:resource="[URL http://data.bnf.fr/date/[YYYY]/']"/>
+        <ecrm:P7_took_place_at rdf:resource="[URL Place#F9_Place]"/>
+    </rdf:Description>
+    
+</rdf:RDF>
