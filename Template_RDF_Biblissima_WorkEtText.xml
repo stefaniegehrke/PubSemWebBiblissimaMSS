@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:ecrm="http://erlangen-crm.org/current" 
@@ -19,8 +19,8 @@
         <efrbroo:F50_Controlled_Access_Point rdf:resource="[pref label data.bnf.fr Work]"/>
     </ecrm:P1_is_identified_by>
     <ecrm:P102_has_title rdf:resource="[URI Title (Blank Node)]"/>
-    <owl:sameAs rdf:resource="URL_data.bnf.fr ou VIAF ou dnb"/>
-    <efrbroo:R3_is_realised_in rdf:resource="URL_Expression"/> 
+    <owl:sameAs rdf:resource="VIAF ou dnb"/>
+    <efrbroo:R3_is_realised_in rdf:resource="URL_Expression"/> <!-- répétable -->
     <bnfroles:r70 rdf:resource="[URL auteur]"/>
 </rdf:Description>
    
@@ -30,7 +30,7 @@
         <ecrm:P140i_was_attributed_by rdf:resource="[URI_Attribute_Assignment (Blank Node)]"/>
    </rdf:Description>
     
-<rdf:Description rdf:about="[URI_Attribute_Assignement]">
+<rdf:Description rdf:about="[URI Attribute Assignement (Blank Node)]">
     <rdf:type rdf:resource="http://erlangen-crm.org/current/E13_Attribute_Assignment"/>
         <ecrm:P14_carried_out_by rdf:resource="[URL base de données ou BnF]"/>
     </rdf:Description>
@@ -40,14 +40,14 @@
         <rdfs:label>[Name]</rdfs:label>
     </rdf:Description>
    
-   <rdf:Description rdf:about="[URL_auteur]">
-       <rdf:type rdf:resource="crm:E39_Actor"/>
+   <rdf:Description rdf:about="[URL auteur]">
+       <rdf:type rdf:resource="ecrm:E39_Actor"/>
        <rdfs:label>[Name]</rdfs:label>
    </rdf:Description>
 
 <!-- Expression (Texte) -->
     
-<rdf:Description rdf:about="[URL_Expression]">
+<rdf:Description rdf:about="[URL Expression]">
     <rdf:type rdf:resource="http://erlangen-crm.org/efrbroo/F22_Self-Contained_Expression"/>
     <rdf:type rdf:resource="'bibma:First_Expression' pour la 1 expression seulement - classe à créer par Biblissima"></rdf:type>
     <rdf:type rdf:resource="http://erlangen-crm.org/current/E33_Linguistic_Object"/>
@@ -60,7 +60,7 @@
     
     <rdf:Description rdf:about="[URI Title Expression (Blank Node)]">
         <rdf:type rdf:resource="ecrm:E35_Title"/>
-        <rdfs:label>[Graphie database Biblissima]</rdfs:label><rdf:value></rdf:value> 
+        <rdfs:label>[Graphie database Biblissima - concatenation auteur titre role nom]</rdfs:label><rdf:value></rdf:value> 
     </rdf:Description>
 
 <rdf:Description rdf:about="[URL_Attribute_Assignement]">
@@ -68,4 +68,3 @@
         <ecrm:P14_carried_out_by rdf:resource="[URL base de données ou BnF]"/>
 </rdf:Description>
 </rdf:RDF>
-
