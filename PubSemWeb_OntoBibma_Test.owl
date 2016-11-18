@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
-<rdf:RDF
+<rdf:RDF xmlns="file:/Users/stefaniegehrke/Documents/RDF/PubSemWeb_OntoBibma_Test.owl#"
+     xml:base="file:/Users/stefaniegehrke/Documents/RDF/PubSemWeb_OntoBibma_Test.owl"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:bnfroles="http://data.bnf.fr/vocabulary/roles/"
      xmlns:rda="http://rdaregistry.info"
      xmlns:sc="http://www.shared-canvas.org/ns/"
      xmlns:bnf-onto="http://data.bnf.fr/ontology/bnf-onto/"
@@ -12,10 +14,9 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:bibma="https://w3id.org/bibma/"
      xmlns:efrbroo="http://erlangen-crm.org/efrbroo"
-     xmlns:bnfroles="http://data.bnf.fr/vocabulary/roles/"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:dc="http://dublincore.org/documents/dcmi-namespace/">
-    <owl:Ontology rdf:about="">
+    <owl:Ontology rdf:about="file:/Users/stefaniegehrke/Documents/RDF/PubSemWeb_OntoBibma_Test.owl">
         <rdfs:comment xml:lang="en">Built on Erlangen FRBRoo - An OWL DL 0.1 implementation of the FRBRoo originally created by Judith Merges at the Friedrich-Alexander-University of Erlangen-Nuremberg, Department of Computer Science, Chair of Computer Science 8 (Artificial Intelligence). It is based on the official definition of the FRBRoo (http://www.cidoc-crm.org/docs/frbr_oo/frbr_docs/FRBRoo_V1.0.2.pdf). This implementation is currently under development by the Erlangen CRM community (http://groups.google.com/group/erlangen-crm).The Erlangen FRBRoo implementation is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.</rdfs:comment>
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EFRBRoo 121016 / FRBRoo 1.0.2 / ECRM current / CIDOC-CRM 5.0.4</owl:versionInfo>
         <rdfs:comment xml:lang="en">Ontology (test) for the Semantic Web Publication of Biblissima&apos;s Data Cluster</rdfs:comment>
@@ -48,11 +49,131 @@ The Erlangen CRM / OWL implementation of the CIDOC Conceptual Reference Model is
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- xsd:string -->
+
+    <rdfs:Datatype rdf:about="xsd:string"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- bnfroles:r270 -->
+
+    <owl:ObjectProperty rdf:about="bnfroles:r270">
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:label xml:lang="fr">Copiste</rdfs:label>
+        <rdfs:label xml:lang="en">Scribe</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r270 Scribe</skos:notation>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- bnfroles:r3260 -->
+
+    <owl:ObjectProperty rdf:about="bnfroles:r3260">
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:label xml:lang="en"></rdfs:label>
+        <rdfs:label xml:lang="fr">Imprimeur-Libraire</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r3260</skos:notation>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- bnfroles:r4010 -->
+
+    <owl:ObjectProperty rdf:about="bnfroles:r4010">
+        <rdfs:subPropertyOf rdf:resource="http://erlangen-crm.org/current/P51_has_former_or_current_owner"/>
+        <rdfs:label xml:lang="fr">Ancien Possesseur</rdfs:label>
+        <rdfs:label xml:lang="en">Former Owner</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r4010</skos:notation>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- bnfroles:r680 -->
+
+    <owl:ObjectProperty rdf:about="bnfroles:r680">
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:label xml:lang="fr">Traducteur</rdfs:label>
+        <rdfs:label xml:lang="en">Translator</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r680</skos:notation>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- bnfroles:r70 -->
+
+    <owl:ObjectProperty rdf:about="bnfroles:r70">
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:label xml:lang="fr">Auteur du texte</rdfs:label>
+        <rdfs:label xml:lang="en">Author</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r70</skos:notation>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- bnfroles:r710 -->
+
+    <owl:ObjectProperty rdf:about="bnfroles:r710">
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:label xml:lang="fr">Enlumineur</rdfs:label>
+        <rdfs:label xml:lang="en">Illuminator</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r710</skos:notation>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- current:P14_carried_out_by -->
+
+    <owl:ObjectProperty rdf:about="current:P14_carried_out_by"/>
+    
+
+
+    <!-- current:P14i_performed -->
+
+    <owl:ObjectProperty rdf:about="current:P14i_performed"/>
     
 
 
@@ -1999,77 +2120,7 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P14i</skos:notation>
     </owl:ObjectProperty>
     
-    <!-- bnfroles:r270 -->
-    
-    <owl:ObjectProperty rdf:about="bnfroles:r270">
-        <rdfs:label xml:lang="en">Scribe</rdfs:label>
-        <rdfs:label xml:lang="fr">Copiste</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r270 Scribe</skos:notation>
-        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="current:P14i_performed"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
-        <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/relators/scr"/>
-    </owl:ObjectProperty>
-    
-    <!-- bnfroles:r70 -->
-    
-    <owl:ObjectProperty rdf:about="bnfroles:r70">
-        <rdfs:label xml:lang="en">Author</rdfs:label>
-        <rdfs:label xml:lang="fr">Auteur du texte</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r70</skos:notation>
-        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="current:P14i_performed"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
-        <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/relators/aut"/>
-    </owl:ObjectProperty>
-    
-    <!-- bnfroles:r680 -->
-    
-    <owl:ObjectProperty rdf:about="bnfroles:r680">
-        <rdfs:label xml:lang="en">Translator</rdfs:label>
-        <rdfs:label xml:lang="fr">Traducteur</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r680</skos:notation>
-        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="current:P14i_performed"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
-    </owl:ObjectProperty>
 
-    <!-- bnfroles:r710 -->
-    
-    <owl:ObjectProperty rdf:about="bnfroles:r710">
-        <rdfs:label xml:lang="en">Illuminator</rdfs:label>
-        <rdfs:label xml:lang="fr">Enlumineur</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r710</skos:notation>
-        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="current:P14i_performed"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
-    </owl:ObjectProperty>
-
-
-    <owl:ObjectProperty rdf:about="bnfroles:r3260">
-        <rdfs:label xml:lang="en"></rdfs:label>
-        <rdfs:label xml:lang="fr">Imprimeur-Libraire</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r3260</skos:notation>
-        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="current:P14i_performed"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
-        <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/relators/bsl"/>
-    </owl:ObjectProperty>
 
     <!-- http://erlangen-crm.org/current/P150_defines_typical_parts_of -->
 
@@ -3725,7 +3776,6 @@ P51(x,y) ⊃ E18(x)
 P51(x,y) ⊃ E39(y)</rdfs:comment>
         <rdfs:label xml:lang="en">P51 has former or current owner</rdfs:label>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P51</skos:notation>
-        <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/relators/"/>
     </owl:ObjectProperty>
     
 
@@ -3739,15 +3789,7 @@ P51(x,y) ⊃ E39(y)</rdfs:comment>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P51i</skos:notation>
     </owl:ObjectProperty>
     
-    <!-- bnfroles:r4010 -->
-    
-    <owl:ObjectProperty rdf:about="bnfroles:r4010">
-        <rdfs:label xml:lang="en">Former Owner</rdfs:label>
-        <rdfs:label xml:lang="fr">Ancien Possesseur</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r4010</skos:notation>
-        <rdfs:subPropertyOf rdf:resource="http://erlangen-crm.org/current/P51_has_former_or_current_owner"/>
-        <owl:EquivalentPropertyOf rdf:resource="http://id.loc.gov/vocabulary/relators/fmo.html"/>
-</owl:ObjectProperty>
+
 
     <!-- http://erlangen-crm.org/current/P52_has_current_owner -->
 
@@ -6832,6 +6874,14 @@ The publication entitled ‘History of costume: in slides, notes, and commentari
     
 
 
+    <!-- https://w3id.org/bibma/Record -->
+
+    <owl:Class rdf:about="https://w3id.org/bibma/Record">
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
+    </owl:Class>
+    
+
+
     <!-- http://erlangen-crm.org/current/E10_Transfer_of_Custody -->
 
     <owl:Class rdf:about="http://erlangen-crm.org/current/E10_Transfer_of_Custody">
@@ -9252,28 +9302,7 @@ The recording of the third alternate take of ‘Blue Hawaii’ performed by Elvi
 
     <!-- http://erlangen-crm.org/efrbroo/F29_Recording_Event -->
 
-    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F29_Recording_Event">
-        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F28_Expression_Creation"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://erlangen-crm.org/efrbroo/R20_recorded"/>
-                <owl:someValuesFrom rdf:resource="http://erlangen-crm.org/current/E5_Event"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://erlangen-crm.org/efrbroo/R22_created_a_realisation_of"/>
-                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Scope note:
-This class comprises activities that intend to convey (and preserve) the content of events in a recording, such as a live recording of a performance, a documentary, or other capture of a perdurant. Such activities may follow the directions of a recording plan. They may include postproduction.
-
-Examples:
-The making of the recording of the third alternate take of the musical work titled ‘Blue Hawaii’ as performed by Elvis Presley in Hollywood, Calif., Radio Recorders, on March 22nd, 1961
-		</rdfs:comment>
-        <rdfs:label xml:lang="en">recording event</rdfs:label>
-    </owl:Class>
+    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F29_Recording_Event"/>
     
 
 
@@ -9349,24 +9378,7 @@ Making available online the article by Allen Renear, Christopher Phillippe, Pat 
 
     <!-- http://erlangen-crm.org/efrbroo/F31_Performance -->
 
-    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F31_Performance">
-        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E7_Activity"/>
-        <rdfs:comment xml:lang="en">Scope note:
-This class comprises activities that follow the directions of a performance plan, such as a theatrical play, an expression of a choreographic work or a musical work; i.e., they are intended to communicate directly or indirectly to an audience.
-
-Such activities can be identified at various levels of granularity, and can be contiguous or not. Any individual performance (with or without intermissions) is a single instance of F31 Performance. In addition, a complete run of performances can also be seen as an instance of F31 Performance, with individual performances as parts. A complete run of performances may comprise an original run plus any of its extensions and tours.
-
-Note that a performance plan may be more or less elaborate, and may even foresee just improvisation.
-
-Examples:
-Performing the first performance of a Yiddish translation of the textual work entitled ‘King Lear’, as directed by Sergei Radlov, in Moscow, at the Moscow State Jewish Theatre, on February 10, 1935 [individual performance]
-
-Performing the ballet entitled ‘Rite of spring’, as choreographed by Pina Bausch, in Avignon, at the Popes’ Palace, on July 7, 1995 [individual performance]
-
-Performing the operatic work entitled ‘Dido and Aeneas’, as directed by Edward Gordon Craig and conducted by Martin Shaw, in London, Hampstead Conservatoire, on May 17, 18, and 19, 1900 [run of performances]
-		</rdfs:comment>
-        <rdfs:label xml:lang="en">performance</rdfs:label>
-    </owl:Class>
+    <owl:Class rdf:about="http://erlangen-crm.org/efrbroo/F31_Performance"/>
     
 
 
@@ -9727,14 +9739,6 @@ The area referred to as ‘verso of the title page of the Library of Congress’
     
 
 
-    <!-- https://w3id.org/bibma/Provenance_Mark -->
-
-    <owl:Class rdf:about="https://w3id.org/bibma/Provenance_Mark">
-        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E37_Mark"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/bibma/Caption -->
 
     <owl:Class rdf:about="https://w3id.org/bibma/Caption">
@@ -9828,6 +9832,14 @@ The area referred to as ‘verso of the title page of the Library of Congress’
     <owl:Class rdf:about="https://w3id.org/bibma/Manuscript">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E84_Information_Carrier"/>
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F4_Manifestation_Singleton"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bibma/Provenance_Mark -->
+
+    <owl:Class rdf:about="https://w3id.org/bibma/Provenance_Mark">
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E25_Man-Made_Feature"/>
     </owl:Class>
     
 
