@@ -2018,7 +2018,7 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
     
     <owl:ObjectProperty rdf:about="bnfroles:r70">
         <rdfs:label xml:lang="en">Author</rdfs:label>
-        <rdfs:label xml:lang="fr">Auteur</rdfs:label>
+        <rdfs:label xml:lang="fr">Auteur du texte</rdfs:label>
         <skos:notation rdf:datatype="xsd:string">r70 Author</skos:notation>
         <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
         <rdfs:subPropertyOf>
@@ -2026,6 +2026,7 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
                 <owl:inverseOf rdf:resource="current:P14i_performed"/>
             </rdf:Description>
         </rdfs:subPropertyOf>
+        <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/relators/aut"/>
     </owl:ObjectProperty>
     
     <!-- bnfroles:r680 -->
@@ -2054,6 +2055,20 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
                 <owl:inverseOf rdf:resource="current:P14i_performed"/>
             </rdf:Description>
         </rdfs:subPropertyOf>
+    </owl:ObjectProperty>
+
+
+    <owl:ObjectProperty rdf:about="bnfroles:r3260">
+        <rdfs:label xml:lang="en"></rdfs:label>
+        <rdfs:label xml:lang="fr">Imprimeur-Libraire</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r3260 Bookseller</skos:notation>
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/relators/bsl"/>
     </owl:ObjectProperty>
 
     <!-- http://erlangen-crm.org/current/P150_defines_typical_parts_of -->
