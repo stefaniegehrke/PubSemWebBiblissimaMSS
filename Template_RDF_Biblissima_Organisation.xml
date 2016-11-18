@@ -29,6 +29,7 @@
     <ecrm:P93i_was_taken_out_of_existence_by rdf:resource="[URI Dissolution]"/>
     <bnf-onto:lastYear></bnf-onto:lastYear>
     <ecrm:P70i_is_documented_in rdf:resource="[URL Record]"/>
+    <ecrm:P49i_is_former_or_current_keeper_of rdf:resource="[URL Book (Manuscript or Incunabula)]"/><!-- repeatable --><!-- s'il s'agit d'une bibliothèque = ? FF44_Bibliographic_Agency ? -->
     <ecrm:P3_has_note>[Text-String] + [(Source)]</ecrm:P3_has_note>
 </rdf:Description>
     
