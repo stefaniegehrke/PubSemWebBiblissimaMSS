@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ecrm="http://erlangen-crm.org/current" 
+    xmlns:efrbroo="http://erlangen-crm.org/efrbroo"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:owl="https://www.w3.org/TR/owl-guide/"
+    xmlns:bibma="https://w3id.org/bibma/"
+    xmlns:bnf-onto="http://data.bnf.fr/ontology/bnf-onto/"
+    xmlns:bnfroles="http://data.bnf.fr/vocabulary/roles/"
+    xmlns:rda="http://rdaregistry.info"
+    xmlns:dc="http://dublincore.org/documents/dcmi-namespace/">
+
+<!-- Work -->
+<rdf:Description rdf:about="URL_Work (http://biblissima.fr/ark:/43093/oedata{ID_data.bnf.fr})">
+    <rdf:type rdf:resource="efrbroo:F15_Complex_Work"/>
+    <ecrm:P1_is_identified_by rdf:resource="[URI Controlled Access Point]">
+        <efrbroo:F50_Controlled_Access_Point rdf:resource="[pref label data.bnf.fr Work]"/>
+    </ecrm:P1_is_identified_by>
+    <ecrm:P102_has_title rdf:resource="[URI Title (Blank Node)]"/>
+    <owl:sameAs rdf:resource="URL_data.bnf.fr ou VIAF ou dnb"/>
+    <efrbroo:R3_is_realised_in rdf:resource="URL_Expression"/> 
+    <bnfroles:r70 rdf:resource="[URL auteur]"/>
+</rdf:Description>
+   
+   <rdf:Description rdf:about="[URI Title (Blank Node)]">
+       <rdf:type rdf:resource="ecrm:E35_Title"/>
+       <rdfs:label>[Graphie database Biblissima]</rdfs:label><rdf:value></rdf:value> 
+        <ecrm:P140i_was_attributed_by rdf:resource="[URI_Attribute_Assignment (Blank Node)]"/>
+   </rdf:Description>
+    
+<rdf:Description rdf:about="[URI_Attribute_Assignement]">
+    <rdf:type rdf:resource="http://erlangen-crm.org/current/E13_Attribute_Assignment"/>
+        <ecrm:P14_carried_out_by rdf:resource="[URL base de données ou BnF]"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL base de données ou BnF]">
+        <rdf:type rdf:resource="ecrm:E39_Actor"/>
+        <rdfs:label>[Name]</rdfs:label>
+    </rdf:Description>
+   
+   <rdf:Description rdf:about="[URL_auteur]">
+       <rdf:type rdf:resource="crm:E39_Actor"/>
+       <rdfs:label>[Name]</rdfs:label>
+   </rdf:Description>
+
+<!-- Expression (Texte) -->
+    
+<rdf:Description rdf:about="[URL_Expression]">
+    <rdf:type rdf:resource="http://erlangen-crm.org/efrbroo/F22_Self-Contained_Expression"/>
+    <rdf:type rdf:resource="'bibma:First_Expression' pour la 1 expression seulement - classe à créer par Biblissima"></rdf:type>
+    <rdf:type rdf:resource="http://erlangen-crm.org/current/E33_Linguistic_Object"/>
+    <owl:sameAs rdf:resource="URL_data.bnf.fr#frbr:Work - pour la 1 expression seulement"/>
+    <ecrm:P72_has_language rdf:resource="URL_Language voir le thésaurus Biblissima"/> <!-- rdf:type de Language : E56 Language-->
+    <ecrm:P73_has_translation rdf:resource="URL_Expression_en_autre_langue - pour la 1 expression seulement"/>
+    <bnfroles:r680 rdf:resource="[URL traducteur]"/> <!-- si il s'agit d'une traduction-->
+    <ecrm:P102_has_title rdf:resource="[URI Title Expression (blank node)]"/>
+</rdf:Description>
+    
+    <rdf:Description rdf:about="[URI Title Expression (Blank Node)]">
+        <rdf:type rdf:resource="ecrm:E35_Title"/>
+        <rdfs:label>[Graphie database Biblissima]</rdfs:label><rdf:value></rdf:value> 
+    </rdf:Description>
+
+<rdf:Description rdf:about="[URL_Attribute_Assignement]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E13_Attribute_Assignment"/>
+        <ecrm:P14_carried_out_by rdf:resource="[URL base de données ou BnF]"/>
+</rdf:Description>
+</rdf:RDF>
+
