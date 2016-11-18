@@ -22,7 +22,6 @@
     <ecrm:P70i_is_documented_in rdf:resource="[URI Record]"/>
     <owl:sameAs rdf:resource="VIAF ou dnb"/>
     <efrbroo:R3_is_realised_in rdf:resource="URL_Expression"/> <!-- répétable -->
-    <bnfroles:r70 rdf:resource="[URL auteur]"/>
 </rdf:Description>
    
    <rdf:Description rdf:about="[URI Title (Blank Node)]">
@@ -56,10 +55,15 @@
     <owl:sameAs rdf:resource="URL_data.bnf.fr#frbr:Work - pour la 1 expression seulement"/>
     <ecrm:P72_has_language rdf:resource="URL_Language voir le thésaurus Biblissima"/> <!-- rdf:type de Language : E56 Language-->
     <ecrm:P73_has_translation rdf:resource="URL_Expression_en_autre_langue - pour la 1 expression seulement"/>
-    <bnfroles:r680 rdf:resource="[URL traducteur]"/> <!-- si il s'agit d'une traduction-->
+    <efrbroo:R17i_was_created_by rdf:resource="[URI Expression Creation (Blank Node)]"/>
     <ecrm:P102_has_title rdf:resource="[URI Title Expression (blank node)]"/>
     <ecrm:P70i_is_documented_in rdf:resource="[URI Record]"/>
 </rdf:Description>
+    
+    <rdf:Description rdf:about="URI Expression Creation (Blank Node)">
+        <bnfroles:r70 rdf:resource="[URL auteur]"/>
+        <bnfroles:r680 rdf:resource="[URL traducteur]"/> <!-- si il s'agit d'une traduction-->
+    </rdf:Description>
     
     <rdf:Description rdf:about="[URI Title Expression (Blank Node)]">
         <rdf:type rdf:resource="ecrm:E35_Title"/>
