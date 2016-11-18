@@ -67,7 +67,7 @@
 </rdf:Description>
     
     <rdf:Description rdf:about="URI Expression Creation (Blank Node)">
-        <rdf:type rdf:resource="efrbroo:E28_Expression_Creation"/>
+        <rdf:type rdf:resource="efrbroo:F28_Expression_Creation"/>
         <bnfroles:r70 rdf:resource="[URL auteur]"/>
         <bnfroles:r680 rdf:resource="[URL traducteur]"/> <!-- si il s'agit d'une traduction-->
     </rdf:Description>
