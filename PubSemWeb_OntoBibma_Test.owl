@@ -2002,23 +2002,24 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
     <!-- bnfroles:r270 -->
     
     <owl:ObjectProperty rdf:about="bnfroles:r270">
-        <rdfs:label>r270 carried out by as scribe</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string"></skos:notation>
-        <rdfs:comment>rôle = copiste</rdfs:comment>
+        <rdfs:label xml:lang="en">Scribe</rdfs:label>
+        <rdfs:label xml:lang="fr">Copiste</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r270 Scribe</skos:notation>
         <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
         <rdfs:subPropertyOf>
             <rdf:Description>
                 <owl:inverseOf rdf:resource="current:P14i_performed"/>
             </rdf:Description>
         </rdfs:subPropertyOf>
+        <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/relators/scr"/>
     </owl:ObjectProperty>
     
     <!-- bnfroles:r70 -->
     
     <owl:ObjectProperty rdf:about="bnfroles:r70">
-        <rdfs:label>r70_carried_out_by_as_author</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string"></skos:notation>
-        <rdfs:comment>rôle = auteur</rdfs:comment>
+        <rdfs:label xml:lang="en">Author</rdfs:label>
+        <rdfs:label xml:lang="fr">Auteur</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r70 Author</skos:notation>
         <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
         <rdfs:subPropertyOf>
             <rdf:Description>
@@ -2030,9 +2031,9 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
     <!-- bnfroles:r680 -->
     
     <owl:ObjectProperty rdf:about="bnfroles:r680">
-        <rdfs:label>r680_carried_out_by_as_translator</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string"></skos:notation>
-        <rdfs:comment>rôle = traducteur</rdfs:comment>
+        <rdfs:label xml:lang="en">Translator</rdfs:label>
+        <rdfs:label xml:lang="fr">Traducteur</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r680 Translator</skos:notation>
         <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
         <rdfs:subPropertyOf>
             <rdf:Description>
@@ -2044,9 +2045,9 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
     <!-- bnfroles:r710 -->
     
     <owl:ObjectProperty rdf:about="bnfroles:r710">
-        <rdfs:label>r710_carried_out_by_as_illuminator</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string"></skos:notation>
-        <rdfs:comment>rôle = enlumineur</rdfs:comment>
+        <rdfs:label xml:lang="en">Illuminator</rdfs:label>
+        <rdfs:label xml:lang="fr">Enlumineur</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r710 Illuminator</skos:notation>
         <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
         <rdfs:subPropertyOf>
             <rdf:Description>
