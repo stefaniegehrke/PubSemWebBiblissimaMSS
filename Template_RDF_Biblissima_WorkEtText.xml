@@ -73,11 +73,12 @@
         <bnfroles:r70 rdf:resource="[URL auteur]"/>
         <bnfroles:r680 rdf:resource="[URL traducteur]"/> <!-- s'il s'agit d'une traduction-->
         <bnfroles:r210 rdf:resource="[URL compilateur]"/><!-- s'il s'agit d'une compilation -->
+        <ecrm:P4_has_time-span rdf:resourec="[year fabrication autograph : http://data.bnf.fr/date/[YYYY]/]"/>
     </rdf:Description>
     
     <rdf:Description rdf:about="[URI Title Expression (Blank Node)]">
         <rdf:type rdf:resource="ecrm:E35_Title"/>
-        <rdfs:label>[Graphie database Biblissima - concatenation auteur titre role nom]</rdfs:label><rdf:value></rdf:value> 
+        <rdfs:label>[Title : "auteur titre role nom"]</rdfs:label><rdf:value></rdf:value> 
     </rdf:Description>
 
 <rdf:Description rdf:about="[URL_Attribute_Assignement]">
