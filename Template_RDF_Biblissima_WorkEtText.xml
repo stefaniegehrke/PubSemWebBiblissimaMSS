@@ -68,7 +68,6 @@
     
     <rdf:Description rdf:about="URI Expression Creation (Blank Node)">
         <bnfroles:r70 rdf:resource="[URL auteur]"/>
-        <bnfroles:r270 rdf:resource="[URL copiste]"/>
         <bnfroles:r680 rdf:resource="[URL traducteur]"/> <!-- si il s'agit d'une traduction-->
     </rdf:Description>
     
