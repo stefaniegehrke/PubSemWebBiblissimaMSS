@@ -2019,7 +2019,7 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
     <owl:ObjectProperty rdf:about="bnfroles:r70">
         <rdfs:label xml:lang="en">Author</rdfs:label>
         <rdfs:label xml:lang="fr">Auteur du texte</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r70 Author</skos:notation>
+        <skos:notation rdf:datatype="xsd:string">r70</skos:notation>
         <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
         <rdfs:subPropertyOf>
             <rdf:Description>
@@ -2034,7 +2034,7 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
     <owl:ObjectProperty rdf:about="bnfroles:r680">
         <rdfs:label xml:lang="en">Translator</rdfs:label>
         <rdfs:label xml:lang="fr">Traducteur</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r680 Translator</skos:notation>
+        <skos:notation rdf:datatype="xsd:string">r680</skos:notation>
         <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
         <rdfs:subPropertyOf>
             <rdf:Description>
@@ -2048,7 +2048,7 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
     <owl:ObjectProperty rdf:about="bnfroles:r710">
         <rdfs:label xml:lang="en">Illuminator</rdfs:label>
         <rdfs:label xml:lang="fr">Enlumineur</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r710 Illuminator</skos:notation>
+        <skos:notation rdf:datatype="xsd:string">r710</skos:notation>
         <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
         <rdfs:subPropertyOf>
             <rdf:Description>
@@ -2061,7 +2061,7 @@ P14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]</rdfs:comment>
     <owl:ObjectProperty rdf:about="bnfroles:r3260">
         <rdfs:label xml:lang="en"></rdfs:label>
         <rdfs:label xml:lang="fr">Imprimeur-Libraire</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r3260 Bookseller</skos:notation>
+        <skos:notation rdf:datatype="xsd:string">r3260</skos:notation>
         <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
         <rdfs:subPropertyOf>
             <rdf:Description>
@@ -3725,6 +3725,7 @@ P51(x,y) ⊃ E18(x)
 P51(x,y) ⊃ E39(y)</rdfs:comment>
         <rdfs:label xml:lang="en">P51 has former or current owner</rdfs:label>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P51</skos:notation>
+        <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/relators/"/>
     </owl:ObjectProperty>
     
 
@@ -3738,7 +3739,15 @@ P51(x,y) ⊃ E39(y)</rdfs:comment>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P51i</skos:notation>
     </owl:ObjectProperty>
     
-
+    <!-- bnfroles:r4010 -->
+    
+    <owl:ObjectProperty rdf:about="bnfroles:r4010">
+        <rdfs:label xml:lang="en">Former Owner</rdfs:label>
+        <rdfs:label xml:lang="fr">Ancien Possesseur</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r4010</skos:notation>
+        <rdfs:subPropertyOf rdf:resource="http://erlangen-crm.org/current/P51_has_former_or_current_owner"/>
+        <owl:EquivalentPropertyOf rdf:resource="http://id.loc.gov/vocabulary/relators/fmo.html"/>
+</owl:ObjectProperty>
 
     <!-- http://erlangen-crm.org/current/P52_has_current_owner -->
 
