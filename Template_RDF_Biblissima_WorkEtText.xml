@@ -21,7 +21,8 @@
     <ecrm:P102_has_title rdf:resource="[URI Title (Blank Node)]"/>
     <ecrm:P70i_is_documented_in rdf:resource="[URI Record]"/>
     <owl:sameAs rdf:resource="VIAF ou dnb"/>
-    <efrbroo:R3_is_realised_in rdf:resource="URL_Expression"/> <!-- répétable -->
+    <efrbroo:R3_is_realised_in rdf:resource="[URL Expression]"/> <!-- répétable -->
+    <efrbroo:R16i_was_initiated_by rdf:resource="[URI Work Conception (blank node)]"/>
 </rdf:Description>
    
    <rdf:Description rdf:about="[URI Title (Blank Node)]">
@@ -29,6 +30,11 @@
        <rdfs:label>[Graphie database Biblissima]</rdfs:label><rdf:value></rdf:value> 
         <ecrm:P140i_was_attributed_by rdf:resource="[URI_Attribute_Assignment (Blank Node)]"/>
    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URI Work Conception]">
+        <rdf:type rdf:resource="ecrm:E27_Work_Conception"/> 
+        <bnfroles:r70 rdf:resource="[URL Auteur]"/>
+    </rdf:Description>
     
 <rdf:Description rdf:about="[URI Attribute Assignement (Blank Node)]">
     <rdf:type rdf:resource="http://erlangen-crm.org/current/E13_Attribute_Assignment"/>
