@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ecrm="http://erlangen-crm.org/current" 
+    xmlns:efrbroo="http://erlangen-crm.org/efrbroo"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:owl="https://www.w3.org/TR/owl-guide/"
+    xmlns:bibma="https://w3id.org/bibma/"
+    xmlns:bnf-onto="http://data.bnf.fr/ontology/bnf-onto/"
+    xmlns:bnfroles="http://data.bnf.fr/vocabulary/roles/"
+    xmlns:rda="http://rdaregistry.info"
+    xmlns:dc="http://dublincore.org/documents/dcmi-namespace/"
+    xmlns:bio="http://purl.org/vocab/bio/0.1/">
+    
+<!-- Person -->
+
+<rdf:Description rdf:about="[URL Person]">
+    <rdfs:label xml:lang="">[Participant/Name_Bbma or prefLabel data.bnf.fr]</rdfs:label>
+    <rdf:type rdf:resource="efrbroo:F10_Person"/>
+    <rdf:type rdf:resource="foaf:person"/>
+    <rdf:type rdf:resource="http://schema.org/Person"/>
+    <owl:sameAs rdf:resource="[URI data.bnf.fr #foaf:Person]"/>
+    <owl:sameAs rdf:resource="[URI VIAF]"/>
+    <ecrm:P1_is_identified_by rdf:resource="[URI Actor Appellation (Blank Node)]"/>
+    <ecrm:P74_has_current_or_former_residence rdf:resource="URL F9_Place Residence"/>
+    <ecrm:P98i_was_born rdf:resource="[URI Birth]"/>
+    <bnf-onto:firstYear></bnf-onto:firstYear>
+    <bio:Birth></bio:Birth>
+    <ecrm:P100i_died_in rdf:resource="[URI Death]"/>
+    <bnf-onto:lastYear></bnf-onto:lastYear>
+    <bio:Death></bio:Death>
+    <ecrm:P70i_is_documented_in rdf:resource="[URL Record]"/>
+    <ecrm:P3_has_note>[Text-String] + [(Source)]</ecrm:P3_has_note>
+</rdf:Description>
+    
+<rdf:Description rdf:about="[Actor Appellation (Blank Node)]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E82_Actor_Appellation"/>
+        <rdfs:label>[Graphie base de données Biblissima]</rdfs:label>
+        <rdf:value>[Graphie base de données Biblissima]</rdf:value>
+        <ecrm:P140i_was_attributed_by rdf:resource="[URL Attribute_Assignment (Blank Node)]"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="[Blank Node Attribute Assignement]">
+    <rdf:type rdf:resource="http://erlangen-crm.org/current/E13_Attribute_Assignment"/>
+    <ecrm:P14_carried_out_by rdf:resource="[URL base de données // Organisation (BnF)]"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="URL Birth">
+    <rdf:type rdf:resource="http://erlangen-crm.org/current/E67_Birth"></rdf:type>
+    <ecrm:P4_has_time-span rdf:resource="URL Year"/>
+    <ecrm:P7_has_place rdf:resource="URL Place"/>    
+</rdf:Description>
+<rdf:Description rdf:about="URL Death">
+    <rdf:type rdf:resource="http://erlangen-crm.org/current/E69_Death"></rdf:type>
+    <ecrm:P4_has_time-span rdf:resource="URL Year"/>
+    <ecrm:P7_has_place rdf:resource="URL Place"/>    
+</rdf:Description>
+    
+</rdf:RDF>
+
