@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="file:/Users/stefaniegehrke/Documents/RDF/PubSemWeb_OntoBibma_Test.owl#"
-     xml:base="file:/Users/stefaniegehrke/Documents/RDF/PubSemWeb_OntoBibma_Test.owl"
+<rdf:RDF
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
@@ -16,7 +15,7 @@
      xmlns:efrbroo="http://erlangen-crm.org/efrbroo"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:dc="http://dublincore.org/documents/dcmi-namespace/">
-    <owl:Ontology rdf:about="file:/Users/stefaniegehrke/Documents/RDF/PubSemWeb_OntoBibma_Test.owl">
+    <owl:Ontology rdf:about="">
         <rdfs:comment xml:lang="en">Built on Erlangen FRBRoo - An OWL DL 0.1 implementation of the FRBRoo originally created by Judith Merges at the Friedrich-Alexander-University of Erlangen-Nuremberg, Department of Computer Science, Chair of Computer Science 8 (Artificial Intelligence). It is based on the official definition of the FRBRoo (http://www.cidoc-crm.org/docs/frbr_oo/frbr_docs/FRBRoo_V1.0.2.pdf). This implementation is currently under development by the Erlangen CRM community (http://groups.google.com/group/erlangen-crm).The Erlangen FRBRoo implementation is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.</rdfs:comment>
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EFRBRoo 121016 / FRBRoo 1.0.2 / ECRM current / CIDOC-CRM 5.0.4</owl:versionInfo>
         <rdfs:comment xml:lang="en">Ontology (test) for the Semantic Web Publication of Biblissima&apos;s Data Cluster</rdfs:comment>
@@ -85,7 +84,22 @@ The Erlangen CRM / OWL implementation of the CIDOC Conceptual Reference Model is
         </rdfs:subPropertyOf>
         <rdfs:label xml:lang="fr">Copiste</rdfs:label>
         <rdfs:label xml:lang="en">Scribe</rdfs:label>
-        <skos:notation rdf:datatype="xsd:string">r270 Scribe</skos:notation>
+        <skos:notation rdf:datatype="xsd:string">r270</skos:notation>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- bnfroles:r3060 -->
+
+    <owl:ObjectProperty rdf:about="bnfroles:r3060">
+        <rdfs:subPropertyOf rdf:resource="current:P14_carried_out_by"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="current:P14i_performed"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:label xml:lang="fr">Imprimeur</rdfs:label>
+        <skos:notation rdf:datatype="xsd:string">r3060</skos:notation>
     </owl:ObjectProperty>
     
 
@@ -6874,10 +6888,18 @@ The publication entitled ‘History of costume: in slides, notes, and commentari
     
 
 
-    <!-- https://w3id.org/bibma/Record -->
+    <!-- https://w3id.org/bibma/Handwritten_Inventory -->
 
-    <owl:Class rdf:about="https://w3id.org/bibma/Record">
-        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
+    <owl:Class rdf:about="https://w3id.org/bibma/Handwritten_Inventory">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bibma/Manuscript"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bibma/Inventory -->
+
+    <owl:Class rdf:about="https://w3id.org/bibma/Inventory">
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F5_Item"/>
     </owl:Class>
     
 
@@ -9819,14 +9841,6 @@ The area referred to as ‘verso of the title page of the Library of Congress’
     
 
 
-    <!-- https://w3id.org/bibma/Inventory -->
-
-    <owl:Class rdf:about="https://w3id.org/bibma/Inventory">
-        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/bibma/Manuscript -->
 
     <owl:Class rdf:about="https://w3id.org/bibma/Manuscript">
@@ -9840,6 +9854,14 @@ The area referred to as ‘verso of the title page of the Library of Congress’
 
     <owl:Class rdf:about="https://w3id.org/bibma/Provenance_Mark">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E25_Man-Made_Feature"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bibma/Record -->
+
+    <owl:Class rdf:about="https://w3id.org/bibma/Record">
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
     </owl:Class>
     
 
