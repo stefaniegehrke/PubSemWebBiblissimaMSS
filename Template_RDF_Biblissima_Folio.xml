@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ecrm="http://erlangen-crm.org/current" 
+    xmlns:efrbroo="http://erlangen-crm.org/efrbroo"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:owl="https://www.w3.org/TR/owl-guide/"
+    xmlns:bibma="https://w3id.org/bibma/"
+    xmlns:bnf-onto="http://data.bnf.fr/ontology/bnf-onto/"
+    xmlns:bnfroles="http://data.bnf.fr/vocabulary/roles/"
+    xmlns:rda="http://rdaregistry.info"
+    xmlns:dc="http://dublincore.org/documents/dcmi-namespace/"
+    xmlns:bio="xmlns:bio=http://purl.org/vocab/bio/0.1/">
+    
+<!-- Page/Folio -->
+    
+    <rdf:Description rdf:about="[URL Page or Folio]">
+        <rdf:type rdf:resource="bibma:Component"/>
+        <ecrm:P128_carries rdf:resource="[URI Illumination]"/><!-- répétable -->
+        <ecrm:P128_carries rdf:resource="[URI Provenance Mark]"/><!-- répétable -->
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URI Illumination (Blank Node)]">
+        <rdf:type rdf:resource="bibma:Illumination"/>
+        <rdfs:label>[Title]</rdfs:label>
+        <ecrm:P62_depicts rdf:resource="[URI Descriptor]"/>
+        <ecrm:P102_has_title rdf:resource="[URI Caption]"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URI Provenance Mark (Blank Node)]">
+        <rdf:type rdf:resource="bibma:Provenance_Mark"/>
+        <ecrm:P67_refers_to rdf:resource="[URL person or organization]"/>
+        <rdfs:label>[Title]</rdfs:label>
+    </rdf:Description>
+
+</rdf:RDF>
