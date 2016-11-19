@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ecrm="http://erlangen-crm.org/current" 
+    xmlns:efrbroo="http://erlangen-crm.org/efrbroo"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:owl="https://www.w3.org/TR/owl-guide/"
+    xmlns:bibma="https://w3id.org/bibma/"
+    xmlns:bnf-onto="http://data.bnf.fr/ontology/bnf-onto/"
+    xmlns:bnfroles="http://data.bnf.fr/vocabulary/roles/"
+    xmlns:rda="http://rdaregistry.info"
+    xmlns:dc="http://dublincore.org/documents/dcmi-namespace/"
+    xmlns:bio="xmlns:bio=http://purl.org/vocab/bio/0.1/">
+    
+<!-- Inventory -->
+    
+    <rdf:Description rdf:about="[URL Inventory]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
+        <ecrm:P102_has_title rdf:resource="[URI Title (Blank Node)]"/>
+        <ecrm:P70_documents rdf:resource="[Collection]"/><!-- répétable -->
+        <ecrm:P128i_is_carried_by rdf:resource="[URL Item Sales Catalogue or Inventory]"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URI Title (Blank Node)]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E35_Title"/>
+        <rdfs:label>[Title Inventory or Sales Catalogue]</rdfs:label>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL Exemplaire de Sales Catalogue or Inventory]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E84_Information_Carrier"/>
+        <ecrm:P108i_was_produced_by rdf:resource="[URL Production Event]"/>
+        <ecrm:P108_is_composed_of rdf:resource="[URL page]"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL page]">
+        <rdf:type rdf:resource="bibma:Component"/>
+        <ecrm:P128_carries rdf:resource="[URL Record Book]"/><!-- répétable -->
+        <ecrm:P58_has_section_definition rdf:resource="[URI page name]"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL page name]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E46_Section_Definition"/>
+        <rdfs:label>[page name]</rdfs:label>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL Record Book]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
+        <ecrm:P71_documents rdf:resource="[URL1 Book]"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL1 Book]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E84_Information_Carrier"/>
+        <owl:sameAs rdf:resource="[URL2 Book]"/><!-- si identifié par un chercheur et conservé -->
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL Attribute Assignment]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E13_Attribute_Assignment"/>
+        <ecrm:P140_assigned_attribute_to rdf:resource="[URL1 Book]"/>
+        <ecrm:P141_assigned rdf:resource="[URL2 Book]"/>
+        <ecrm:P14_carried_out_by rdf:resource="[URL database]"/>
+    </rdf:Description>
+    
+    
+    <rdf:Description rdf:about="[URL Production Event Sales Catalogue or Inventory]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E12_Production"/>
+        <ecrm:P7_took_place_at rdf:resource="[URL Place]"/>
+        <ecrm:P4_has_time-span rdf:resource="[URL Year 'http://data.bnf.fr/date/[YYYY]/']"/>
+    </rdf:Description>
+    
+</rdf:RDF>
