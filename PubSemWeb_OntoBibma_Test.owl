@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rdf:RDF
+<rdf:RDF 
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
@@ -6888,22 +6888,6 @@ The publication entitled ‘History of costume: in slides, notes, and commentari
     
 
 
-    <!-- https://w3id.org/bibma/Handwritten_Inventory -->
-
-    <owl:Class rdf:about="https://w3id.org/bibma/Handwritten_Inventory">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/bibma/Manuscript"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/bibma/Inventory -->
-
-    <owl:Class rdf:about="https://w3id.org/bibma/Inventory">
-        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F5_Item"/>
-    </owl:Class>
-    
-
-
     <!-- http://erlangen-crm.org/current/E10_Transfer_of_Custody -->
 
     <owl:Class rdf:about="http://erlangen-crm.org/current/E10_Transfer_of_Custody">
@@ -9798,7 +9782,6 @@ The area referred to as ‘verso of the title page of the Library of Congress’
     <owl:Class rdf:about="https://w3id.org/bibma/Ghost_Collection">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E78_Collection"/>
     </owl:Class>
-    
 
 
     <!-- https://w3id.org/bibma/HeightxWidth -->
@@ -9838,7 +9821,6 @@ The area referred to as ‘verso of the title page of the Library of Congress’
     <owl:Class rdf:about="https://w3id.org/bibma/Incunabula">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/efrbroo/F5_Item"/>
     </owl:Class>
-    
 
 
     <!-- https://w3id.org/bibma/Manuscript -->
