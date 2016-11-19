@@ -31,11 +31,11 @@
     <rdf:Description rdf:about="[URL Exemplaire de Sales Catalogue or Inventory]">
         <rdf:type rdf:resource="http://erlangen-crm.org/current/E84_Information_Carrier"/>
         <ecrm:P108i_was_produced_by rdf:resource="[URL Production Event]"/>
-        <ecrm:P108_is_composed_of rdf:resource="[URL page]"/>
+        <ecrm:P46_is_composed_of rdf:resource="[URL page]"/>
     </rdf:Description>
     
     <rdf:Description rdf:about="[URL page]">
-        <rdf:type rdf:resource="bibma:Component"/>
+        <rdf:type rdf:resource="ecrm:E84_Information_Carrier"/>
         <ecrm:P128_carries rdf:resource="[URL Record Book]"/><!-- répétable -->
         <ecrm:P58_has_section_definition rdf:resource="[URI page name]"/>
     </rdf:Description>
