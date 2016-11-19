@@ -20,7 +20,7 @@
         <rdf:type rdf:resource="http://erlangen-crm.org/efrbroo/F9_Place"/>
         <rdf:type rdf:resource="https://schema.org/Place"/>
         <rdf:type rdf:resource="geo:SpatialThing"/>
-        <owl:sameAs rdf:resource="[URI geonames / data.bnf.fr #spatialThing]"/>
+        <owl:sameAs rdf:resource="[URI concept geonames + '-place' / concept data.bnf.fr + '#spatialThing']"/>
         <ecrm:P1_is_identified_by rdf:resource="[URI Place Name (Blank Node)]"/>
         <ecrm:P74i_is_current_or_former_residence_of rdf:resource="[URL Library]"/><!-- only for cities -->
         <ecrm:P55i_is_current-location_of rdf:resource="[URL Book (Incunabula or Manuscript)]"/>
