@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -21,21 +21,26 @@
         <rdf:type rdf:resource="https://schema.org/Place"/>
         <rdf:type rdf:resource="geo:SpatialThing"/>
         <owl:sameAs rdf:resource="[URI geonames / data.bnf.fr #spatialThing]"/>
-        <rdfs:label>[Name]</rdfs:label>
+        <ecrm:P1_is_identified_by rdf:resource="[URI Place Name (Blank Node)]"/>
         <ecrm:P74i_is_current_or_former_residence_of rdf:resource="[URL Library]"/><!-- only for cities -->
         <ecrm:P55i_is_current-location_of rdf:resource="[URL Book (Incunabula or Manuscript)]"/>
         <ecrm:P7i_witnessed rdf:resource="[URL Production (manuscripts others than autographs); Expression creation (autograph) or publication event (edition) ]"/>
     </rdf:Description>
     
-    <rdf:Description rdf:about="URL Publication Event">
+    <rdf:Description rdf:about="[URI Place Name (Blank Node)]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E48_Place_Name"/>
+        <rdfs:label>[Name]</rdfs:label>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URI Publication Event (Blank Node)]">
         <rdf:type rdf:resource="http://erlangen-crm.org/efrbroo/F30_Publication_Event"/>
         <efrbroo:R24_created rdf:resource="[URL Publication Expression]"/>
     </rdf:Description>
-    <rdf:Description rdf:about="URL Expression Creation">
+    <rdf:Description rdf:about="[URI Expression Creation (Blank Node)]">
         <rdf:type rdf:resource="http://erlangen-crm.org/efrbroo/F28_Expression_Creation"/>
         <efrbroo:R18_created rdf:resource="[URL Manuscript]"/>
     </rdf:Description>
-    <rdf:Description rdf:about="URL Poduction">
+    <rdf:Description rdf:about="[URI Poduction (Blank Node)]">
         <rdf:type rdf:resource="http://erlangen-crm.org/efrbroo/E12_Production"/>
         <ecrm:P108_has_produced rdf:resource="[URL Manuscript]"/>
     </rdf:Description>
