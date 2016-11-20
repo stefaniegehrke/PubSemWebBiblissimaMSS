@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -17,9 +17,17 @@
 <!-- Page/Folio -->
     
     <rdf:Description rdf:about="[URL Page or Folio]">
-        <rdf:type rdf:resource="bibma:Component"/>
+        <rdf:type rdf:resource="bibma:Component"/> 
+        <ecrm:P58_has_section_definition rdf:resource="[URI page localisation]"/>
+        <ecrm:P168i_is_represented_by rdf:resource="[URL image page]"/>
         <ecrm:P128_carries rdf:resource="[URI Illumination]"/><!-- répétable -->
         <ecrm:P128_carries rdf:resource="[URI Provenance Mark]"/><!-- répétable -->
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="[URL page localisation]">
+        <rdf:type rdf:resource="http://erlangen-crm.org/current/E46_Section_Definition"/>
+        <ecrm:P168i_is_represented_by rdf:resource="[URL sc:Canvas]"/>
+        <rdfs:label>[page name]</rdfs:label>
     </rdf:Description>
     
     <rdf:Description rdf:about="[URI Illumination (Blank Node)]">
