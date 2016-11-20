@@ -1321,7 +1321,6 @@ P129(x,y) ⊃ P67(x,y)</rdfs:comment>
     </owl:ObjectProperty>
     
 
-
     <!-- http://erlangen-crm.org/current/P12_occurred_in_the_presence_of -->
 
     <owl:ObjectProperty rdf:about="http://erlangen-crm.org/current/P12_occurred_in_the_presence_of">
@@ -4320,6 +4319,8 @@ P70(x,y) ⊃ P67(x,y)</rdfs:comment>
         <rdfs:label xml:lang="en">P70 is documented in</rdfs:label>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P70i</skos:notation>
     </owl:ObjectProperty>
+    
+    <!-- TODO : ajout sub-property sc:hasRelatedDescription -->
     
 
 
@@ -9725,6 +9726,7 @@ The area referred to as ‘verso of the title page of the Library of Congress’
 
     <owl:Class rdf:about="http://www.shared-canvas.org/ns/Canvas">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E36_Visual_Item"/>
+        <rdfs:comment xml:lang="en">A Canvas is the digital surrogate for a physical page which should be rendered to the user. Each Canvas has a rectangular aspect ratio, and is positioned such that the top left hand corner of the Canvas corresponds to the top left hand corner of a rectangular bounding box around the page, and similarly for the bottom right hand corners. The identifier for the Canvas is not an identifier for the physical page, it identifies the digital representation of it.</rdfs:comment>
     </owl:Class>
     
 
@@ -9733,6 +9735,7 @@ The area referred to as ‘verso of the title page of the Library of Congress’
 
     <owl:Class rdf:about="http://www.shared-canvas.org/ns/Collection">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
     </owl:Class>
     
 
@@ -9741,14 +9744,15 @@ The area referred to as ‘verso of the title page of the Library of Congress’
 
     <owl:Class rdf:about="http://www.shared-canvas.org/ns/Manifest">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E31_Document"/>
+        <rdfs:comment xml:lang="en">The Manifest is what ties everything together. It is an Aggregation of the Layers, AnnotationLists and Sequences that make up the description of the facsimile. As such the Manifest is representative of the Book, Newspaper, Scroll or whatever physical object is being represented in the facsimile.</rdfs:comment>
     </owl:Class>
-    
 
 
     <!-- https://w3id.org/bibma/Caption -->
 
     <owl:Class rdf:about="https://w3id.org/bibma/Caption">
         <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E35_Title"/>
+        <rdfs:comment></rdfs:comment>
     </owl:Class>
     
 
