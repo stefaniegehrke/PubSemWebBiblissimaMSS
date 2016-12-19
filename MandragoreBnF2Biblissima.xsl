@@ -21,8 +21,7 @@
 </xsl:template>
           <xsl:template match="RecordList" mode="Book">
               <!-- boucle a revoir -->
-              <xsl:variable name="ids_records"><xsl:for-each select="./feature"><xsl:variable name="featurerecord"><xsl:value-of select="."/></xsl:variable><xsl:sequence select="document($featurerecord)//images/idmanuscrit"></xsl:sequence></xsl:for-each></xsl:variable>
-              <xsl:for-each-group select="$ids_records/*" group-by="text()">
+              <xsl:for-each-group select="collection('./Out/?select=*.xml')//images/idmanuscrit" group-by="text()">
                   <xsl:variable name="msID"><xsl:value-of select="current-group()[1]"/></xsl:variable>
                 <!-- Book -->
                  <Book state="preserved"><xsl:attribute name="id"><xsl:value-of select="current-group()[1]"/></xsl:attribute>
@@ -45,15 +44,14 @@
                         <xsl:text>http://mandragore.bnf.fr/jsp/AfficheNoticeManArk.jsp?id=</xsl:text><xsl:value-of select="../../manuscrits/id"/></Record>
                      <!-- boucle a revoir -->
                      <xsl:choose><xsl:when test="../../manuscrits/cotead !=''">
+                         <xsl:for-each-group select="collection('./Out/?select=*.xml')//record[images/idmanuscrit=$msID]/manuscrits/cotead" group-by="text()">
                          <HasPart>
                              <PartType>codicological unit</PartType>
                              <Pages></Pages>
                              
                              <!-- boucle a revoir -->    
-                             <xsl:for-each select="./feature">
-                             <xsl:variable name="featurerecord"><xsl:value-of select="."/></xsl:variable>
-                     <xsl:for-each-group select="document($featurerecord)//record[images/idmanuscrit=$msID]/parts/auteurtitre" group-by="text()">
-                         <HasPart>
+                             <xsl:for-each-group select="collection('./Out/?select=*.xml')//record[images/idmanuscrit=$msID]/parts/auteurtitre" group-by="text()">
+                          <HasPart>
                              <PartType>textual unit</PartType>
                              <Pages></Pages>
                              <Text>
@@ -61,7 +59,7 @@
                                  <AltTitle><xsl:value-of select="../titreusage"/></AltTitle>
                              </Text>
                              <!-- boucle a revoir -->
-                     <xsl:for-each select="../folio">
+                              <xsl:for-each select="collection('./Out/?select=*.xml')//record[images/idmanuscrit=$msID]/images/folio">
                             <HasFeature>
                                 <xsl:attribute name="id"><xsl:value-of select="/record/@id"/></xsl:attribute>
                                 <FeatureType>illumination</FeatureType>
@@ -81,12 +79,11 @@
                             </HasFeature>
                      </xsl:for-each>
                          </HasPart>
-                     </xsl:for-each-group></xsl:for-each>
-                         </HasPart></xsl:when>
+                     </xsl:for-each-group></HasPart>
+                         </xsl:for-each-group></xsl:when>
                          <xsl:otherwise>
-                             <!-- boucle a revoir -->
-                             <xsl:variable name="featurerecord"><xsl:value-of select="."/></xsl:variable>
-                             <xsl:for-each-group select="document($featurerecord)//record[images/idmanuscrit=$msID]/parts/auteurtitre" group-by="text()">
+                             <!-- boucle a revoir -->    
+                             <xsl:for-each-group select="collection('./Out/?select=*.xml')//record[images/idmanuscrit=$msID]/parts/auteurtitre" group-by="text()">
                                  <HasPart>
                                      <PartType>textual unit</PartType>
                                      <Pages></Pages>
@@ -95,7 +92,7 @@
                                          <AltTitle><xsl:value-of select="../titreusage"/></AltTitle>
                                      </Text>
                                      <!-- boucle a revoir -->
-                                     <xsl:for-each select="../folio">
+                                     <xsl:for-each select="collection('./Out/?select=*.xml')//record[images/idmanuscrit=$msID]/images/folio">
                                          <HasFeature>
                                              <xsl:attribute name="id"><xsl:value-of select="/record/@id"/></xsl:attribute>
                                              <FeatureType>illumination</FeatureType>
@@ -104,7 +101,7 @@
                                              <Rubric><xsl:value-of select="../rubrique"/></Rubric>
                                              <Inscription><xsl:value-of select="../inscriptions"/></Inscription>
                                              <Note><xsl:value-of select="../note"/></Note>
-                                             <xsl:for-each select="../../descrip/descrip/descripteur">
+                                             <xsl:for-each select="../../descrip/descrip">
                                                  <Descriptor><Name><xsl:value-of select="."/></Name></Descriptor>
                                              </xsl:for-each>
                                              <xsl:for-each select="../../parts/artiste">
@@ -149,18 +146,18 @@
 <!-- Groupes autorités (personnes, collectivités, oeuvres, lieux, descripteurs) -->
         
     <xsl:template match="RecordList" mode="Authorities">
-        <xsl:for-each select="./feature">
-        <xsl:variable name="featurerecord"><xsl:value-of select="."/></xsl:variable>
-        <xsl:for-each-group select="document($featurerecord)//descrip/descrip/descripteur" group-by="text()">
+        <xsl:for-each-group select="collection('./Out/?select=*.xml')//record/descrip/descrip/descripteur" group-by="text()">
         <Descriptor><xsl:attribute name="id"></xsl:attribute>
             <Concept></Concept>
             <Name><xsl:value-of select="current-group()[1]"/></Name>
-            <AltName><xsl:value-of select="d602a"/></AltName>
+            <AltName><xsl:value-of select="../d602a"/></AltName>
             <Context id="T-Dewey.Cod  /// Dewey.CODE " source="Dewey"> Libelle_Dewey   /// Dewey.LIBELLE </Context>
-            <Note><xsl:value-of select="d600a"/></Note>
-            <Note><xsl:value-of select="d175e"/></Note>
+            <Note><xsl:value-of select="../d600a"/></Note>
+            <Note><xsl:value-of select="../d175e"/></Note>
         </Descriptor>
         </xsl:for-each-group>
-        </xsl:for-each>
+        
+        <!-- pareil pour les autres entites -->
+        
     </xsl:template>
 </xsl:transform>     
