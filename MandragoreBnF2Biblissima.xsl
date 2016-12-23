@@ -35,8 +35,9 @@
                             </Identifier>
                         </Shelfmark>
                      <xsl:for-each select="../../parts/titreusage"><Name lang="fr"><xsl:value-of select="."/></Name></xsl:for-each>
-                     <DigitalSurrogate type="integral">
-                         <xsl:text>http://gallica.bnf.fr/ark:/12148/btv1b</xsl:text><xsl:value-of select="../../imagesnum/lotnum"/></DigitalSurrogate>
+                     <xsl:variable name="DigitalSurrogate">
+                         <xsl:text>http://gallica.bnf.fr/ark:/12148/btv1b</xsl:text><xsl:value-of select="../../imagesnum/lotnum"/>?</xsl:variable>
+                     <DigitalSurrogate type="integral"><xsl:value-of select="$DigitalSurrogate"/></DigitalSurrogate>
                          <!--à exclure : 1/ Si Imagesnum.LOTNUM commence par 081 : numérisation intégrale Mandragore (seulement les enluminures)
                              2/ Si Imagesnum.LOTNUM commence par 020-026, 030-033, 078-080 : numérisation partielle Banque d'images -->
                          <Record root="http://mandragore.bnf.fr/jsp/AfficheNoticeManArk.jsp?id=">
@@ -64,6 +65,7 @@
                                 <xsl:attribute name="id"><xsl:value-of select="/record/@id"/></xsl:attribute>
                                 <FeatureType>illumination</FeatureType>
                                 <Page><xsl:value-of select="."/></Page>
+                                <Canvas><xsl:value-of select="$DigitalSurrogate"/><xsl:text>/canvas/f</xsl:text><xsl:value-of select="../../images/numnum"/></Canvas>
                                 <Caption><xsl:value-of select="../legende"/></Caption>
                                 <Rubric><xsl:value-of select="../rubrique"/></Rubric>
                                 <Inscription><xsl:value-of select="../inscriptions"/></Inscription>
@@ -151,7 +153,6 @@
             <Concept></Concept>
             <Name><xsl:value-of select="current-group()[1]"/></Name>
             <AltName><xsl:value-of select="../d602a"/></AltName>
-            <Context id="T-Dewey.Cod  /// Dewey.CODE " source="Dewey"> Libelle_Dewey   /// Dewey.LIBELLE </Context>
             <Note><xsl:value-of select="../d600a"/></Note>
             <Note><xsl:value-of select="../d175e"/></Note>
         </Descriptor>
