@@ -7,7 +7,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:mdg="http://catalogue.bnf.fr/namespaces/MandragoreX"> 
  
-<!-- Transformation des fichiers "édition + incunables" vers Recordlist/Book : un fichier xml par édition - Stefanie Gehrke pour Biblissima avril-octobre 2016 -->
+<!-- Transformation des fichiers export XML vers RecordList/Book et RecordList/Descriptor etc. - Stefanie Gehrke pour Biblissima avril-décembre 2016 -->
 <xsl:template match="/">
     <xsl:variable name="output_dir">./</xsl:variable> 
     <xsl:variable name="outputDate"><xsl:value-of select="current-date()"/></xsl:variable>
@@ -21,7 +21,6 @@
     </xsl:result-document>
 </xsl:template>
           <xsl:template match="RecordList" mode="Book">
-              <!-- boucle a revoir -->
               <xsl:for-each-group select="collection('out/?select=*.mdg.xml')//mdg:images/mdg:idmanuscrit" group-by="text()">
                   <xsl:variable name="msID"><xsl:value-of select="current-group()[1]"/></xsl:variable>
                 <!-- Book -->
@@ -44,14 +43,12 @@
                          <Record root="http://mandragore.bnf.fr/jsp/AfficheNoticeManArk.jsp?id=">
                              <xsl:attribute name="id"><xsl:value-of select="../../mdg:manuscrits/mdg:id"/></xsl:attribute>
                              <xsl:text>http://mandragore.bnf.fr/jsp/AfficheNoticeManArk.jsp?id=</xsl:text><xsl:value-of select="../../mdg:manuscrits/mdg:id"/></Record>
-                     <!-- boucle a revoir -->
+                    
                      <xsl:choose><xsl:when test="../../mdg:manuscrits/mdg:cotead !=''">
                          <xsl:for-each-group select="collection('out//?select=*.mdg.xml')//mdg:record[mdg:images/mdg:idmanuscrit=$msID]/mdg:manuscrits/mdg:cotead" group-by="text()">
                          <HasPart>
                              <PartType>codicological unit</PartType>
                              <Pages></Pages>
-                             
-                             <!-- boucle a revoir -->    
                              <xsl:for-each-group select="collection('out//?select=*.mdg.xml')//mdg:record[mdg:images/mdg:idmanuscrit=$msID]/mdg:parts/mdg:auteurtitre" group-by="text()">
                           <HasPart>
                              <PartType>textual unit</PartType>
@@ -60,7 +57,6 @@
                                  <Title><xsl:value-of select="current-group()[1]"/></Title>
                                  <AltTitle><xsl:value-of select="../mdg:titreusage"/></AltTitle>
                              </Text>
-                             <!-- boucle a revoir -->
                               <xsl:for-each select="collection('out//?select=*.mdg.xml')//mdg:record[mdg:images/mdg:idmanuscrit=$msID]/mdg:images/mdg:folio">
                             <HasFeature>
                                 <xsl:attribute name="id"><xsl:value-of select="/mdg:record/@id"/></xsl:attribute>
@@ -76,7 +72,7 @@
                                 </xsl:for-each>
                                 <xsl:for-each select="../../mdg:parts/mdg:artiste">
                                 <Participant role="r710"><Name><xsl:value-of select="."/></Name></Participant></xsl:for-each>
-                                <Date><Century><xsl:value-of select="../../mdg:parts/mdg:siecle"/></Century><Year><xsl:value-of select="../../mdg:parts/mdg:dateexacte"/></Year></Date>
+                                <Date><Century><xsl:value-of select="../../mdg:parts/mdg:siecle"/></Century><Year><xsl:attribute name="uri">http://data.bnf.fr/date/<xsl:value-of select="../../mdg:parts/mdg:dateexacte"/>/</xsl:attribute><xsl:value-of select="../../mdg:parts/mdg:dateexacte"/></Year></Date>
                                 <Place><Name><xsl:value-of select="../../mdg:parts/mdg:origine"/></Name></Place>
                                 <Record><xsl:text>http://mandragore.bnf.fr/ark:/12148/cgfbt</xsl:text><xsl:value-of select="/mdg:record/@id"/></Record>
                             </HasFeature>
@@ -85,7 +81,6 @@
                      </xsl:for-each-group></HasPart>
                          </xsl:for-each-group></xsl:when>
                          <xsl:otherwise>
-                             <!-- boucle a revoir -->    
                              <xsl:for-each-group select="collection('out//?select=*.mdg.xml')//mdg:record[mdg:images/mdg:idmanuscrit=$msID]/mdg:parts/mdg:auteurtitre" group-by="text()">
                                  <HasPart>
                                      <PartType>textual unit</PartType>
@@ -94,7 +89,6 @@
                                          <Title><xsl:value-of select="current-group()[1]"/></Title>
                                          <AltTitle><xsl:value-of select="../mdg:titreusage"/></AltTitle>
                                      </Text>
-                                     <!-- boucle a revoir -->
                                      <xsl:for-each select="collection('out//?select=*.mdg.xml')//mdg:record[mdg:images/mdg:idmanuscrit=$msID]/mdg:images/mdg:folio">
                                          <HasFeature>
                                              <xsl:attribute name="id"><xsl:value-of select="/mdg:record/@id"/></xsl:attribute>
@@ -149,6 +143,31 @@
 <!-- Groupes autorités (personnes, collectivités, oeuvres, lieux, descripteurs) -->
         
     <xsl:template match="RecordList" mode="Authorities">
+        
+        <xsl:for-each-group select="collection('out//?select=*.mdg.xml')//mdg:record//mdg:parts/mdg:artiste" group-by="text()">
+            <Participant><xsl:attribute name="id"></xsl:attribute>
+                <Name><xsl:value-of select="current-group()[1]"/></Name>
+                <Concept></Concept>
+            </Participant>
+        </xsl:for-each-group>
+        
+        <xsl:for-each-group select="collection('out//?select=*.mdg.xml')//mdg:record//mdg:titreusage" group-by="text()">
+            <Work><xsl:attribute name="id"></xsl:attribute>
+                <Title></Title>
+                <Concept></Concept>
+                <Text>
+                <Title><xsl:value-of select="current-group()[1]"/></Title>
+                </Text>
+            </Work>
+        </xsl:for-each-group>
+        
+        <xsl:for-each-group select="collection('out//?select=*.mdg.xml')//mdg:record//mdg:parts/mdg:origine" group-by="text()">
+            <Place><xsl:attribute name="id"></xsl:attribute>
+                <Name><xsl:value-of select="current-group()[1]"/></Name>
+                <Concept></Concept>
+            </Place>
+        </xsl:for-each-group>
+        
         <xsl:for-each-group select="collection('out//?select=*.mdg.xml')//mdg:record/mdg:descrip/mdg:descrip/mdg:descripteur" group-by="text()">
         <Descriptor><xsl:attribute name="id"></xsl:attribute>
             <Concept></Concept>
@@ -158,8 +177,6 @@
             <Note><xsl:value-of select="../mdg:d175e"/></Note>
         </Descriptor>
         </xsl:for-each-group>
-        
-        <!-- pareil pour les autres entites -->
         
     </xsl:template>
 </xsl:transform>     

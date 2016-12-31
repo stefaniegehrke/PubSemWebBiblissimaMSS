@@ -44,10 +44,10 @@
                      <Record root="http://reliures.bnf.fr/ark:/12148"><xsl:text>http://reliures.bnf.fr/</xsl:text><xsl:value-of select=".//tei:idno[@type='ARK_reliuresBNF']"/></Record>
                      <BibliographicReference><xsl:value-of select=".//tei:listBibl/tei:ref"/></BibliographicReference>
                      <Binding><xsl:value-of select=".//rel:globalDescription"/>
-                         <Date><Year><xsl:attribute name="uri">http://data.bnf.fr/date/<xsl:value-of select=".//origin/@notBefore"/></xsl:attribute><xsl:value-of select=".//origin/@notBefore"/></Year><Year><xsl:attribute name="uri">http://data.bnf.fr/date/<xsl:value-of select=".//origin/@notAfter"/></xsl:attribute><xsl:value-of select=".//origin/@notAfter"/></Year></Date></Binding>
+                         <Date><Year><xsl:attribute name="uri">http://data.bnf.fr/date/<xsl:value-of select=".//origin/@notBefore"/>/</xsl:attribute><xsl:value-of select=".//origin/@notBefore"/></Year><Year><xsl:attribute name="uri">http://data.bnf.fr/date/<xsl:value-of select=".//origin/@notAfter"/>/</xsl:attribute><xsl:value-of select=".//origin/@notAfter"/></Year></Date></Binding>
                     </Book> 
                   <Mainfestation>
-                      <Date><Year><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:date/@when"/></Year></Date>
+                      <Date><Year><xsl:attribute name="uri">http://data.bnf.fr/date/<xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:date/@when"/>/</xsl:attribute><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:date/@when"/></Year></Date>
                       <Place><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:pubPlace"/></Place>
                       <Participant role="r3260"><Name><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:publisher"/></Name></Participant>
                       <xsl:for-each select=".//rel:bookItem">
