@@ -83,11 +83,11 @@
             <Participant><xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
                 <Name><xsl:value-of select="current-group()[1]"/></Name>
                 <Residence><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/tei:residence"/></Residence>
-                <Birth><Year><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/tei:birth/@when"/></Year></Birth>
-                <Death><Year><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/tei:death/@when"/></Year></Death>
+                <Birth><Year><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/tei:birth"/></Year></Birth>
+                <Death><Year><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/tei:death"/></Year></Death>
                 <Note><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]//tei:desc"/></Note>
-                <Record>http://reliures.bnf.fr/<xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]//tei:idno"/></Record>
-                <Concept><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/@ref"/></Concept>
+                <Record>http://reliures.bnf.fr/<xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]//tei:idno[@type='ARK_reliuresBnF']"/></Record>
+                <Concept><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]//tei:idno[@type='ARK']"/></Concept>
             </Participant>
         </xsl:for-each-group>
         <xsl:for-each-group select="collection('out//?select=*.xml')//tei:orgName" group-by="text()">
@@ -95,11 +95,11 @@
             <Participant><xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
                 <Name><xsl:value-of select="current-group()[1]"/></Name>
                 <Residence><xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//tei:settlement"/></Residence>
-                <Birth><Year></Year><Place></Place></Birth>
-                <Death><Year></Year><Place></Place></Death>
+                <Birth><Year><xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//@notBefore"/></Year></Birth>
+                <Death><Year><xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//@notAfter"/></Year></Death>
                 <Note><xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//tei:desc"/></Note>
-                <Record>http://reliures.bnf.fr/<xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//tei:idno"/></Record>
-                <Concept><xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]/@ref"/></Concept>
+                <Record>http://reliures.bnf.fr/<xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//tei:idno[@type='ARK_reliuresBnF']"/></Record>
+                <Concept><xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//tei:idno[@type='ARK']"/></Concept>
             </Participant>
         </xsl:for-each-group>
         
@@ -108,6 +108,12 @@
             <Name><xsl:value-of select="current-group()[1]"/></Name>
             <Concept></Concept>
         </Place>
+        </xsl:for-each-group>
+        <xsl:for-each-group select="collection('index//?select=*.xml')//tei:TEI//tei:settlement" group-by="text()">
+            <Place>
+                <Name><xsl:value-of select="current-group()[1]"/></Name>
+                <Concept></Concept>
+            </Place>
         </xsl:for-each-group>
         <xsl:for-each-group select="collection('out//?select=*.xml')//rel:bookItem/tei:idno" group-by="text()">
             <Work><xsl:attribute name="id"><xsl:value-of select="."/></xsl:attribute>
