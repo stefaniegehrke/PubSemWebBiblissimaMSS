@@ -27,19 +27,20 @@
                  <Book state="preserved"><xsl:attribute name="id"><xsl:value-of select="$bookID"/></xsl:attribute>
                      <ObjectType><xsl:value-of select=".//rel:bookDescription/@type"/></ObjectType>
                         <Shelfmark> 
-                            <Organisation><xsl:value-of select=".//tei:repository"/></Organisation>
+                            <Organisation id="BnF"><xsl:value-of select=".//tei:repository"/></Organisation>
                             <Identifier>
                                 <Idno><xsl:value-of select=".//rel:bookIdentifier/tei:idno"/></Idno>
                                 <!-- <Volume><xsl:value-of select=""/></Volume> -->
                             </Identifier>
                         </Shelfmark>
-                     <xsl:for-each select=".//persName[@role='4010' or '4140']">
-                         <Participant><xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute><xsl:attribute name="role"><xsl:value-of select="@role"/></xsl:attribute><Name><xsl:value-of select="."/></Name></Participant>
-                     </xsl:for-each> <xsl:for-each select=".//orgName[@role='4010' or '4140']">
-                         <Participant><xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute><xsl:attribute name="role"><xsl:value-of select="@role"/></xsl:attribute><Name><xsl:value-of select="."/></Name></Participant>
+                     <xsl:for-each select=".//persName[@role='4010' or '4140' or '4240']">
+                         <Participant><xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute><xsl:attribute name="role">r<xsl:value-of select="@role"/></xsl:attribute><Name><xsl:value-of select="."/></Name></Participant>
+                     </xsl:for-each> <xsl:for-each select=".//orgName[@role='4010' or '4140' or '4240']">
+                         <Participant><xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute><xsl:attribute name="role">r<xsl:value-of select="@role"/></xsl:attribute><Name><xsl:value-of select="."/></Name></Participant>
                      </xsl:for-each>
                      <xsl:variable name="DigitalSurrogate"><xsl:text>http://gallica.bnf.fr/</xsl:text><xsl:value-of select=".//tei:facsimile//tei:graphic/@url"/>?</xsl:variable>
                      <DigitalSurrogate type="integral"><xsl:value-of select="$DigitalSurrogate"/></DigitalSurrogate>
+                     <DigitalSurrogate type="partial"><xsl:value-of select=".//tei:idno[@type='ARK_reliuresBNF']"/></DigitalSurrogate>
                      <Record root="http://reliures.bnf.fr/ark:/12148"><xsl:text>http://reliures.bnf.fr/</xsl:text><xsl:value-of select=".//tei:idno[@type='ARK_reliuresBNF']"/></Record>
                      <BibliographicReference><xsl:value-of select=".//tei:listBibl/tei:ref"/></BibliographicReference>
                      <Binding><xsl:value-of select=".//rel:globalDescription"/>
@@ -48,7 +49,7 @@
                   <Mainfestation>
                       <Date><Year><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:date/@when"/></Year></Date>
                       <Place><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:pubPlace"/></Place>
-                      <Participant><Name><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:publisher"/></Name></Participant>
+                      <Participant role="r3260"><Name><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:publisher"/></Name></Participant>
                       <xsl:for-each select=".//rel:bookItem">
                           <HasPart>
                               <PartType>textual unit</PartType>
@@ -68,7 +69,7 @@
                   <Name>Bibliothèque nationale de France</Name>
                   <Country geonames="3017382">France</Country>
                   <City geonames="2988507">Paris</City>
-                  <Organisation>Bibliothèque nationale de France</Organisation>
+                  <Organisation id="BnF">Bibliothèque nationale de France</Organisation>
                   <Concept source="BnF"></Concept>
                   <Name_Bbma>Bibliothèque nationale de France</Name_Bbma>
               </Repository>
@@ -78,19 +79,34 @@
         
     <xsl:template match="RecordList" mode="Authorities">
         <xsl:for-each-group select="collection('out//?select=*.xml')//tei:persName" group-by="text()">
+            <xsl:variable name="ID"><xsl:value-of select="@xml:id"/></xsl:variable>
             <Participant><xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
                 <Name><xsl:value-of select="current-group()[1]"/></Name>
+                <Residence><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/tei:residence"/></Residence>
+                <Birth><Year><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/tei:birth/@when"/></Year></Birth>
+                <Death><Year><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/tei:death/@when"/></Year></Death>
+                <Note><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]//tei:desc"/></Note>
+                <Record>http://reliures.bnf.fr/<xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]//tei:idno"/></Record>
+                <Concept><xsl:value-of select="collection('index/?select=*.xml')//tei:person[@xml:id=$ID]/@ref"/></Concept>
             </Participant>
         </xsl:for-each-group>
         <xsl:for-each-group select="collection('out//?select=*.xml')//tei:orgName" group-by="text()">
+            <xsl:variable name="ID"><xsl:value-of select="@xml:id"/></xsl:variable>
             <Participant><xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
                 <Name><xsl:value-of select="current-group()[1]"/></Name>
+                <Residence><xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//tei:settlement"/></Residence>
+                <Birth><Year></Year><Place></Place></Birth>
+                <Death><Year></Year><Place></Place></Death>
+                <Note><xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//tei:desc"/></Note>
+                <Record>http://reliures.bnf.fr/<xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]//tei:idno"/></Record>
+                <Concept><xsl:value-of select="collection('index/?select=*.xml')//tei:org[@xml:id=$ID]/@ref"/></Concept>
             </Participant>
         </xsl:for-each-group>
         
         <xsl:for-each-group select="collection('out//?select=*.xml')//tei:index[@indexName='production_place']/tei:term" group-by="text()">
         <Place>
             <Name><xsl:value-of select="current-group()[1]"/></Name>
+            <Concept></Concept>
         </Place>
         </xsl:for-each-group>
         <xsl:for-each-group select="collection('out//?select=*.xml')//rel:bookItem/tei:idno" group-by="text()">
