@@ -125,7 +125,7 @@
         </xsl:for-each-group>
         <xsl:for-each-group select="collection('out//?select=*.xml')//tei:persName[@role='4010']" group-by="text()">
             <xsl:variable name="formerOwner"><xsl:value-of select="current-group()[1]"/></xsl:variable>
-            <Collection>
+            <Collection state="historical">
                 <Participant role="r4010"><xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
                     <Name><xsl:value-of select="current-group()[1]"/></Name></Participant>
                 <xsl:for-each select="collection('out//?select=*.xml')//tei:provenance[tei:persName[@role='4010']=$formerOwner]">
