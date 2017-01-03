@@ -45,8 +45,9 @@
                      <BibliographicReference><xsl:value-of select=".//tei:listBibl/tei:ref"/></BibliographicReference>
                      <Binding><xsl:value-of select=".//rel:globalDescription"/>
                          <Date><Year><xsl:attribute name="uri">http://data.bnf.fr/date/<xsl:value-of select=".//origin/@notBefore"/>/</xsl:attribute><xsl:value-of select=".//origin/@notBefore"/></Year><Year><xsl:attribute name="uri">http://data.bnf.fr/date/<xsl:value-of select=".//origin/@notAfter"/>/</xsl:attribute><xsl:value-of select=".//origin/@notAfter"/></Year></Date></Binding>
-                    </Book> 
-                  <Mainfestation>
+                     <RelatedManifestation><xsl:attribute name="id"><xsl:value-of select=""/></xsl:attribute></RelatedManifestation>  
+                  </Book> 
+                  <Mainfestation><xsl:attribute name="id"><xsl:value-of select=""/></xsl:attribute>
                       <Date><Year><xsl:attribute name="uri">http://data.bnf.fr/date/<xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:date/@when"/>/</xsl:attribute><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:date/@when"/></Year></Date>
                       <Place><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:pubPlace"/></Place>
                       <Participant role="r3260"><Name><xsl:value-of select=".//tei:div[@type='description']//tei:publicationStmt/tei:publisher"/></Name></Participant>
